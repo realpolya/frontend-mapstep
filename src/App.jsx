@@ -1,13 +1,18 @@
-import './App.css'
-import AppRoutes from "./Routes.jsx"
+/* --------------------------------Imports--------------------------------*/
 
-function App() {
+import './App.css'
+import AppRoutes from "./components/AppRoutes.jsx"
+
+/* --------------------------------Component--------------------------------*/
+
+const App = () => {
 
   return (
     <>
       <AppRoutes/>
     </>
   )
+  
 }
 
 export default App
