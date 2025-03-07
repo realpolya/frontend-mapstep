@@ -1,19 +1,21 @@
+@import "tailwindcss";
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 
-.montserrat-<uniquifier> {
+.montserrat {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    font-weight: <weight>;
+    font-weight: 300;
     font-style: normal;
 }
 
 
-.karla-<uniquifier> {
+.karla {
     font-family: "Karla", sans-serif;
     font-optical-sizing: auto;
-    font-weight: <weight>;
+    font-weight: 300;
     font-style: normal;
 }
