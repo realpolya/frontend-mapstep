@@ -19,5 +19,5 @@
 }
 
 .body-tw {
-    @apply bg-backgroundColor font-mainFont
+    @apply bg-backgroundColor font-mainFont font-light
 }
