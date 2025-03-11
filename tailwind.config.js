@@ -2,7 +2,20 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+        colors: {
+            textColor: "#000000", // main text color
+            backgroundColor: "#F3F0F0", // honeydew for background
+
+        },
+        fontFamily: {
+            mainFont: ["Karla", "sans-serif"],
+            secondFont: ["Montserrat", "sans-serif"]
+        },
+        maxHeight: {
+            'amenities': '20rem',
+        }
+    },
   },
   plugins: [],
 }

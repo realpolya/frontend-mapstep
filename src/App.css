@@ -17,3 +17,7 @@
     font-weight: 300;
     font-style: normal;
 }
+
+.body-tw {
+    @apply bg-backgroundColor font-mainFont
+}
