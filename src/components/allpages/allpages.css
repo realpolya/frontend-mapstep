@@ -1,0 +1,4 @@
+.navbar-tw {
+    @apply bg-red-50 font-mainFont font-light 
+    h-24
+}
