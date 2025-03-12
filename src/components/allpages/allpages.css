@@ -6,3 +6,9 @@
 #nav-menu-img {
     filter: invert(50%) sepia(100%) hue-rotate(180deg);
 }
+
+footer {
+    @apply bg-blueLight font-mainFont font-light w-full
+    h-8 flex flex-row justify-between items-center
+    fixed bottom-0
+}
