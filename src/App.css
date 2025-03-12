@@ -1,15 +1,25 @@
 :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
-  
-  
+
+html {
+    height: 100vh;
+}
+
+body, #root {
+    height: 100%;
+}
+
+main {
+    @apply h-full
+}
+
 .montserrat {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
 }
-
 
 .karla {
     font-family: "Karla", sans-serif;
