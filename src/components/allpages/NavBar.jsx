@@ -7,7 +7,7 @@ import "./allpages.css"
 const NavBar = () => {
     return (
         <nav id="navbar-tw">
-        <h2 className="text-textColor2 pl-4 text-2xl">mapStep</h2>
+        <h2 className="text-blueColor pl-4 text-2xl">mapStep</h2>
         <div className="nav-searchbar">
             <label className="pr-2">lot address</label>
             <input className="rounded-xl border-2 border-solid"></input>
@@ -17,6 +17,6 @@ const NavBar = () => {
   )
 }
 
-/* --------------------------------Default--------------------------------*/
+/* --------------------------------Export--------------------------------*/
 
 export default NavBar

@@ -1,6 +1,10 @@
+/* --------------------------------Imports--------------------------------*/
+
 import { Routes, Route } from "react-router-dom"
 
 import Home from "../../pages/Home.jsx"
+
+/* --------------------------------Component--------------------------------*/
 
 const AppRoutes = () => {
   return (
@@ -9,5 +13,7 @@ const AppRoutes = () => {
     </Routes>
   )
 }
+
+/* --------------------------------Export--------------------------------*/
 
 export default AppRoutes
