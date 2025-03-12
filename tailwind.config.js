@@ -9,7 +9,7 @@ export default {
             blueColor: "#759CC2",
             blueLight: "#BFCCD8",
             textAlterColor: "#FFFFFF",
-
+            darkColor: "#2D3142",
         },
         fontFamily: {
             mainFont: ["Karla", "sans-serif"],

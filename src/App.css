@@ -21,3 +21,10 @@
 .body-tw {
     @apply bg-backgroundColor font-mainFont font-light
 }
+
+.round-button {
+    @apply bg-darkColor h-10 w-auto 
+    rounded-3xl pl-4 pr-4 
+    text-textAlterColor font-extralight
+    m-2
+}
