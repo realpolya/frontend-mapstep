@@ -38,3 +38,7 @@ main {
     text-textAlterColor font-extralight
     m-2
 }
+
+.red-button {
+    @apply bg-redColor
+}

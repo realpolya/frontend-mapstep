@@ -10,7 +10,7 @@ const Home = () => {
         <HomeMap />
         <div id="home-buttons" className="flex flex-row pt-2">
             <button className="round-button">Log In</button>
-            <button className="round-button">Sign Up</button>
+            <button className="round-button red-button">Sign Up</button>
         </div>
     </main>
   )
