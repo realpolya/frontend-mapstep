@@ -6,7 +6,8 @@ export default {
         colors: {
             textColor: "#000000", // main text color
             backgroundColor: "#F3F0F0", // honeydew for background
-
+            textColor2: "#759CC2",
+            textAlterColor: "#FFFFFF"
         },
         fontFamily: {
             mainFont: ["Karla", "sans-serif"],

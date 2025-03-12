@@ -6,8 +6,13 @@ import "./allpages.css"
 
 const NavBar = () => {
   return (
-    <nav className="navbar-tw">
-        NavBar
+    <nav id="navbar-tw">
+        <h2 className="text-textColor2">mapStep</h2>
+        <div className="nav-searchbar">
+            <label>lot address</label>
+            <input></input>
+        </div>
+        <img id="nav-menu-img" className="h-[50%]" src="/reshot_menu.svg"/>
     </nav>
   )
 }
