@@ -1,6 +1,6 @@
 #navbar-tw {
-    @apply bg-red-50 font-mainFont font-light 
-    h-24
+    @apply font-mainFont font-light 
+    h-20 flex flex-row justify-between items-center
 }
 
 #nav-menu-img {
