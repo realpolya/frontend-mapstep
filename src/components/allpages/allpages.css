@@ -1,4 +1,8 @@
-.navbar-tw {
-    @apply bg-red-50 font-mainFont font-light 
-    h-24
+#navbar-tw {
+    @apply font-mainFont font-light 
+    h-20 flex flex-row justify-between items-center
+}
+
+#nav-menu-img {
+    filter: invert(50%) sepia(100%) hue-rotate(180deg);
 }
