@@ -13,7 +13,7 @@ import VicinityMap from "../components/maps/VicinityMap/VicinityMap.jsx"
 
 const SearchResult = () => {
 
-    let [address, setAddress] = useState('')
+    let [address, setAddress] = useState('1234 Moon')
     let location = useLocation()
 
 
@@ -25,10 +25,10 @@ const SearchResult = () => {
 
     }, [location.state])
 
-    
+
     return (
     <div>
-        <h1>Search Results for: [address here]</h1>
+        <h1>Search Results for: {address}</h1>
         <div className="div-search-maps">
             <SiteMap2D />
             <VicinityMap />
