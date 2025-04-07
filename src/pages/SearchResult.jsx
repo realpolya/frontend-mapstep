@@ -41,21 +41,23 @@ const SearchResult = () => {
 
     return (
         <SearchContext.Provider value={searchObject}>
-            <div>
+            <div className="flex flex-col p-4">
                 
                 <h1>Search Results for: {address}</h1>
-                <div className="div-search-maps">
-                    <SiteMap2D />
-                    <VicinityMap />
-                    <SiteMap3D />
-                </div>
-                <div className="div-search-info">
-                    <SearchInfo />
-                    <div>
-                        <p>to find out the potential and limitations of this property, log in or sign up</p>
+                <div className='flex flex-row'>
+                    <div className="div-search-maps w-1/2">
+                        <SiteMap2D />
+                        <VicinityMap />
+                        <SiteMap3D />
+                    </div>
+                    <div className="div-search-info">
+                        <SearchInfo />
                         <div>
-                            <button>Log In</button>
-                            <button>Sign Up</button>
+                            <p>to find out the potential and limitations of this property, log in or sign up</p>
+                            <div>
+                                <button className="round-button">Log In</button>
+                                <button className="round-button red-button">Sign Up</button>
+                            </div>
                         </div>
                     </div>
                 </div>
