@@ -25,6 +25,7 @@ const dummyData = {
 const SearchResult = () => {
 
     let [address, setAddress] = useState('1234 Moon')
+    let [siteDetails, setSiteDetails] = useState(dummyData)
     let location = useLocation()
 
 
@@ -37,7 +38,7 @@ const SearchResult = () => {
     }, [location.state])
 
 
-    const searchObject = { address }
+    const searchObject = { address, siteDetails }
 
     return (
         <SearchContext.Provider value={searchObject}>
@@ -70,3 +71,4 @@ const SearchResult = () => {
 /* --------------------------------Export--------------------------------*/
 
 export default SearchResult
+export { SearchContext }
