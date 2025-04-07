@@ -43,7 +43,7 @@ const SearchResult = () => {
         <SearchContext.Provider value={searchObject}>
             <div className="flex flex-col p-4">
                 
-                <h1>Search Results for: {address}</h1>
+                <h1 className="h1-heading">Search Results for: {address}</h1>
                 <div className='flex flex-row'>
                     <div className="div-search-maps w-1/2">
                         <SiteMap2D />

@@ -1,16 +1,12 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useContext, useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import './HomeMap.css'
+import { MAPBOX_KEY, mapboxStyle } from '../variables.js';
 
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-
-/* --------------------------------Variables--------------------------------*/
-
-const MAPBOX_KEY = import.meta.env.VITE_MAPBOX_KEY;
-const mapboxStyle = 'mapbox://styles/polinastepanova/cm860hthg00b001qv9o6s2xu1'
 
 /* --------------------------------Component--------------------------------*/
 
@@ -44,12 +40,12 @@ const HomeMap = () => {
 
 
     return (
-    <div id='div-home-map'>
-        { loading && (<p>No map yet</p>)}
+        <div id='div-home-map'>
+            { loading && (<p>No map yet</p>)}
 
-        <div ref={landingMapRef} id='home-map-ref'
-        ></div>
-    </div>
+            <div ref={landingMapRef} id='home-map-ref'
+            ></div>
+        </div>
     )
 }
 

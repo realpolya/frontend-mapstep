@@ -1,0 +1,7 @@
+#div-site-map-2D {
+    @apply w-full h-80 flex flex-col justify-start items-center
+}
+
+#site-2d-map-ref {
+    @apply w-[500px] h-72 rounded-xl
+}

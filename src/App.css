@@ -42,3 +42,7 @@ main {
 .red-button {
     @apply bg-redColor
 }
+
+.h1-heading {
+    @apply font-mainFont text-2xl pb-4
+}
