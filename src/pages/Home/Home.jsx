@@ -1,6 +1,6 @@
 /* --------------------------------Imports--------------------------------*/
 
-import HomeMap from "../components/maps/HomeMap/HomeMap.jsx"
+import HomeMap from "../../components/maps/HomeMap/HomeMap.jsx"
 
 /* --------------------------------Component--------------------------------*/
 

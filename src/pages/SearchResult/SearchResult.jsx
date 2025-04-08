@@ -4,10 +4,10 @@ import { useEffect, useState, createContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 
-import SearchInfo from "../components/SearchInfo.jsx"
-import SiteMap3D from "../components/maps/SiteMap/SiteMap3D.jsx"
-import SiteMap2D from "../components/maps/SiteMap/SiteMap2D.jsx"
-import VicinityMap from "../components/maps/VicinityMap/VicinityMap.jsx"
+import SearchInfo from "../../components/SearchInfo.jsx"
+import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx"
+import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx"
+import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx"
 
 /* --------------------------------Context--------------------------------*/
 
@@ -48,8 +48,11 @@ const SearchResult = () => {
                 <div className='flex flex-row'>
                     <div className="div-search-maps w-1/2">
                         <SiteMap2D />
+                        <h6 className="h6-map">site map 2D</h6>
                         <VicinityMap />
+                        <h6 className="h6-map">vicinity map</h6>
                         <SiteMap3D />
+                        <h6 className="h6-map">site map 3D</h6>
                     </div>
                     <div className="div-search-info">
                         <SearchInfo />

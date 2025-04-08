@@ -2,8 +2,8 @@
 
 import { Routes, Route } from "react-router-dom"
 
-import Home from "../../pages/Home.jsx"
-import SearchResult from "../../pages/SearchResult.jsx"
+import Home from "../../pages/Home/Home.jsx"
+import SearchResult from "../../pages/SearchResult/SearchResult.jsx"
 
 /* --------------------------------Component--------------------------------*/
 
