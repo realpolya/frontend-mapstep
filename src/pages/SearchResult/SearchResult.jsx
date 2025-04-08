@@ -43,11 +43,11 @@ const SearchResult = () => {
 
     return (
         <SearchContext.Provider value={searchObject}>
-            <div className="flex flex-col p-4">
+            <div className="flex flex-col p-4 h-full">
                 
                 <h1 className="h1-heading">Search Results for: <span className="italic">{address}</span></h1>
-                <div className='flex flex-row'>
-                    <div className="div-search-maps w-1/2">
+                <div className='flex md:flex-row flex-col'>
+                    <div className="div-search-maps w-1/2 mr-4">
                         <SiteMap2D />
                         <h6 className="h6-map">site map 2D</h6>
                         <VicinityMap />
@@ -55,11 +55,11 @@ const SearchResult = () => {
                         <SiteMap3D />
                         <h6 className="h6-map">site map 3D</h6>
                     </div>
-                    <div className="div-search-info">
+                    <div className="div-search-info w-1/2 h-full flex flex-col justify-between">
                         <SearchInfo />
                         <div>
-                            <p>to find out the potential and limitations of this property, log in or sign up</p>
-                            <div>
+                            <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
+                            <div className="flex flex-row justify-center">
                                 <button className="round-button">Log In</button>
                                 <button className="round-button red-button">Sign Up</button>
                             </div>

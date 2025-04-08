@@ -3,7 +3,7 @@
 }
 
 #site-2d-map-ref {
-    @apply w-[200px] h-48 rounded-xl
+    @apply w-[100%] h-48 rounded-xl
 }
 
 #div-site-map-3D {
@@ -11,5 +11,5 @@
 }
 
 #site-3d-map-ref {
-    @apply w-[200px] h-48 rounded-xl
+    @apply w-[100%] h-48 rounded-xl
 }

@@ -27,8 +27,8 @@ const SearchInfo = () => {
     }, [address, siteDetails])
 
     return (
-        <div id="div-search-info">
-            <h2>Address: {pageAddress}</h2>
+        <div id="div-search-info h-[100%]">
+            <h2>full address: <span className="italic">{pageAddress}</span></h2>
             <div id="div-search-info-details" className="bg-darkColor text-textAlterColor p-2 rounded-xl">
                 { loading ? (<p>No information available yet</p>) : (
                     <ul>

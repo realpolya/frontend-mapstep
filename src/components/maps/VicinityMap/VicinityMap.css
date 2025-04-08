@@ -3,5 +3,7 @@
 }
 
 #vicinity-map-ref {
-    @apply w-[200px] h-48 rounded-xl
+    @apply h-48 rounded-xl w-[100%]
+
+    /* w-[200px] */
 }
