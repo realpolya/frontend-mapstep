@@ -50,22 +50,69 @@ const SiteMap3D = () => {
             container: site3DMapRef.current,
             style: mapboxStyle,
             center: [lng, lat], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-            zoom: 15,
+            zoom: 16.5,
             pitch: 30,
             bearing: -17.6
         });
+
+        map.on('style.load', () => {
+
+            const layers = map.getStyle().layers;
+            const labelLayerId = layers.find(
+                (layer) => layer.type === 'symbol' && layer.layout['text-field']
+            ).id;
+    
+            map.addLayer(
+                {
+                    'id': 'add-3d-buildings',
+                    'source': 'composite',
+                    'source-layer': 'building',
+                    'filter': ['==', 'extrude', 'true'],
+                    'type': 'fill-extrusion',
+                    'paint': {
+                        'fill-extrusion-color': '#aaa',
+    
+                        // Use an 'interpolate' expression to
+                        // add a smooth transition effect to
+                        // the buildings as the user zooms in.
+                        'fill-extrusion-height': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            15,
+                            0,
+                            15.05,
+                            ['get', 'height']
+                        ],
+                        'fill-extrusion-base': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            15,
+                            0,
+                            15.05,
+                            ['get', 'min_height']
+                        ],
+                        'fill-extrusion-opacity': 0.5
+                    }
+                }
+            )
+
+        })
 
         return () => map.remove();
 
     }, [site3DMapRef, MAPBOX_KEY, lng, lat])
 
     return (
+
         <div id='div-site-map-3D'>
             { loading && (<p>No map yet</p>)}
 
             <div ref={site3DMapRef} id='site-3d-map-ref'
             ></div>
         </div>
+        
     )
 
 }
