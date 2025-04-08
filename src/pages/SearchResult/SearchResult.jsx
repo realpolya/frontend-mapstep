@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 import "./SearchResult.css"
 
-import SearchInfo from "../../components/SearchInfo.jsx"
+import SearchInfo from "../../components/SearchInfo/SearchInfo.jsx"
 import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx"
 import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx"
 import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx"
