@@ -58,7 +58,7 @@ const VicinityMap = () => {
     }, [vicinityMapRef, MAPBOX_KEY, lng, lat])
 
     return (
-        <div id='div-vicinity-map'>
+        <div className="div-map" id='div-vicinity-map'>
             { loading && (<p>No map yet</p>)}
 
             <div ref={vicinityMapRef} id='vicinity-map-ref'

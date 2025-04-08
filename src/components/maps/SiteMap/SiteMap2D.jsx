@@ -5,6 +5,7 @@ import { useContext, useEffect, useState, useRef } from 'react';
 import { SearchContext } from '../../../pages/SearchResult.jsx';
 
 import './SiteMap.css'
+import '../maps.css'
 import { MAPBOX_KEY, mapboxStyle } from '../variables.js';
 
 import mapboxgl from 'mapbox-gl';
@@ -58,7 +59,7 @@ const SiteMap2D = () => {
     }, [site2DMapRef, MAPBOX_KEY, lng, lat])
 
     return (
-        <div id='div-site-map-2D'>
+        <div className="div-map" id='div-site-map-2D'>
             { loading && (<p>No map yet</p>)}
 
             <div ref={site2DMapRef} id='site-2d-map-ref'

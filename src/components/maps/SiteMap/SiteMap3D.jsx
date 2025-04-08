@@ -46,6 +46,7 @@ const SiteMap3D = () => {
 
         setLoading(false)
         
+        // initialize mapbox map
         const map = new mapboxgl.Map({
             container: site3DMapRef.current,
             style: mapboxStyle,
@@ -55,13 +56,14 @@ const SiteMap3D = () => {
             bearing: -17.6
         });
 
+        // add 3D buildings
         map.on('style.load', () => {
 
             const layers = map.getStyle().layers;
             const labelLayerId = layers.find(
                 (layer) => layer.type === 'symbol' && layer.layout['text-field']
             ).id;
-    
+            
             map.addLayer(
                 {
                     'id': 'add-3d-buildings',
@@ -100,19 +102,31 @@ const SiteMap3D = () => {
 
         })
 
+        // add marker
+        const el = document.createElement('div')
+
+        el.style.backgroundImage = `url('/reshot-location.svg')`; // Set the PNG image
+        el.style.backgroundSize = 'contain'; // Ensure the image fits
+        el.style.width = '30px'; // Set marker width
+        el.style.height = '30px'; // Set marker height
+
+        new mapboxgl.Marker(el, { offset: [0, 0] })
+        .setLngLat([lng, lat])
+        .addTo(map);
+    
         return () => map.remove();
 
     }, [site3DMapRef, MAPBOX_KEY, lng, lat])
 
     return (
 
-        <div id='div-site-map-3D'>
+        <div className="div-map" id='div-site-map-3D'>
             { loading && (<p>No map yet</p>)}
 
             <div ref={site3DMapRef} id='site-3d-map-ref'
             ></div>
         </div>
-        
+
     )
 
 }
