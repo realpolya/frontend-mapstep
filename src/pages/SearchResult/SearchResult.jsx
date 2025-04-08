@@ -3,6 +3,7 @@
 import { useEffect, useState, createContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import "./SearchResult.css"
 
 import SearchInfo from "../../components/SearchInfo.jsx"
 import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx"
@@ -44,7 +45,7 @@ const SearchResult = () => {
         <SearchContext.Provider value={searchObject}>
             <div className="flex flex-col p-4">
                 
-                <h1 className="h1-heading">Search Results for: {address}</h1>
+                <h1 className="h1-heading">Search Results for: <span className="italic">{address}</span></h1>
                 <div className='flex flex-row'>
                     <div className="div-search-maps w-1/2">
                         <SiteMap2D />
