@@ -10,9 +10,7 @@ import { MAPBOX_KEY, mapboxStyle } from '../variables.js';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-
 /* --------------------------------Component--------------------------------*/
-
 
 const SiteMap2D = () => {
 
@@ -52,7 +50,7 @@ const SiteMap2D = () => {
             container: site2DMapRef.current,
             style: mapboxStyle,
             center: [lng, lat], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-            zoom: 10
+            zoom: 15
         });
 
         return () => map.remove();
