@@ -4,25 +4,12 @@ import api from './apiConfig.js';
 
 /* --------------------------------Functions--------------------------------*/
 
-const getAddress = async (query=null) => {
+const getAddress = async (query) => {
+
     try {
 
-        let response = undefined;
-
-        // passing queries in url and into the function
-        if (query) {
-
-            response = await api.get(`properties/?${query}`);
-        
-        // general retrieval of all properties
-        } else {
-
-            response = await api.get('properties/');
-
-        }
-
-
-        return response.data
+        response = await api.get(`projects/inquiry/?address=${query}`);
+        return response
 
     } catch (err) {
 
