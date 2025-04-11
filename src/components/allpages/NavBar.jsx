@@ -24,50 +24,31 @@ const addressTemplate = {
 const NavBar = () => {
 
     const autocompleteRef = useRef(null)
-
     const navigate = useNavigate()
+    const [inputValue, setInputValue] = useState('')
+    // const [detailAddr, setDetailAddr] = useState(addressTemplate)
 
-    const [formAddress, setFormAddress] = useState("")
-    const [detailAddr, setDetailAddr] = useState(addressTemplate)
-
-    const handleWhere = e => setFormAddress(e.target.value)
-    // const handleSubmit = e => {
-
-    //     console.log("form address is ", formAddress)
-    //     e.preventDefault();
-    //     navigate("/result", { state: { formAddress }})
-    //     setFormAddress('')
-
-    // }
     const handlePlaceChange = () => {
 
-        console.log("form address is ", formAddress)
         console.log("selected place ", autocompleteRef.current.getPlace())
-
         const place = autocompleteRef.current.getPlace()
 
-        if (place.address_components) {
+        if (!place.address_components) return;
 
-            let newDetails = place.address_components.reduce((arg, component) => {
+        const addrDetails = place.address_components.reduce((arg, component) => {
 
-                Object.keys(addressTemplate).forEach(key => {
-                    if (component.types.includes(key)) {
-                        arg[key] = component.long_name
-                    }
-                });
-                return arg;
+            Object.keys(addressTemplate).forEach(key => {
+                if (component.types.includes(key)) {
+                    arg[key] = component.long_name
+                }
+            });
+            return arg;
 
-            }, {});
+        }, {});
 
-            console.log("new details are ", newDetails)
+        setInputValue("")
 
-            setDetailAddr(newDetails)
-
-        }
-
-        navigate("/result", { state: { formAddress, detailAddr }})
-        setFormAddress('')
-        setDetailAddr(addressTemplate)
+        navigate("/result", { state: { addrDetails }})
 
     }
 
@@ -79,8 +60,8 @@ const NavBar = () => {
 
             <nav id="navbar-tw">
                 <Link to="/" className="text-blueColor pl-4 text-2xl">mapStep</Link>
-                <form className="flex flex-row w-1/2">
-                    <label className="pr-2 w-1/4">lot address</label>
+                <div className="flex flex-row w-1/2">
+                    <p className="pr-2 w-1/4">lot address</p>
                     <Autocomplete 
                         className="nav-searchbar w-3/4"
                         onLoad={(autocomplete) => (autocompleteRef.current = autocomplete)}
@@ -88,14 +69,13 @@ const NavBar = () => {
                     >
                         <input
                             className="rounded-xl border-2 border-solid pl-2 w-full"
-                            value={formAddress}
-                            onChange={handleWhere}
                             type="text"
                             placeholder=''
+                            value={inputValue}
+                            onChange={e => setInputValue(e.target.value)}
                         ></input>
                     </Autocomplete>
-                    <button className="hidden">submit</button>
-                </form>
+                </div>
 
                 <img id="nav-menu-img" className="h-[50%] pr-4" src="/reshot_menu.svg"/>
             </nav>

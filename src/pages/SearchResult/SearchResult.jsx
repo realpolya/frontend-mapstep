@@ -33,8 +33,9 @@ const SearchResult = () => {
 
     useEffect(() => {
 
-        if (location.state) {
-            setAddress(location.state.formAddress);
+        if (location?.state?.addrDetails) {
+            console.log("detail Addr is ", location.state.addrDetails)
+            setAddress(`${location.state.addrDetails.street_number} ${location.state.addrDetails.route}`);
             navigate(location.pathname, { replace: true, state: null });
         }
 
