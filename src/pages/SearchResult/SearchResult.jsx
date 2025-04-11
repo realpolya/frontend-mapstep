@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useEffect, useState, createContext } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import "./SearchResult.css"
 
@@ -25,15 +25,17 @@ const dummyData = {
 
 const SearchResult = () => {
 
-    let [address, setAddress] = useState('1234 Moon')
-    let [siteDetails, setSiteDetails] = useState(dummyData)
-    let location = useLocation()
+    const [address, setAddress] = useState('1234 Moon')
+    const [siteDetails, setSiteDetails] = useState(dummyData)
 
+    const location = useLocation()
+    const navigate = useNavigate()
 
     useEffect(() => {
 
         if (location.state) {
-            setAddress(location.state.where)
+            setAddress(location.state.formAddress);
+            navigate(location.pathname, { replace: true, state: null });
         }
 
     }, [location.state])
