@@ -36,8 +36,8 @@ const SearchInfo = () => {
                         <li className="div-search-li">jurisdiction: <span className="div-search-span">{pageDetails?.jurisdiction}</span></li>
                         <li className="div-search-li">zoning: <span className="div-search-span">{pageDetails?.zoning}</span></li>
                         <li className="div-search-li">year built: <span className="div-search-span">{pageDetails?.year_built}</span></li>
-                        <li className="div-search-li">lot width: <span className="div-search-span">{pageDetails?.lot_width}</span></li>
-                        <li className="div-search-li">lot depth: <span className="div-search-span">{pageDetails?.lot_depth}</span></li>
+                        <li className="div-search-li">lot width: <span className="div-search-span">{pageDetails?.data.LandWidth}</span></li>
+                        <li className="div-search-li">lot depth: <span className="div-search-span">{pageDetails?.data.LandDepth}</span></li>
                         <li className="div-search-li">land area: <span className="div-search-span">{pageDetails?.land_area}</span></li>
                         <li className="div-search-li">building area: <span className="div-search-span">{pageDetails?.bldg_area}</span></li>
                     </ul>

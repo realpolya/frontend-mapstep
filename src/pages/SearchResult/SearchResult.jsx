@@ -10,6 +10,9 @@ import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx"
 import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx"
 import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx"
 
+// back end
+import services from '../../services/index.js';
+
 /* --------------------------------Context--------------------------------*/
 
 const SearchContext = createContext(null);
@@ -17,15 +20,17 @@ const SearchContext = createContext(null);
 const dummyData = {
     "latitude": 34.0620051,
     "longitude": -118.3431566,
-    "lot_width": 280,
-    "lot_depth": 504
+    "data": {
+        "LandWidth": 280,
+        "LandDepth": 504
+    }
 }
 
 /* --------------------------------Component--------------------------------*/
 
 const SearchResult = () => {
 
-    const [address, setAddress] = useState('1234 Moon')
+    const [address, setAddress] = useState('')
     const [siteDetails, setSiteDetails] = useState(dummyData)
 
     const location = useLocation()
@@ -40,6 +45,21 @@ const SearchResult = () => {
         }
 
     }, [location.state])
+
+    useEffect(() => {
+
+        fetchData(address)
+
+    }, [address])
+
+
+    const fetchData = async (address) => {
+
+        const newData = await services.getAddress(address)
+        console.log("new data is ", newData)
+        setSiteDetails(newData)
+
+    }
 
 
     const searchObject = { address, siteDetails }

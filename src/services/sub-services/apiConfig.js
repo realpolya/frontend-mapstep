@@ -20,13 +20,20 @@ const api = axios.create({
     baseURL: BACKEND_URL
 });
 
+const publicApi = axios.create({
+    baseURL: BACKEND_URL
+});
+
 api.interceptors.request.use(
     function (config) {
+
+        console.log("choosing private route!")
         const token = getToken();
         if (token) {
             console.log("Signed In")
             config.headers["Authorization"] = token;
         }
+
         return config;
     },
     
@@ -39,3 +46,4 @@ api.interceptors.request.use(
 /* --------------------------------Exports--------------------------------*/
 
 export default api;
+export { publicApi }
