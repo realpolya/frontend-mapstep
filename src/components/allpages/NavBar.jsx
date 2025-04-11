@@ -16,6 +16,8 @@ const libraries = ['places']
 
 const NavBar = () => {
 
+    const autocompleteRef = useRef(null)
+
     const navigate = useNavigate()
 
     const [formAddress, setFormAddress] = useState("")
@@ -28,6 +30,9 @@ const NavBar = () => {
         navigate("/result", { state: { formAddress }})
         setFormAddress('')
 
+    }
+    const handlePlaceChange = () => {
+        console.log("selected place ", autocompleteRef.current.getPlace())
     }
 
     return (
@@ -46,6 +51,14 @@ const NavBar = () => {
                     ></input>
                     <button type="submit" className="hidden">Submit</button>
                 </form>
+
+                <Autocomplete
+                    onLoad={(autocomplete) => (autocompleteRef.current = autocomplete)}
+                    onPlaceChanged={handlePlaceChange}
+                >
+                    <input type="text"></input>
+                </Autocomplete>
+
                 <img id="nav-menu-img" className="h-[50%] pr-4" src="/reshot_menu.svg"/>
             </nav>
         </LoadScript>
