@@ -3,5 +3,5 @@
 }
 
 .div-search-span {
-    @apply italic
+    @apply italic text-blueColor
 }
