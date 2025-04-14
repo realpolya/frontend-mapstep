@@ -8,6 +8,8 @@ import { SearchContext } from '../../pages/SearchResult/SearchResult.jsx';
 
 /* --------------------------------Component--------------------------------*/
 
+// data.UsableSqFt – Los Angeles County portal
+
 const SearchInfo = () => {
 
     const { address, siteDetails } = useContext(SearchContext)
@@ -35,11 +37,11 @@ const SearchInfo = () => {
                         <li className="div-search-li">city: <span className="div-search-span">{pageDetails?.city}</span></li>
                         <li className="div-search-li">jurisdiction: <span className="div-search-span">{pageDetails?.jurisdiction}</span></li>
                         <li className="div-search-li">zoning: <span className="div-search-span">{pageDetails?.zoning}</span></li>
-                        <li className="div-search-li">year built: <span className="div-search-span">{pageDetails?.year_built}</span></li>
+                        <li className="div-search-li">year built: <span className="div-search-span">{pageDetails?.data.YearBuilt}</span></li>
                         <li className="div-search-li">lot width: <span className="div-search-span">{pageDetails?.data.LandWidth}</span></li>
                         <li className="div-search-li">lot depth: <span className="div-search-span">{pageDetails?.data.LandDepth}</span></li>
-                        <li className="div-search-li">land area: <span className="div-search-span">{pageDetails?.land_area}</span></li>
-                        <li className="div-search-li">building area: <span className="div-search-span">{pageDetails?.bldg_area}</span></li>
+                        <li className="div-search-li">land area (sq. ft): <span className="div-search-span">{pageDetails?.data.UsableSqftLot}</span></li>
+                        <li className="div-search-li">building area (sq. ft): <span className="div-search-span">{pageDetails?.data.SqftMain}</span></li>
                     </ul>
                 )}
             </div>

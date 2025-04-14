@@ -22,7 +22,8 @@ const dummyData = {
     "longitude": -118.3431566,
     "data": {
         "LandWidth": 280,
-        "LandDepth": 504
+        "LandDepth": 504,
+        "YearBuilt": 2016
     }
 }
 
