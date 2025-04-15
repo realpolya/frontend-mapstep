@@ -101,7 +101,9 @@ const NavBar = () => {
                     </Autocomplete>
                 </div>
 
-                <img id="nav-menu-img" className="h-[50%] pr-4" src="/reshot_menu.svg"/>
+                <button className="bg-transparent border-none h-[50%] pr-4" onClick={() => setSideOpen(!sideOpen)}>
+                    <img id="nav-menu-img" className="h-[100%]" src="/reshot_menu.svg"/>
+                </button>
             </nav>
 
         </LoadScript>
