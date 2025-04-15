@@ -8,6 +8,8 @@ import { LoadScript, Autocomplete } from "@react-google-maps/api";
 
 import "./allpages.css"
 
+import SideBar from './SideBar.jsx';
+
 /* --------------------------------Variables--------------------------------*/
 
 const libraries = ['places']
@@ -24,10 +26,22 @@ const addressTemplate = {
 const NavBar = () => {
 
     const autocompleteRef = useRef(null)
+    const navbarRef = useRef(null)
+
     const navigate = useNavigate()
+
     const [inputValue, setInputValue] = useState('')
+    const [sideOpen, setSideOpen] = useState(false)
     // const [detailAddr, setDetailAddr] = useState(addressTemplate)
 
+    // side menu
+    const handleClickOut = e =>  {
+        if (navbarRef.current && !navbarRef.current.contains(e.target)) setSideOpen(false);
+    }
+
+    
+
+    // google maps autocomplete handle change
     const handlePlaceChange = () => {
 
         console.log("selected place ", autocompleteRef.current.getPlace())
