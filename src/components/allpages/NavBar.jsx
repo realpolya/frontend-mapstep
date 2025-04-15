@@ -39,7 +39,17 @@ const NavBar = () => {
         if (navbarRef.current && !navbarRef.current.contains(e.target)) setSideOpen(false);
     }
 
-    
+    useEffect(() => {
+
+        if (!sideOpen) return;
+
+        document.addEventListener("mousedown", handleClickOut)
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOut)
+        }
+
+    }, [sideOpen])
 
     // google maps autocomplete handle change
     const handlePlaceChange = () => {
