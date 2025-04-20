@@ -1,6 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { createContext } from "react";
+import Modal from 'react-modal';
 
 
 import './App.css'
@@ -12,6 +13,10 @@ import Footer from "./components/allpages/Footer.jsx"
 /* --------------------------------Context--------------------------------*/
 
 const AppContext = createContext(null);
+
+/* --------------------------------Modal--------------------------------*/
+
+Modal.setAppElement('#root')
 
 /* --------------------------------Component--------------------------------*/
 
