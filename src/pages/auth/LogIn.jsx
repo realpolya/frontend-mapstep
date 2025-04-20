@@ -1,7 +1,11 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
+import services from "../../services/index.js";
+
+import { AppContext } from "../../App.jsx";
 
 /* --------------------------------Variables--------------------------------*/
 
@@ -17,13 +21,17 @@ const LogIn = () => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState(initial)
 
+    const { handleSignIn } = useContext(AppContext)
+
     const handleChange = e => setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // const userData = await services.signIn(formData)
-        navigate("/dashboard/guest")
-        window.location.reload()
+        const userData = await services.signIn(formData)
+        handleSignIn(userData)
+        console.log("user is ", userData)
+        // navigate("/dashboard/guest")
+        // window.location.reload()
     };
 
     return (

@@ -27,10 +27,8 @@ const publicApi = axios.create({
 api.interceptors.request.use(
     function (config) {
 
-        console.log("choosing private route!")
         const token = getToken();
         if (token) {
-            console.log("Signed In")
             config.headers["Authorization"] = token;
         }
 
