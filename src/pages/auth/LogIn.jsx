@@ -28,11 +28,11 @@ const LogIn = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="space-y-4 mb-4">
+            <form onSubmit={handleSubmit} className="space-y-4 mb-4 w-full flex flex-col justify-center items-center">
 
-                <h2 className="text-2xl font-bold text-textColor text-center mb-4">Log In</h2>
+                <h2 className="text-2xl font-bold text-textColor text-center">Log In</h2>
 
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                     <label htmlFor="username" className="text-sm font-medium text-gray-700">
                         Username
                     </label>
@@ -48,7 +48,7 @@ const LogIn = () => {
                     />
                 </div>
 
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                     <label htmlFor="password" className="text-sm font-medium text-gray-700">
                         Password
                     </label>
@@ -64,7 +64,7 @@ const LogIn = () => {
                     />
                 </div>
 
-                <button type="submit" className="flex justify-center form-button">
+                <button type="submit" className="round-button">
                     Log In
                 </button>
 

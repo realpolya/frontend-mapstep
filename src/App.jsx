@@ -41,6 +41,8 @@ const App = () => {
             <Modal
                 isOpen={logInOpen}
                 onRequestClose={() => setLogInOpen(false)}
+                className="auth-modal"
+                overlayClassName="auth-modal-back"
             >
                 <LogIn setActiveModal={setActiveModal}/>
             </Modal>

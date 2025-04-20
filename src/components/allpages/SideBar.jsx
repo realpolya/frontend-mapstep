@@ -16,7 +16,9 @@ const SideBar = () => {
         <nav className="bg-blueColor w-[200px] h-[200px]">
             <ul>
                 <li>Sign Up</li>
-                <li>Log In</li>
+                <button className="nav-link" onClick={()=> setShowLogIn(true)}>
+                    Log In
+                </button>
             </ul>
         </nav>
     )
