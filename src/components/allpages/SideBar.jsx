@@ -1,12 +1,16 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import Modal from 'react-modal';
+
+import { AppContext } from '../../App.jsx';
 
 /* --------------------------------Component--------------------------------*/
 
 const SideBar = () => {
+
+    const { setShowLogIn } = useContext(AppContext)
 
     return (
         <nav className="bg-blueColor w-[200px] h-[200px]">
