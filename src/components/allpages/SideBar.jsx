@@ -10,13 +10,15 @@ import { AppContext } from '../../App.jsx';
 
 const SideBar = () => {
 
-    const { setShowLogIn } = useContext(AppContext)
+    const { showLogIn, showSignUp } = useContext(AppContext)
 
     return (
         <nav className="bg-blueColor w-[200px] h-[200px]">
-            <ul>
-                <li>Sign Up</li>
-                <button className="nav-link" onClick={()=> setShowLogIn(true)}>
+            <ul className='flex flex-col'>
+                <button className="nav-link" onClick={()=> showSignUp(true)}>
+                    Sign Up
+                </button>
+                <button className="nav-link" onClick={()=> showLogIn(true)}>
                     Log In
                 </button>
             </ul>

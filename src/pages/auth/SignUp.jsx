@@ -48,10 +48,8 @@ const SignUp = () => {
 
     return (
         <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-                <h2 className="text-2xl font-bold text-textColor">welcome to mapstep.</h2>
-                <h2>Register</h2>
-            </div>
+
+            <h2 className="text-2xl font-bold text-textColor">welcome to mapstep.</h2>
 
             <div>
                 <label

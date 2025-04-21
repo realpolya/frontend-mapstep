@@ -28,7 +28,6 @@ const App = () => {
 
     const [logInOpen, setLogInOpen] = useState(false)
     const [signUpOpen, setSignUpOpen] = useState(false)
-    const [activeModal, setActiveModal] = useState(null)
     const [user, setUser] = useState(null)
 
     // const fetchData = async () => {
@@ -37,13 +36,14 @@ const App = () => {
 
     // }
 
-    const setShowLogIn = () => setLogInOpen(true)
+    const showLogIn = () => setLogInOpen(true)
+    const showSignUp = () => setSignUpOpen(true)
 
     const handleSignIn = data => {
         setUser(data)
     }
 
-    const appObject = { setShowLogIn, handleSignIn }
+    const appObject = { showLogIn, showSignUp, handleSignIn }
 
     return (
         <AppContext.Provider value={appObject}>
@@ -56,7 +56,16 @@ const App = () => {
                 className="auth-modal"
                 overlayClassName="auth-modal-back"
             >
-                <LogIn setActiveModal={setActiveModal}/>
+                <LogIn />
+            </Modal>
+
+            <Modal
+                isOpen={signUpOpen}
+                onRequestClose={() => setSignUpOpen(false)}
+                className="auth-modal"
+                overlayClassName="auth-modal-back"
+            >
+                <SignUp />
             </Modal>
 
             <Footer/>
