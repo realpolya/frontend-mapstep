@@ -39,12 +39,9 @@ const App = () => {
 
     const setShowLogIn = () => setLogInOpen(true)
 
-
-
     const handleSignIn = data => {
         setUser(data)
     }
-
 
     const appObject = { setShowLogIn, handleSignIn }
 

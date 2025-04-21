@@ -79,7 +79,8 @@ const LogIn = () => {
             </form>
             <p>
                 Don't have an account?{" "}
-                <button onClick={() => setActiveModal("register")} className="text-buttonColor hover:underline">
+                <button onClick={() => setActiveModal("register")} 
+                className="text-buttonColor underline">
                     Register
                 </button>
             </p>
