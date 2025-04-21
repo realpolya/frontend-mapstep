@@ -2,7 +2,6 @@
 
 import { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import Modal from 'react-modal';
 
 import { AppContext } from '../../App.jsx';
 

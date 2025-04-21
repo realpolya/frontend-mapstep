@@ -39,11 +39,16 @@ const App = () => {
     const showLogIn = () => setLogInOpen(true)
     const showSignUp = () => setSignUpOpen(true)
 
+    const closeLogIn = () => setLogInOpen(false)
+    const closeSignUp = () => setSignUpOpen(false)
+
     const handleSignIn = data => {
         setUser(data)
     }
 
-    const appObject = { showLogIn, showSignUp, handleSignIn }
+    const appObject = { showLogIn, showSignUp, 
+        handleSignIn, closeLogIn, closeSignUp 
+    }
 
     return (
         <AppContext.Provider value={appObject}>
@@ -52,8 +57,8 @@ const App = () => {
 
             <Modal
                 isOpen={logInOpen}
-                onRequestClose={() => setLogInOpen(false)}
-                className="auth-modal"
+                onRequestClose={closeLogIn}
+                className="auth-modal auth-modal-login"
                 overlayClassName="auth-modal-back"
             >
                 <LogIn />
@@ -61,7 +66,7 @@ const App = () => {
 
             <Modal
                 isOpen={signUpOpen}
-                onRequestClose={() => setSignUpOpen(false)}
+                onRequestClose={closeSignUp}
                 className="auth-modal"
                 overlayClassName="auth-modal-back"
             >
