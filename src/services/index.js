@@ -7,13 +7,20 @@ const {
 
 const {
     signUp,
-    signIn
+    signIn,
+    getUser,
+    verifyToken,
+    signOut
 } = auth
 
 const services = {
     getAddress,
+
     signUp,
-    signIn
+    signIn,
+    getUser,
+    verifyToken,
+    signOut
 }
 
 export {
@@ -23,5 +30,8 @@ export {
 
     signUp,
     signIn,
+    getUser,
+    verifyToken,
+    signOut
     
 }
