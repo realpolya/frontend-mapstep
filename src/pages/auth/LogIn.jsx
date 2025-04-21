@@ -21,7 +21,7 @@ const LogIn = () => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState(initial)
 
-    const { handleSignIn } = useContext(AppContext)
+    const { handleSignIn, closeLogIn } = useContext(AppContext)
 
     const handleChange = e => setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
 
@@ -36,6 +36,10 @@ const LogIn = () => {
 
     return (
         <>
+            <button className='close-button' onClick={closeLogIn}>
+                x
+            </button>
+
             <form onSubmit={handleSubmit} className="space-y-4 mb-4 w-full flex flex-col justify-center items-center">
 
                 <h2 className="text-2xl font-bold text-textColor text-center">Log In</h2>

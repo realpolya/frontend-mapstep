@@ -50,12 +50,12 @@ main {
 /* MODALS */
 
 .auth-modal {
-    @apply h-[475px] w-[400px] rounded-2xl
+    @apply h-[500px] w-[400px] rounded-2xl
     bg-blueLight p-6
 }
 
 .auth-modal-login {
-    @apply h-[350px]
+    @apply h-[360px]
 }
 
 .auth-modal-back {

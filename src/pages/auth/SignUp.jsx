@@ -34,11 +34,12 @@ const SignUp = () => {
         e.preventDefault();
 
         if (formData.password !== formData.confirm_password) {
-            const errMessage = document.createElement("p");
-            errMessage.textContent = "passwords do not match";
+            // const errMessage = document.getElementById("errMessage");
+            const errMessage = document.getElementById("errMessage");
+            errMessage.style.display = "inline"
 
-            const confirmDiv = document.getElementById("confirm-pass");
-            return confirmDiv.appendChild(errMessage);
+            // return confirmDiv.appendChild(errMessage);
+            return;
         }
 
         const userData = await services.signUp(formData)
@@ -131,8 +132,11 @@ const SignUp = () => {
                         className="mt-1 p-2 w-full border rounded-md focus:ring-teal-500 focus:border-teal-500"
                         required
                     />
+                    <p id="errMessage" className="hidden text-redColor italic">
+                        passwords do not match
+                    </p>
                 </div>
-                <button type="submit" className="form-button">
+                <button type="submit" className="round-button hover:bg-blueColor">
                     Register
                 </button>
             </div>

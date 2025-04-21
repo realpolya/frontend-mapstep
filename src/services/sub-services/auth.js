@@ -9,6 +9,7 @@ const signUp = async (formData) => {
     
     try {
         const response = await publicApi.post("users/register/", formData);
+        console.log("user created ", response.data.user)
         localStorage.setItem("token", response.data.access);
         return response.data.user;
     } catch (err) {
