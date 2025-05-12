@@ -11,6 +11,7 @@ export default {
             textAlterColor: "#FFFFFF",
             darkColor: "#2D3142",
             redColor: "#BB4141",
+            greyColor: "#ADACB5",
         },
         fontFamily: {
             mainFont: ["Karla", "sans-serif"],

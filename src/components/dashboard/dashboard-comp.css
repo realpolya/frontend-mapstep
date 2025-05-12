@@ -3,5 +3,10 @@
 }
 
 .account-button {
-    @apply bg-darkColor rounded-2xl text-textAlterColor p-4 m-4 w-52 h-16 text-sm
+    @apply bg-darkColor rounded-2xl text-textAlterColor 
+    p-2 m-4 w-52 h-16 text-xs
+}
+
+.three-button-div {
+    @apply flex gap-2 justify-center
 }
