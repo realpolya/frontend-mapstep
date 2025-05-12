@@ -12,8 +12,6 @@ const ProtectedRoute = ({ children }) => {
     const { user } = useContext(AppContext)
     const isAuthenticated = !!user // FIXME: might cause issues with await / async
 
-
-
     return isAuthenticated ? children : <Navigate to="/" replace />
 
 }
