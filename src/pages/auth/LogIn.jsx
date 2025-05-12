@@ -29,9 +29,11 @@ const LogIn = () => {
         e.preventDefault();
         const userData = await services.signIn(formData)
         handleSignIn(userData)
+
         console.log("user is ", userData)
-        // navigate("/dashboard/guest")
-        // window.location.reload()
+
+        navigate("/dashboard")
+        window.location.reload()
     };
 
     return (

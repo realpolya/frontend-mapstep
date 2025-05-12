@@ -44,7 +44,7 @@ const getUser = () => {
 const verifyToken = async () => {
 
     if (localStorage.getItem("token")) {
-        const response = await api.get("users/token/refresh/");
+        const response = await api.get("users/verify/");
         localStorage.setItem("token", response.data.access);
         return response.data.user;
     }

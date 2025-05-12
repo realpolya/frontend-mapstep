@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import services from '../../services/index.js';
 
-import "./auth.css"
+import "./auth.css";
 
 import { AppContext } from '../../App.jsx';
 
@@ -34,19 +34,17 @@ const SignUp = () => {
         e.preventDefault();
 
         if (formData.password !== formData.confirm_password) {
-            // const errMessage = document.getElementById("errMessage");
             const errMessage = document.getElementById("errMessage");
             errMessage.style.display = "inline"
 
-            // return confirmDiv.appendChild(errMessage);
             return;
         }
 
         const userData = await services.signUp(formData)
         handleSignIn(userData)
         console.log("user is ", userData)
-        // navigate("/dashboard/guest")
-        // window.location.reload()
+        navigate("/dashboard")
+        window.location.reload()
 
     };
     
