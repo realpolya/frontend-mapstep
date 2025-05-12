@@ -1,6 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
+import { useLocation } from "react-router-dom";
 import Modal from 'react-modal';
 
 import './App.css';
@@ -26,15 +27,24 @@ Modal.setAppElement('#root')
 
 const App = () => {
 
+    const location = useLocation();
+
     const [logInOpen, setLogInOpen] = useState(false)
     const [signUpOpen, setSignUpOpen] = useState(false)
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(services.getUser())
 
-    // const fetchData = async () => {
+    const fetchData = async () => {
 
-    //     const 
+        const user = await services.verifyToken();
+        setUser(user || null)
 
-    // }
+    }
+
+    useEffect(() => {
+
+        fetchData();
+
+    }, [location.pathname])
 
     const showLogIn = () => setLogInOpen(true)
     const showSignUp = () => setSignUpOpen(true)
@@ -47,7 +57,8 @@ const App = () => {
     }
 
     const appObject = { showLogIn, showSignUp, 
-        handleSignIn, closeLogIn, closeSignUp 
+        handleSignIn, closeLogIn, closeSignUp,
+        user
     }
 
     return (
