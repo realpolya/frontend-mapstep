@@ -10,9 +10,14 @@ import "./Dashboard.css"
 const Dashboard = () => {
 
     return (
-        <div>Dashboard</div>
+        <main>
+            <h1>welcome back, username</h1>
+            <div>
+                Dashboard
+            </div>
+        </main>
     )
-    
+
 }
 
 /* --------------------------------Export--------------------------------*/
