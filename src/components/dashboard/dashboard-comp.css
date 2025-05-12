@@ -1,0 +1,7 @@
+.info-span {
+    @apply italic
+}
+
+.account-button {
+    @apply bg-darkColor rounded-2xl text-textAlterColor p-4 m-4 w-52 h-16 text-sm
+}

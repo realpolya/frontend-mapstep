@@ -21,10 +21,10 @@ const Dashboard = () => {
     const { user } = useContext(AppContext)
 
     return (
-        <main>
+        <main className="flex flex-col p-4">
             <h1>welcome back, <span className="italic">{user.username}</span></h1>
-            <div>
-                <div>
+            <div className="flex flex-row p-4">
+                <div className="flex flex-col p-4">
                     <RecentProjects/>
                     <QuickActions/>
                 </div>
