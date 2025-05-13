@@ -1,5 +1,10 @@
+/* --------------------------------Imports--------------------------------*/
+
 import * as address from "./sub-services/address.js"
 import * as auth from "./sub-services/auth.js"
+import * as project from "./sub-services/project.js"
+
+/* --------------------------------Functions--------------------------------*/
 
 const {
     getAddress
@@ -13,6 +18,10 @@ const {
     signOut
 } = auth
 
+const {
+    getMyProjects
+} = project
+
 const services = {
     getAddress,
 
@@ -20,8 +29,12 @@ const services = {
     signIn,
     getUser,
     verifyToken,
-    signOut
+    signOut,
+
+    getMyProjects
 }
+
+/* --------------------------------Exports--------------------------------*/
 
 export {
     services as default,
@@ -32,6 +45,7 @@ export {
     signIn,
     getUser,
     verifyToken,
-    signOut
-    
+    signOut,
+
+    getMyProjects
 }
