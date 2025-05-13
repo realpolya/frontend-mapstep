@@ -1,6 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 import services from "../../services/index.js"
 
@@ -23,16 +24,19 @@ const RecentProjects = () => {
     }, [])
 
     return (
-        <div>
-            <h4>recent projects</h4>
+        <div className="pb-4">
+            <div className="flex flex-row justify-between pb-4">
+                <h4>recent projects</h4>
+                <Link to="/" className="text-blueColor">view all projects</Link>
+            </div>
             {myProjects.map(project => {
                 return (
-                    <div>
+                    <Link className="block w-1/3" to="/">
                         <MiniProjectMap project={project}/>
                         <p className="italic">{project.title}</p>
                         <p>{project.address}</p>
                         {/* <p>{project.longitude}</p> */}
-                    </div>
+                    </Link>
                 )
             })}
         </div>
