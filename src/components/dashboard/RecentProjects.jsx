@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 
 import services from "../../services/index.js"
 
+import MiniProjectMap from "../maps/MiniProjectMap/MiniProjectMap.jsx"
+
 /* --------------------------------Component--------------------------------*/
 
 const RecentProjects = () => {
@@ -24,7 +26,14 @@ const RecentProjects = () => {
         <div>
             <h4>recent projects</h4>
             {myProjects.map(project => {
-                return <p>{project.address}</p>
+                return (
+                    <div>
+                        <MiniProjectMap project={project}/>
+                        <p className="italic">{project.title}</p>
+                        <p>{project.address}</p>
+                        {/* <p>{project.longitude}</p> */}
+                    </div>
+                )
             })}
         </div>
     )

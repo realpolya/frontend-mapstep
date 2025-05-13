@@ -45,7 +45,7 @@ const MiniProjectMap = ({ project }) => {
             container: projectMapRef.current,
             style: mapboxStyle,
             center: [lng, lat], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-            zoom: 10
+            zoom: 12
         });
 
         return () => map.remove();
