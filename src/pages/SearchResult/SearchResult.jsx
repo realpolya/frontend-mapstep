@@ -40,7 +40,7 @@ const SearchResult = () => {
     useEffect(() => {
 
         if (location?.state?.addrDetails) {
-            console.log("detail Addr is ", location.state.addrDetails)
+            // console.log("detail Addr is ", location.state.addrDetails)
             setAddress(`${location.state.addrDetails.street_number} ${location.state.addrDetails.route}`);
             navigate(location.pathname, { replace: true, state: null });
         }
@@ -57,7 +57,7 @@ const SearchResult = () => {
     const fetchData = async (address) => {
 
         const newData = await services.getAddress(address)
-        console.log("new data is ", newData)
+        // console.log("new data is ", newData)
         setSiteDetails(newData)
 
     }
