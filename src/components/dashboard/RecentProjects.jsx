@@ -34,7 +34,7 @@ const RecentProjects = () => {
                     <Link className="block w-1/3" to="/">
                         <MiniProjectMap project={project}/>
                         <p className="italic">{project.title}</p>
-                        <p>{project.address}</p>
+                        <p className="text-xs">{project.address}</p>
                         {/* <p>{project.longitude}</p> */}
                     </Link>
                 )
