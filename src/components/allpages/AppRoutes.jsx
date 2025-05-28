@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../../pages/Home/Home.jsx";
 import SearchResult from "../../pages/SearchResult/SearchResult.jsx";
 import Dashboard from "../../pages/Dashboard/Dashboard.jsx";
+import ProjectPage from "../../pages/ProjectPage/ProjectPage.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
 
@@ -21,6 +22,12 @@ const AppRoutes = () => {
                     <Dashboard/>
                 </ProtectedRoute>
             } />
+            <Route path="/project/:projectId" element={
+                <ProtectedRoute>
+                    <ProjectPage/>
+                </ProtectedRoute>
+            } />
+
         </Routes>
     )
 

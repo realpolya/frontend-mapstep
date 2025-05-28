@@ -7,6 +7,11 @@
     p-2 m-4 w-52 h-16 text-xs
 }
 
+.action-button {
+    @apply bg-darkColor rounded-2xl text-textAlterColor 
+    p-2 m-4 w-52 h-16 text-xs
+}
+
 .three-button-div {
     @apply flex gap-2 justify-center
 }
