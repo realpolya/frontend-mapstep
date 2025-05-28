@@ -31,7 +31,7 @@ const RecentProjects = () => {
             </div>
             {myProjects.map(project => {
                 return (
-                    <Link className="block w-1/3" to="/">
+                    <Link className="block w-1/3" to={`/project/${project.id}`}>
                         <MiniProjectMap project={project}/>
                         <p className="italic">{project.title}</p>
                         <p className="text-xs">{project.address}</p>
