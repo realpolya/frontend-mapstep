@@ -17,7 +17,7 @@ const AccountInfo = () => {
 
     return (
         <div className="p-4 sm:w-1/2 w-full">
-            <h4 className="dash-h4">account information</h4>
+            <h4 className="dash-h4 pb-4">account information</h4>
             <div className="bg-greyColor rounded-xl p-4">
                 <ul>
                     <li>username: <span className="info-span">{user?.username}</span></li>
