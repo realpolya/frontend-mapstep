@@ -8,7 +8,7 @@ const QuickActions = () => {
 
     return (
         <div className="pt-8">
-            <h4>quick actions</h4>
+            <h4 className="dash-h4">quick actions</h4>
             <div className="flex flex-col justify-between">
                 <div className="three-button-div">
                     <button className="action-button" onClick={() => navigate("/")}>start new project</button>

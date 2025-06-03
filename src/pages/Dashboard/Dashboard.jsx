@@ -23,8 +23,8 @@ const Dashboard = () => {
     return (
         <main className="flex flex-col p-4 w-full">
             <h1>welcome back, <span className="italic">{user.username}</span></h1>
-            <div className="flex flex-row p-4 w-full">
-                <div className="flex flex-col p-4 w-1/2">
+            <div className="flex sm:flex-row flex-col p-4 w-full">
+                <div className="flex flex-col p-4 sm:w-1/2 w-full">
                     <RecentProjects/>
                     <QuickActions/>
                 </div>
