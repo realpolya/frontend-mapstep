@@ -1,6 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useContext, useEffect, useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { SearchContext } from '../../../pages/SearchResult/SearchResult.jsx';
 
@@ -14,7 +15,13 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const SiteMap3D = () => {
 
-    const { address, siteDetails } = useContext(SearchContext)
+    const { siteDetails } = useContext(SearchContext)
+    const { projectDetails } = useContext(ProjectContext)
+
+    // use different details based on context
+    const details = location.pathname.includes("/project")
+        ? projectDetails
+        : siteDetails;
 
     mapboxgl.accessToken = MAPBOX_KEY;
 
@@ -26,15 +33,15 @@ const SiteMap3D = () => {
 
     useEffect(() => {
 
-        if (siteDetails && siteDetails.longitude) {
+        if (details && details.longitude) {
             
-            setLat(siteDetails.latitude)
-            setLng(siteDetails.longitude)
+            setLat(details.latitude)
+            setLng(details.longitude)
             setLoading(false)
 
         }
 
-    }, [siteDetails])
+    }, [details])
 
 
     useEffect(() => {
