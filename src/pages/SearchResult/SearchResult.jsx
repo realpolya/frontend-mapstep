@@ -63,24 +63,24 @@ const SearchResult = () => {
     }
 
 
-    const searchObject = { address, siteDetails }
+    // const searchObject = { address, siteDetails }
 
     return (
-        <SearchContext.Provider value={searchObject}>
+        // <SearchContext.Provider value={searchObject}>
             <div className="flex flex-col p-4 h-full">
                 
                 <h1 className="h1-heading">Search Results for: <span className="italic">{address}</span></h1>
                 <div className='flex md:flex-row flex-col'>
                     <div className="div-search-maps w-1/2 mr-4">
-                        <SiteMap2D />
+                        {/* <SiteMap2D /> */}
                         <h6 className="h6-map">site map 2D</h6>
-                        <VicinityMap />
+                        {/* <VicinityMap /> */}
                         <h6 className="h6-map">vicinity map</h6>
-                        <SiteMap3D />
+                        <SiteMap3D siteDetails={siteDetails}/>
                         <h6 className="h6-map">site map 3D</h6>
                     </div>
                     <div className="div-search-info w-1/2 h-full flex flex-col justify-between">
-                        <SearchInfo />
+                        <SearchInfo siteDetails={siteDetails} address={address}/>
                         <div>
                             <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
                             <div className="flex flex-row justify-center">
@@ -92,7 +92,7 @@ const SearchResult = () => {
                 </div>
                 
             </div>
-        </SearchContext.Provider>
+        // </SearchContext.Provider>
   )
 }
 

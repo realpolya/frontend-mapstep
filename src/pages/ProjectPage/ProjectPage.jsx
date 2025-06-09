@@ -21,11 +21,19 @@ const ProjectPage = () => {
 
     const projectDetails = 0 // TODO:
 
-    const projectObject = { projectId }
+    const projectObject = { projectId, projectDetails }
 
     return (
         <ProjectContext.Provider value={projectObject}>
-            <main>ProjectPage</main>
+            <main>
+                <h2>ProjectPage</h2>
+                <div className="project-div">
+                    <div className="project-maps">
+                        {/* <SiteMap3D/> */}
+
+                    </div>
+                </div>
+            </main>
         </ProjectContext.Provider>
     )
 

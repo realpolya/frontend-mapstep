@@ -10,9 +10,9 @@ import { SearchContext } from '../../pages/SearchResult/SearchResult.jsx';
 
 // data.UsableSqFt – Los Angeles County portal
 
-const SearchInfo = () => {
+const SearchInfo = ({ siteDetails, address}) => {
 
-    const { address, siteDetails } = useContext(SearchContext)
+    // const { address, siteDetails } = useContext(SearchContext)
 
     const [loading, setLoading] = useState(true)
     const [pageAddress, setPageAddress] = useState('no address yet')

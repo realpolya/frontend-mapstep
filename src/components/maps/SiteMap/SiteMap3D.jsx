@@ -13,15 +13,15 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 /* --------------------------------Component--------------------------------*/
 
-const SiteMap3D = () => {
+const SiteMap3D = ({ siteDetails }) => {
 
-    const { siteDetails } = useContext(SearchContext)
-    const { projectDetails } = useContext(ProjectContext)
+    // const { siteDetails } = useContext(SearchContext)
+    // const { projectDetails } = useContext(ProjectContext)
 
     // use different details based on context
-    const details = location.pathname.includes("/project")
-        ? projectDetails
-        : siteDetails;
+    // const details = location.pathname.includes("/project")
+    //     ? projectDetails
+    //     : siteDetails;
 
     mapboxgl.accessToken = MAPBOX_KEY;
 
@@ -33,15 +33,15 @@ const SiteMap3D = () => {
 
     useEffect(() => {
 
-        if (details && details.longitude) {
+        if (siteDetails && siteDetails.longitude) {
             
-            setLat(details.latitude)
-            setLng(details.longitude)
+            setLat(siteDetails.latitude)
+            setLng(siteDetails.longitude)
             setLoading(false)
 
         }
 
-    }, [details])
+    }, [siteDetails])
 
 
     useEffect(() => {
