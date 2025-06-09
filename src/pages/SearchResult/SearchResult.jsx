@@ -72,9 +72,9 @@ const SearchResult = () => {
                 <h1 className="h1-heading">Search Results for: <span className="italic">{address}</span></h1>
                 <div className='flex md:flex-row flex-col'>
                     <div className="div-search-maps w-1/2 mr-4">
-                        {/* <SiteMap2D /> */}
+                        <SiteMap2D siteDetails={siteDetails}/>
                         <h6 className="h6-map">site map 2D</h6>
-                        {/* <VicinityMap /> */}
+                        <VicinityMap siteDetails={siteDetails}/>
                         <h6 className="h6-map">vicinity map</h6>
                         <SiteMap3D siteDetails={siteDetails}/>
                         <h6 className="h6-map">site map 3D</h6>

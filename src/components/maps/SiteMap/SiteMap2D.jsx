@@ -13,9 +13,9 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 /* --------------------------------Component--------------------------------*/
 
-const SiteMap2D = () => {
+const SiteMap2D = ({ siteDetails }) => {
 
-    const { address, siteDetails } = useContext(SearchContext)
+    // const { address, siteDetails } = useContext(SearchContext)
 
     mapboxgl.accessToken = MAPBOX_KEY;
 

@@ -12,9 +12,9 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 /* --------------------------------Component--------------------------------*/
 
-const VicinityMap = () => {
+const VicinityMap = ({ siteDetails }) => {
 
-    const { address, siteDetails } = useContext(SearchContext)
+    // const { address, siteDetails } = useContext(SearchContext)
 
     mapboxgl.accessToken = MAPBOX_KEY;
 
