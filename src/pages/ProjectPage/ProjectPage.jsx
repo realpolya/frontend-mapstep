@@ -19,23 +19,33 @@ const ProjectContext = createContext(null);
 
 const ProjectPage = () => {
 
-    const [project, setProject] = useState() // TODO: dummy data?
+    const [siteDetails, setSiteDetails] = useState('') // TODO: dummy data?
+    const [loading, setLoading] = useState(true);
     const { projectId } = useParams();
 
-    const projectDetails = 0 // TODO:
 
     const fetchProject = async (id) => {
 
         const data = await services.getProject(id)
-        setProject(data)
+        // console.log("data received is", data)
+        setSiteDetails(data)
         
     }
 
     useEffect(() => {
 
-        if (projectId) fetchProject(projectId)
+        if (projectId) {
+            fetchProject(projectId)
+            setLoading(false)
+        }
 
     }, [projectId])
+
+    // useEffect(() => {
+
+    //     if (!loading) console.log("site details are", siteDetails.address)
+
+    // }, [loading, siteDetails])
 
     // const projectObject = { projectId, projectDetails }
 
@@ -43,10 +53,15 @@ const ProjectPage = () => {
         // <ProjectContext.Provider value={projectObject}>
             <main>
                 <h2>ProjectPage</h2>
+                { loading ? null : <p>{siteDetails?.address}</p>}
                 <div className="project-div">
                     <div className="project-maps">
-                        {/* <SiteMap3D siteDetails={siteDetails}/> */}
-
+                        <SiteMap2D siteDetails={siteDetails}/>
+                        <SiteMap3D siteDetails={siteDetails}/>
+                        <VicinityMap siteDetails={siteDetails}/>
+                    </div>
+                    <div>
+                        info goes here
                     </div>
                 </div>
             </main>
