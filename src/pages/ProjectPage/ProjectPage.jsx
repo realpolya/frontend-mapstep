@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 
 import "./ProjectPage.css"
 
+import services from "../../services/index.js"
+
 import SiteMap2D from '../../components/maps/SiteMap/SiteMap2D.jsx';
 import SiteMap3D from '../../components/maps/SiteMap/SiteMap3D.jsx';
 import VicinityMap from '../../components/maps/VicinityMap/VicinityMap.jsx';
@@ -21,20 +23,22 @@ const ProjectPage = () => {
 
     const projectDetails = 0 // TODO:
 
-    const projectObject = { projectId, projectDetails }
+    
+
+    // const projectObject = { projectId, projectDetails }
 
     return (
-        <ProjectContext.Provider value={projectObject}>
+        // <ProjectContext.Provider value={projectObject}>
             <main>
                 <h2>ProjectPage</h2>
                 <div className="project-div">
                     <div className="project-maps">
-                        {/* <SiteMap3D/> */}
+                        {/* <SiteMap3D siteDetails={siteDetails}/> */}
 
                     </div>
                 </div>
             </main>
-        </ProjectContext.Provider>
+        // </ProjectContext.Provider>
     )
 
 }

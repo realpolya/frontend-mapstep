@@ -15,8 +15,22 @@ const getMyProjects = async () => {
     }
 }
 
+const getProject = async (id) => {
+
+    try {
+        const response = await api.get(`projects/${id}/`)
+        console.log("the project requested is ", response.data)
+        return response.data
+    } catch (err) {
+        console.log(err.response.data.error);
+        throw err;
+    }
+
+}
+
 /* --------------------------------Exports--------------------------------*/
 
 export {
-    getMyProjects
+    getMyProjects,
+    getProject
 }

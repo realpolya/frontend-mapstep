@@ -19,7 +19,8 @@ const {
 } = auth
 
 const {
-    getMyProjects
+    getMyProjects,
+    getProject
 } = project
 
 const services = {
@@ -31,7 +32,8 @@ const services = {
     verifyToken,
     signOut,
 
-    getMyProjects
+    getMyProjects,
+    getProject
 }
 
 /* --------------------------------Exports--------------------------------*/
@@ -47,5 +49,6 @@ export {
     verifyToken,
     signOut,
 
-    getMyProjects
+    getMyProjects,
+    getProject
 }
