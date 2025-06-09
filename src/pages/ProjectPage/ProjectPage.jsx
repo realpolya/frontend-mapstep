@@ -1,6 +1,6 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { createContext } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import "./ProjectPage.css"
@@ -19,11 +19,23 @@ const ProjectContext = createContext(null);
 
 const ProjectPage = () => {
 
+    const [project, setProject] = useState() // TODO: dummy data?
     const { projectId } = useParams();
 
     const projectDetails = 0 // TODO:
 
-    
+    const fetchProject = async (id) => {
+
+        const data = await services.getProject(id)
+        setProject(data)
+        
+    }
+
+    useEffect(() => {
+
+        if (projectId) fetchProject(projectId)
+
+    }, [projectId])
 
     // const projectObject = { projectId, projectDetails }
 
