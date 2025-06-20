@@ -1,7 +1,11 @@
 #project-div {
-    @apply flex flex-row w-full
+    @apply flex flex-row w-full h-full
 }
 
 .project-maps {
-    @apply w-1/3
+    @apply flex flex-col w-1/3 h-full
 }
+
+/* .h6-project-map {
+    @apply pb-4
+} */

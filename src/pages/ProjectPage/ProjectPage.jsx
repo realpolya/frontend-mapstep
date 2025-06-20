@@ -52,13 +52,16 @@ const ProjectPage = () => {
     return (
         // <ProjectContext.Provider value={projectObject}>
             <main className="w-full">
-                <h2>ProjectPage</h2>
+                <h2>{siteDetails?.title}</h2>
                 { loading ? null : <p>{siteDetails?.address}</p>}
                 <div id="project-div">
                     <div className="project-maps">
                         <SiteMap2D siteDetails={siteDetails}/>
+                        <h6 className="h6-map">site map 2D</h6>
                         <SiteMap3D siteDetails={siteDetails}/>
+                        <h6 className="h6-map">site map 3D</h6>
                         <VicinityMap siteDetails={siteDetails}/>
+                        <h6 className="h6-map">vicinity map</h6>
                     </div>
                     <div>
                         info goes here
