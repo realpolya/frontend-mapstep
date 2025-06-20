@@ -51,10 +51,10 @@ const ProjectPage = () => {
 
     return (
         // <ProjectContext.Provider value={projectObject}>
-            <main>
+            <main className="w-full">
                 <h2>ProjectPage</h2>
                 { loading ? null : <p>{siteDetails?.address}</p>}
-                <div className="project-div">
+                <div id="project-div">
                     <div className="project-maps">
                         <SiteMap2D siteDetails={siteDetails}/>
                         <SiteMap3D siteDetails={siteDetails}/>
@@ -62,6 +62,9 @@ const ProjectPage = () => {
                     </div>
                     <div>
                         info goes here
+                    </div>
+                    <div>
+                        quick actions go here
                     </div>
                 </div>
             </main>

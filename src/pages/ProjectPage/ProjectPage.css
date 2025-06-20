@@ -1,0 +1,7 @@
+#project-div {
+    @apply flex flex-row w-full
+}
+
+.project-maps {
+    @apply w-1/3
+}
