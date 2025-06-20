@@ -1,7 +1,9 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
+
+import services from "../../services/index.js"
 
 import { AppContext } from '../../App.jsx';
 
@@ -9,17 +11,41 @@ import { AppContext } from '../../App.jsx';
 
 const SideBar = () => {
 
-    const { showLogIn, showSignUp } = useContext(AppContext)
+    const navigate = useNavigate()
+    const { showLogIn, showSignUp, user } = useContext(AppContext)
+
+    const logOut = () => {
+
+        services.signOut()
+        navigate("/")
+        window.location.reload()
+        
+    }
+
+    const unauthMenu = (
+        <>
+            <button className="nav-link" onClick={()=> showSignUp(true)}>
+                Sign Up
+            </button>
+            <button className="nav-link" onClick={()=> showLogIn(true)}>
+                Log In
+            </button>
+        </>
+    )
+
+    const authMenu = (
+        <>
+            <button className="nav-link" onClick={()=> logOut()}>
+                Log Out
+            </button>
+        </>
+    )
+
 
     return (
         <nav className="bg-blueColor w-[200px] h-[200px]">
             <ul className='flex flex-col'>
-                <button className="nav-link" onClick={()=> showSignUp(true)}>
-                    Sign Up
-                </button>
-                <button className="nav-link" onClick={()=> showLogIn(true)}>
-                    Log In
-                </button>
+                {user ? authMenu : unauthMenu}
             </ul>
         </nav>
     )
