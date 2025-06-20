@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 // google maps  api
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
@@ -29,6 +29,7 @@ const NavBar = () => {
     const navbarRef = useRef(null)
 
     const navigate = useNavigate()
+    const location = useLocation()
 
     const [inputValue, setInputValue] = useState('')
     const [sideOpen, setSideOpen] = useState(false)
@@ -50,6 +51,12 @@ const NavBar = () => {
         }
 
     }, [sideOpen])
+
+    useEffect(() => {
+
+        if (sideOpen) setSideOpen(false)
+
+    }, [location.pathname])
 
     // google maps autocomplete handle change
     const handlePlaceChange = () => {

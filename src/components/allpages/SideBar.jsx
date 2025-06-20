@@ -35,6 +35,9 @@ const SideBar = () => {
 
     const authMenu = (
         <>
+            <button className="nav-link" onClick={()=> navigate("/dashboard")}>
+                Dashboard
+            </button>
             <button className="nav-link" onClick={()=> logOut()}>
                 Log Out
             </button>
