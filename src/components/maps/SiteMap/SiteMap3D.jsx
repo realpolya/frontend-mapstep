@@ -3,7 +3,7 @@
 import { useContext, useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { SearchContext } from '../../../pages/SearchResult/SearchResult.jsx';
+// import { SearchContext } from '../../../pages/SearchResult/SearchResult.jsx';
 
 import './SiteMap.css'
 import { MAPBOX_KEY, mapboxStyle } from '../variables.js';

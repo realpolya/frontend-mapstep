@@ -7,6 +7,8 @@ import "./ProjectPage.css"
 
 import services from "../../services/index.js"
 
+import LotInfo from "../../components/Project/LotInfo.jsx";
+import ProjectActions from "../../components/Project/ProjectActions.jsx";
 import SiteMap2D from '../../components/maps/SiteMap/SiteMap2D.jsx';
 import SiteMap3D from '../../components/maps/SiteMap/SiteMap3D.jsx';
 import VicinityMap from '../../components/maps/VicinityMap/VicinityMap.jsx';
@@ -47,10 +49,10 @@ const ProjectPage = () => {
 
     // }, [loading, siteDetails])
 
-    // const projectObject = { projectId, projectDetails }
+    const projectObject = { siteDetails }
 
     return (
-        // <ProjectContext.Provider value={projectObject}>
+        <ProjectContext.Provider value={projectObject}>
             <main className="w-full">
                 <h2>{siteDetails?.title}</h2>
                 { loading ? null : <p>{siteDetails?.address}</p>}
@@ -63,15 +65,11 @@ const ProjectPage = () => {
                         <VicinityMap siteDetails={siteDetails}/>
                         <h6 className="h6-map">vicinity map</h6>
                     </div>
-                    <div>
-                        info goes here
-                    </div>
-                    <div>
-                        quick actions go here
-                    </div>
+                    <LotInfo/>
+                    <ProjectActions/>
                 </div>
             </main>
-        // </ProjectContext.Provider>
+        </ProjectContext.Provider>
     )
 
 }

@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useState, useRef } from 'react';
 
-import { SearchContext } from '../../../pages/SearchResult/SearchResult.jsx';
+// import { SearchContext } from '../../../pages/SearchResult/SearchResult.jsx';
 
 import './VicinityMap.css'
 import { MAPBOX_KEY, mapboxStyle } from '../variables.js';
