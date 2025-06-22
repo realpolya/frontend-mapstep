@@ -1,0 +1,15 @@
+#div-site-map-2D {
+    @apply w-full h-48 flex flex-col justify-start items-center
+}
+
+#site-2d-map-ref {
+    @apply w-[100%] h-48 rounded-xl
+}
+
+#div-site-map-3D {
+    @apply w-full h-48 flex flex-col justify-start items-center
+}
+
+#site-3d-map-ref {
+    @apply w-[100%] h-48 rounded-xl
+}

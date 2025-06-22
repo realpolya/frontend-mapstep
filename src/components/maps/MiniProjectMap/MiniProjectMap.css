@@ -1,0 +1,8 @@
+#div-mini-project-map {
+    @apply w-full h-36 flex flex-col justify-start items-center pr-0 pl-0
+}
+
+
+#mini-project-map-ref {
+    @apply w-[100%] h-36 rounded-xl
+}

@@ -1,0 +1,9 @@
+#div-vicinity-map {
+    @apply w-full h-48 flex flex-col justify-start items-center
+}
+
+#vicinity-map-ref {
+    @apply h-48 rounded-xl w-[100%]
+
+    /* w-[200px] */
+}

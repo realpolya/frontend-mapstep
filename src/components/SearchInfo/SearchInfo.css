@@ -1,0 +1,7 @@
+.div-search-li {
+    @apply p-2
+}
+
+.div-search-span {
+    @apply italic text-blueColor
+}

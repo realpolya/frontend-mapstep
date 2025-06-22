@@ -1,0 +1,8 @@
+.h2-heading {
+    @apply text-2xl font-bold text-textColor mb-4
+}
+
+.close-button {
+    @apply p-0 ml-[340px] mb-0 mt-0 w-auto text-right 
+    transition-transform duration-200 hover:scale-150
+}
