@@ -7,7 +7,7 @@
 }
 
 .proj-action-link {
-    @apply bg-blueLight p-4 text-center text-sm rounded-xl
+    @apply p-4 text-center text-sm rounded-xl
 }
 
 .proj-action-h5 {
@@ -15,5 +15,5 @@
 }
 
 .proj-link-a {
-    @apply p-4 bg-lightGreyColor rounded-xl
+    @apply p-4 bg-lightGreyColor rounded-xl text-sm
 }
