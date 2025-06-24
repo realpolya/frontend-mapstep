@@ -27,45 +27,47 @@ const LotInfo = () => {
             <h5><span className="font-bold">Address:</span> {siteDetails?.address}</h5>
 
             <table className="mt-4 w-full">
-                <tr>
-                    <th className="proj-th">state</th>
-                    <td className="proj-td">{siteDetails?.state}</td>
-                </tr>
-                <tr>
-                    <th className="proj-th">city</th>
-                    <td className="proj-td">{siteDetails?.city}</td>
-                </tr>
-                <tr>
-                    <th className="proj-th">jurisdiction</th>
-                    <td className="proj-td">{siteDetails?.jurisdiction_nested?.name}</td>
-                </tr>
-                <tr>
-                    <th className="proj-th">year built</th>
-                    <td className="proj-td">{siteDetails?.year_built}</td>
-                </tr>
-                <tr>
-                    <th className="proj-th">lot width (ft)</th>
-                    <td className="proj-td">{siteDetails?.lot_width}</td>
-                </tr>
-                <tr>
-                    <th className="proj-th">lot depth (ft)</th>
-                    <td className="proj-td">{siteDetails?.lot_depth}</td>
-                </tr>
-                <tr>
-                    <th className="proj-th">land area (sq. ft)</th>
-                    <td className="proj-td">{siteDetails?.land_area}</td>
-                </tr>
-                <tr>
-                    <th className="proj-th">building area (sq. ft)</th>
-                    <td className="proj-td">{siteDetails?.bldg_area}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th className="proj-th">state</th>
+                        <td className="proj-td">{siteDetails?.state}</td>
+                    </tr>
+                    <tr>
+                        <th className="proj-th">city</th>
+                        <td className="proj-td">{siteDetails?.city}</td>
+                    </tr>
+                    <tr>
+                        <th className="proj-th">jurisdiction</th>
+                        <td className="proj-td">{siteDetails?.jurisdiction_nested?.name}</td>
+                    </tr>
+                    <tr>
+                        <th className="proj-th">year built</th>
+                        <td className="proj-td">{siteDetails?.year_built}</td>
+                    </tr>
+                    <tr>
+                        <th className="proj-th">lot width (ft)</th>
+                        <td className="proj-td">{siteDetails?.lot_width}</td>
+                    </tr>
+                    <tr>
+                        <th className="proj-th">lot depth (ft)</th>
+                        <td className="proj-td">{siteDetails?.lot_depth}</td>
+                    </tr>
+                    <tr>
+                        <th className="proj-th">land area (sq. ft)</th>
+                        <td className="proj-td">{siteDetails?.land_area}</td>
+                    </tr>
+                    <tr>
+                        <th className="proj-th">building area (sq. ft)</th>
+                        <td className="proj-td">{siteDetails?.bldg_area}</td>
+                    </tr>
+                </tbody>
             </table>
 
             <h6 className="pt-4 font-bold">Zonings:</h6>
             <ul className="list-disc pl-5">
                 {zonings.map(zoning => {
                         return (
-                            <li>{zoning.name}</li>
+                            <li key={zoning.id}>{zoning.name}</li>
                         )
                     })
                 }

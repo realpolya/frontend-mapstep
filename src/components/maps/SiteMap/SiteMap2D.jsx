@@ -32,6 +32,7 @@ const SiteMap2D = ({ siteDetails }) => {
             setLat(siteDetails.latitude)
             setLng(siteDetails.longitude)
             setLoading(false)
+            console.log("geometry", siteDetails?.info)
 
         }
 
