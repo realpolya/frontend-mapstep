@@ -54,8 +54,7 @@ const ProjectPage = () => {
     return (
         <ProjectContext.Provider value={projectObject}>
             <main className="w-full">
-                <h2>{siteDetails?.title}</h2>
-                { loading ? null : <p>{siteDetails?.address}</p>}
+                <h2 className="pl-4 mb-4 text-2xl text-redColor">{siteDetails?.title}</h2>
                 <div id="project-div">
                     <div className="project-maps">
                         <SiteMap2D siteDetails={siteDetails}/>
