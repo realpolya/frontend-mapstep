@@ -1,0 +1,7 @@
+.div-project-span {
+    @apply text-redColor font-normal
+}
+
+.proj-td {
+    @apply text-center
+}
