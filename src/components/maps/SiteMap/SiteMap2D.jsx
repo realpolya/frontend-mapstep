@@ -22,6 +22,7 @@ const SiteMap2D = ({ siteDetails }) => {
     const [loading, setLoading] = useState(true)
     const [lat, setLat] = useState(40.7128)
     const [lng, setLng] = useState(-74.0060)
+    const [propertyLine, setPropertyLine] = useState()
 
     const site2DMapRef = useRef(null)
 
@@ -32,7 +33,13 @@ const SiteMap2D = ({ siteDetails }) => {
             setLat(siteDetails.latitude)
             setLng(siteDetails.longitude)
             setLoading(false)
-            console.log("geometry", siteDetails?.info)
+
+        }
+
+        if (siteDetails.info) {
+
+            setPropertyLine(siteDetails.info.property_line)
+            console.log("geometry", siteDetails?.info?.property_line)
 
         }
 
@@ -66,6 +73,30 @@ const SiteMap2D = ({ siteDetails }) => {
         new mapboxgl.Marker(el, { offset: [0, 0] })
         .setLngLat([lng, lat])
         .addTo(map);
+        
+        map.on('load', () => {
+
+            if (propertyLine) {
+                console.log("property line is ", propertyLine)
+
+                map.addSource('property-line', {
+                    type: 'geojson',
+                    data: propertyLine
+                })
+
+                map.addLayer({
+                    id: 'property-line-layer',
+                    type: 'fill',
+                    source: 'property-line',
+                    paint: {
+                        'fill-color': '#088',
+                        'fill-opacity': 0.5
+                    }
+                });
+            }
+
+        });
+
 
         return () => map.remove();
 
