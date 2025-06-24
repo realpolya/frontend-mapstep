@@ -4,7 +4,7 @@ import { useState, useContext, useEffect } from 'react';
 
 import "./Project.css";
 
-import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx"
+import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx";
 
 /* --------------------------------Component--------------------------------*/
 
@@ -23,7 +23,7 @@ const LotInfo = () => {
     }, [siteDetails])
 
     return (
-        <div className="mr-4 ml-4 bg-greyColor p-4 text-textAlterColor rounded-xl">
+        <div className="mr-4 ml-4 bg-greyColor p-4 text-textAlterColor rounded-xl h-[70%]">
             <h5><span className="font-bold">Address:</span> {siteDetails?.address}</h5>
 
             <table className="mt-4 w-full">

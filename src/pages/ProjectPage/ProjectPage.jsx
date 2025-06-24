@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { createContext, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import "./ProjectPage.css"
 
@@ -54,7 +54,10 @@ const ProjectPage = () => {
     return (
         <ProjectContext.Provider value={projectObject}>
             <main className="w-full">
-                <h2 className="pl-4 mb-4 text-2xl text-redColor">{siteDetails?.title}</h2>
+                <div className="flex flex-row w-full justify-between items-center">
+                    <h2 className="pl-4 mb-4 text-2xl text-redColor">{siteDetails?.title}</h2>
+                    <Link to="/dashboard" className="mr-4 italic">back to dashboard</Link>
+                </div>
                 <div id="project-div">
                     <div className="project-maps">
                         <SiteMap2D siteDetails={siteDetails}/>

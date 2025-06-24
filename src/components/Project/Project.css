@@ -5,3 +5,15 @@
 .proj-td {
     @apply text-center
 }
+
+.proj-action-link {
+    @apply bg-blueLight p-4 text-center text-sm rounded-xl
+}
+
+.proj-action-h5 {
+    @apply mb-2 font-medium
+}
+
+.proj-link-a {
+    @apply p-4 bg-lightGreyColor rounded-xl
+}
