@@ -38,8 +38,9 @@ const SiteMap2D = ({ siteDetails }) => {
 
         if (siteDetails.info) {
 
-            setPropertyLine(siteDetails.info.property_line)
-            console.log("geometry", siteDetails?.info?.property_line)
+            setPropertyLine(siteDetails.info?.property_line_geojson)
+            console.log("1 geometry", siteDetails?.info?.property_line)
+            console.log("2 geometry", siteDetails?.info?.property_line_geojson)
 
         }
 
