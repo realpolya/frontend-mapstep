@@ -96,10 +96,12 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
                     }
                 });
 
+                console.log("rendered")
+
                 // fit all of the rings inside of bounds
-                const bounds = new mapboxgl.LngLatBounds();
-                lotGeom["geometry"]["coordinates"].forEach(coord => bounds.extend(coord));
-                map.fitBounds(bounds, { padding: 20 });
+                // const bounds = new mapboxgl.LngLatBounds();
+                // lotGeom["geometry"]["coordinates"].forEach(coord => bounds.extend(coord));
+                // map.fitBounds(bounds, { padding: 20 });
             }
 
         })
