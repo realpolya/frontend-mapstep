@@ -75,7 +75,34 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
         .setLngLat([lng, lat])
         .addTo(map);
 
+        map.on('load', () => {
+            
+            if (lotGeom) {
+                console.log("lot geometry is here", lotGeom)
 
+                map.addSource('parcel', {
+                    type: 'geojson',
+                    data: lotGeom
+                });
+
+                map.addLayer({
+                    id: 'parcel-fill',
+                    type: 'fill',
+                    source: 'parcel',
+                    layout: {},
+                    paint: {
+                        'fill-color': '#088',
+                        'fill-opacity': 0.5
+                    }
+                });
+
+                // fit all of the rings inside of bounds
+                const bounds = new mapboxgl.LngLatBounds();
+                lotGeom["geometry"]["coordinates"].forEach(coord => bounds.extend(coord));
+                map.fitBounds(bounds, { padding: 20 });
+            }
+
+        })
         
         map.on('load', () => {
 
