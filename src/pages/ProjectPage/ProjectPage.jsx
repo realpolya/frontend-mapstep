@@ -24,6 +24,7 @@ const ProjectPage = () => {
     const [siteDetails, setSiteDetails] = useState('') // TODO: dummy data?
     const [loading, setLoading] = useState(true);
     const { projectId } = useParams();
+    const [lotGeom, setLotGeom] = useState()
 
 
     const fetchProject = async (id) => {
@@ -60,7 +61,7 @@ const ProjectPage = () => {
                 </div>
                 <div id="project-div">
                     <div className="project-maps">
-                        <SiteMap2D siteDetails={siteDetails}/>
+                        <SiteMap2D siteDetails={siteDetails} lotGeom={lotGeom}/>
                         <h6 className="h6-map">site map 2D</h6>
                         <SiteMap3D siteDetails={siteDetails}/>
                         <h6 className="h6-map">site map 3D</h6>

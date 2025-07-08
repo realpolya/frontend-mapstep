@@ -13,7 +13,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 /* --------------------------------Component--------------------------------*/
 
-const SiteMap2D = ({ siteDetails }) => {
+const SiteMap2D = ({ siteDetails, lotGeom }) => {
 
     // const { address, siteDetails } = useContext(SearchContext)
 
@@ -74,6 +74,8 @@ const SiteMap2D = ({ siteDetails }) => {
         new mapboxgl.Marker(el, { offset: [0, 0] })
         .setLngLat([lng, lat])
         .addTo(map);
+
+
         
         map.on('load', () => {
 
