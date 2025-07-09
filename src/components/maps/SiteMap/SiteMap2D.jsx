@@ -11,6 +11,8 @@ import { MAPBOX_KEY, mapboxStyle } from '../variables.js';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+import rewind from '@turf/rewind'; // rewind ring orientation for geometries
+
 /* --------------------------------Component--------------------------------*/
 
 const SiteMap2D = ({ siteDetails, lotGeom }) => {
@@ -63,7 +65,7 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
             zoom: 16
         });
 
-        // add marker
+        // add marker for the property
         const el = document.createElement('div')
 
         el.style.backgroundImage = `url('/reshot-location.svg')`; // Set the PNG image
@@ -75,14 +77,16 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
         .setLngLat([lng, lat])
         .addTo(map);
 
+        // property line from assessor's portal
         map.on('load', () => {
             
             if (lotGeom) {
                 console.log("lot geometry is here", lotGeom)
+                const fixedGeom = rewind(lotGeom, { reverse: true });
 
                 map.addSource('parcel', {
                     type: 'geojson',
-                    data: lotGeom
+                    data: fixedGeom
                 });
 
                 map.addLayer({
@@ -99,13 +103,15 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
                 console.log("rendered")
 
                 // fit all of the rings inside of bounds
-                // const bounds = new mapboxgl.LngLatBounds();
-                // lotGeom["geometry"]["coordinates"].forEach(coord => bounds.extend(coord));
-                // map.fitBounds(bounds, { padding: 20 });
+                console.log("site details are here in map:", siteDetails)
+                const bounds = new mapboxgl.LngLatBounds();
+                fixedGeom["geometry"]["coordinates"].forEach(coord => bounds.extend(coord));
+                map.fitBounds(bounds, { padding: 20 });
             }
 
         })
         
+        // custom rectangular property line
         map.on('load', () => {
 
             if (propertyLine) {
