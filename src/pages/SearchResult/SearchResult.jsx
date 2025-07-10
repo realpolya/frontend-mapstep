@@ -3,12 +3,12 @@
 import { useEffect, useState, createContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import "./SearchResult.css"
+import "./SearchResult.css";
 
-import SearchInfo from "../../components/SearchInfo/SearchInfo.jsx"
-import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx"
-import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx"
-import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx"
+import SearchInfo from "../../components/SearchInfo/SearchInfo.jsx";
+import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx";
+import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx";
+import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx";
 
 // back end
 import services from '../../services/index.js';
@@ -33,6 +33,7 @@ const SearchResult = () => {
 
     const [address, setAddress] = useState('')
     const [siteDetails, setSiteDetails] = useState(dummyData)
+    const [lotGeom, setLotGeom] = useState()
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -53,12 +54,22 @@ const SearchResult = () => {
 
     }, [address])
 
+    useEffect(() => {
+
+        if (siteDetails?.data?.parcel_geometry) {
+            setLotGeom(siteDetails?.data?.parcel_geometry)
+            console.log(siteDetails?.data?.parcel_geometry)
+        }
+
+    }, [siteDetails])
+
 
     const fetchData = async (address) => {
 
         const newData = await services.getAddress(address)
         // console.log("new data is ", newData)
         setSiteDetails(newData)
+        console.log("site details become this...", newData)
 
     }
 
@@ -72,7 +83,7 @@ const SearchResult = () => {
                 <h1 className="h1-heading">Search Results for: <span className="italic">{address}</span></h1>
                 <div className='flex md:flex-row flex-col'>
                     <div className="div-search-maps w-1/2 mr-4">
-                        <SiteMap2D siteDetails={siteDetails}/>
+                        <SiteMap2D siteDetails={siteDetails} lotGeom={lotGeom}/>
                         <h6 className="h6-map">site map 2D</h6>
                         <VicinityMap siteDetails={siteDetails}/>
                         <h6 className="h6-map">vicinity map</h6>

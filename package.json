@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.6",
+    "@turf/rewind": "^7.2.0",
     "axios": "^1.8.4",
     "mapbox-gl": "^3.10.0",
     "react": "^19.0.0",
