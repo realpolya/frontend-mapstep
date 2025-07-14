@@ -46,11 +46,11 @@ const SideBar = () => {
 
 
     return (
-        <nav className="bg-blueColor w-[200px] h-[200px]">
+        <div className="bg-blueColor w-[200px] h-[60px] rounded-xl flex flex-col justify-center items-center">
             <ul className='flex flex-col'>
                 {user ? authMenu : unauthMenu}
             </ul>
-        </nav>
+        </div>
     )
 }
 

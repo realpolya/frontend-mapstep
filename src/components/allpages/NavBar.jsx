@@ -89,33 +89,46 @@ const NavBar = () => {
             libraries={libraries}
         >
 
-            <nav id="navbar-tw">
-                <Link to="/" className="text-blueColor pl-4 text-2xl">mapStep</Link>
-                <div className="flex flex-row w-1/2">
-                    <p className="pr-2 w-1/4">lot address</p>
-                    <Autocomplete 
-                        className="nav-searchbar w-3/4"
-                        onLoad={(autocomplete) => (autocompleteRef.current = autocomplete)}
-                        onPlaceChanged={handlePlaceChange}
-                    >
-                        <input
-                            className="rounded-xl border-2 border-solid pl-2 w-full"
-                            type="text"
-                            placeholder=''
-                            value={inputValue}
-                            onChange={e => setInputValue(e.target.value)}
-                        ></input>
-                    </Autocomplete>
+            <nav className="flex flex-col">
+
+                <div className="navbar-div">
+                    
+                    <Link to="/" className="text-blueColor pl-4 text-2xl">mapStep</Link>
+                    <div className="flex flex-row w-1/2">
+                        <p className="pr-2 w-1/4">lot address</p>
+                        <Autocomplete
+                            className="nav-searchbar w-3/4"
+                            onLoad={(autocomplete) => (autocompleteRef.current = autocomplete)}
+                            onPlaceChanged={handlePlaceChange}
+                        >
+                            <input
+                                className="rounded-xl border-2 border-solid pl-2 w-full"
+                                type="text"
+                                placeholder=''
+                                value={inputValue}
+                                onChange={e => setInputValue(e.target.value)}
+                            ></input>
+                        </Autocomplete>
+                    </div>
+                    <div className="side-menu-div h-[50%] pr-4 flex flex-col">
+                    
+                        <button className="bg-transparent border-none h-[100%]" onClick={() => setSideOpen(!sideOpen)}>
+                            <img id="nav-menu-img" className="h-[100%]" src="/reshot_menu.svg"/>
+                        </button>
+
+                    </div>
+
                 </div>
 
-                <div className="side-menu-div h-[50%] pr-4 flex flex-col">
-                
-                    <button className="bg-transparent border-none h-[100%]" onClick={() => setSideOpen(!sideOpen)}>
-                        <img id="nav-menu-img" className="h-[100%]" src="/reshot_menu.svg"/>
-                    </button>
+                {sideOpen ? (
+                    
+                    <nav ref={navbarRef} className="absolute top-20 md:right-2 right-2 w-1/8 translate-y-0">
 
-                    {sideOpen ? <SideBar/> : null}
-                </div>
+                        <SideBar/>
+
+                    </nav>
+
+                ) : null}
 
 
             </nav>
