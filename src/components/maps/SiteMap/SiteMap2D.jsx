@@ -13,6 +13,15 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import rewind from '@turf/rewind'; // rewind ring orientation for geometries
 
+// import colors from tailwindcss
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../../../../tailwind.config.js'
+
+/* --------------------------------Variables--------------------------------*/
+
+const fullConfig = resolveConfig(tailwindConfig)
+const mapRedColor = fullConfig.theme.colors.redColor
+
 /* --------------------------------Component--------------------------------*/
 
 const SiteMap2D = ({ siteDetails, lotGeom }) => {
@@ -95,7 +104,7 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
                     source: 'parcel',
                     layout: {},
                     paint: {
-                        'fill-color': '#088',
+                        'fill-color': mapRedColor,
                         'fill-opacity': 0.5
                     }
                 });
@@ -105,7 +114,10 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
                 // fit all of the rings inside of bounds
                 console.log("site details are here in map:", siteDetails)
                 const bounds = new mapboxgl.LngLatBounds();
-                fixedGeom["geometry"]["coordinates"].forEach(coord => bounds.extend(coord));
+                fixedGeom["geometry"]["coordinates"].forEach(ring => {
+                    ring.forEach(coord => bounds.extend(coord));
+                });
+                
                 map.fitBounds(bounds, { padding: 20 });
             }
 
