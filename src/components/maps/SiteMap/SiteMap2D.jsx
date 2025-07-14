@@ -38,9 +38,9 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
 
         }
 
-        if (siteDetails.info) {
+        if (siteDetails && siteDetails.info) {
 
-            setPropertyLine(siteDetails.info?.property_line_geojson)
+            setPropertyLine(siteDetails?.info?.property_line_geojson)
             console.log("1 geometry", siteDetails?.info?.property_line)
             console.log("2 geometry", siteDetails?.info?.property_line_geojson)
 
