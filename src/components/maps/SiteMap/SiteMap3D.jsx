@@ -13,7 +13,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 /* --------------------------------Component--------------------------------*/
 
-const SiteMap3D = ({ siteDetails }) => {
+const SiteMap3D = ({ siteDetails, lotGeom }) => {
 
     // const { siteDetails } = useContext(SearchContext)
     // const { projectDetails } = useContext(ProjectContext)
@@ -37,11 +37,13 @@ const SiteMap3D = ({ siteDetails }) => {
             
             setLat(siteDetails.latitude)
             setLng(siteDetails.longitude)
-            setLoading(false)
+            // setLoading(false)
 
         }
 
-    }, [siteDetails])
+        if (lotGeom) setLoading(false)
+
+    }, [siteDetails, lotGeom])
 
 
     useEffect(() => {
@@ -124,7 +126,7 @@ const SiteMap3D = ({ siteDetails }) => {
     
         return () => map.remove();
 
-    }, [site3DMapRef, MAPBOX_KEY, lng, lat])
+    }, [site3DMapRef, MAPBOX_KEY, lng, lat, loading])
 
     return (
 

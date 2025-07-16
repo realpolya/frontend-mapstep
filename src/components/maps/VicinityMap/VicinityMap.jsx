@@ -12,7 +12,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 /* --------------------------------Component--------------------------------*/
 
-const VicinityMap = ({ siteDetails }) => {
+const VicinityMap = ({ siteDetails, lotGeom }) => {
 
     // const { address, siteDetails } = useContext(SearchContext)
 
@@ -30,11 +30,13 @@ const VicinityMap = ({ siteDetails }) => {
             
             setLat(siteDetails.latitude)
             setLng(siteDetails.longitude)
-            setLoading(false)
+            // setLoading(false)
 
         }
 
-    }, [siteDetails])
+        if (lotGeom) setLoading(false)
+
+    }, [siteDetails, lotGeom])
 
 
     useEffect(() => {
@@ -47,6 +49,7 @@ const VicinityMap = ({ siteDetails }) => {
         // setLoading(false)
         if (loading) return;
 
+        console.log("past loading on vicinity map")
         
         const map = new mapboxgl.Map({
             container: vicinityMapRef.current,
@@ -57,7 +60,7 @@ const VicinityMap = ({ siteDetails }) => {
 
         return () => map.remove();
 
-    }, [vicinityMapRef, MAPBOX_KEY, lng, lat])
+    }, [vicinityMapRef, MAPBOX_KEY, lng, lat, loading])
 
     return (
         <div className="div-map" id='div-vicinity-map'>
