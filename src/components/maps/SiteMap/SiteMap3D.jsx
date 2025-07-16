@@ -13,7 +13,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 /* --------------------------------Component--------------------------------*/
 
-const SiteMap3D = ({ siteDetails }) => {
+const SiteMap3D = ({ siteDetails, lotGeom }) => {
 
     // const { siteDetails } = useContext(SearchContext)
     // const { projectDetails } = useContext(ProjectContext)
@@ -37,11 +37,13 @@ const SiteMap3D = ({ siteDetails }) => {
             
             setLat(siteDetails.latitude)
             setLng(siteDetails.longitude)
-            setLoading(false)
+            // setLoading(false)
 
         }
 
-    }, [siteDetails])
+        if (lotGeom) setLoading(false)
+
+    }, [siteDetails, lotGeom])
 
 
     useEffect(() => {
@@ -51,7 +53,8 @@ const SiteMap3D = ({ siteDetails }) => {
             return;
         }
 
-        setLoading(false)
+        // setLoading(false)
+        if (loading) return;
         
         // initialize mapbox map
         const map = new mapboxgl.Map({
@@ -123,12 +126,12 @@ const SiteMap3D = ({ siteDetails }) => {
     
         return () => map.remove();
 
-    }, [site3DMapRef, MAPBOX_KEY, lng, lat])
+    }, [site3DMapRef, MAPBOX_KEY, lng, lat, loading])
 
     return (
 
         <div className="div-map" id='div-site-map-3D'>
-            { loading && (<p>No map yet</p>)}
+            {/* { loading && (<p>No map yet</p>)} */}
 
             <div ref={site3DMapRef} id='site-3d-map-ref'
             ></div>

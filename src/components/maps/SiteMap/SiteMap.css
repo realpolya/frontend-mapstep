@@ -2,7 +2,7 @@
     @apply w-full h-48 flex flex-col justify-start items-center
 }
 
-#site-2d-map-ref {
+#site-2d-map-ref, .p-mistake {
     @apply w-[100%] h-48 rounded-xl
 }
 

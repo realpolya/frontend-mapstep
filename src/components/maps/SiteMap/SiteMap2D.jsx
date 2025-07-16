@@ -13,6 +13,15 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import rewind from '@turf/rewind'; // rewind ring orientation for geometries
 
+// import colors from tailwindcss
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../../../../tailwind.config.js'
+
+/* --------------------------------Variables--------------------------------*/
+
+const fullConfig = resolveConfig(tailwindConfig)
+const mapRedColor = fullConfig.theme.colors.redColor
+
 /* --------------------------------Component--------------------------------*/
 
 const SiteMap2D = ({ siteDetails, lotGeom }) => {
@@ -34,19 +43,21 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
             
             setLat(siteDetails.latitude)
             setLng(siteDetails.longitude)
-            setLoading(false)
 
         }
 
-        if (siteDetails.info) {
+        // if (siteDetails && siteDetails.info) {
 
-            setPropertyLine(siteDetails.info?.property_line_geojson)
-            console.log("1 geometry", siteDetails?.info?.property_line)
-            console.log("2 geometry", siteDetails?.info?.property_line_geojson)
+        //     setPropertyLine(siteDetails?.info?.property_line_geojson)
+        //     console.log("1 geometry", siteDetails?.info?.property_line)
+        //     console.log("2 geometry", siteDetails?.info?.property_line_geojson)
+        //     setLoading(false)
 
-        }
+        // }
 
-    }, [siteDetails])
+        if (lotGeom) setLoading(false)
+
+    }, [siteDetails, siteDetails?.info, lotGeom])
 
 
     useEffect(() => {
@@ -56,7 +67,7 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
             return;
         }
 
-        setLoading(false)
+        if (loading) return;
         
         const map = new mapboxgl.Map({
             container: site2DMapRef.current,
@@ -95,7 +106,7 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
                     source: 'parcel',
                     layout: {},
                     paint: {
-                        'fill-color': '#088',
+                        'fill-color': mapRedColor,
                         'fill-opacity': 0.5
                     }
                 });
@@ -105,44 +116,47 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
                 // fit all of the rings inside of bounds
                 console.log("site details are here in map:", siteDetails)
                 const bounds = new mapboxgl.LngLatBounds();
-                fixedGeom["geometry"]["coordinates"].forEach(coord => bounds.extend(coord));
+                fixedGeom["geometry"]["coordinates"].forEach(ring => {
+                    ring.forEach(coord => bounds.extend(coord));
+                });
+                
                 map.fitBounds(bounds, { padding: 20 });
             }
 
         })
         
-        // custom rectangular property line
-        map.on('load', () => {
+        // // custom rectangular property line
+        // map.on('load', () => {
 
-            if (propertyLine) {
-                console.log("property line is ", propertyLine)
+        //     if (propertyLine) {
+        //         console.log("property line is ", propertyLine)
 
-                map.addSource('property-line', {
-                    type: 'geojson',
-                    data: propertyLine
-                })
+        //         map.addSource('property-line', {
+        //             type: 'geojson',
+        //             data: propertyLine
+        //         })
 
-                map.addLayer({
-                    id: 'property-line-layer',
-                    type: 'fill',
-                    source: 'property-line',
-                    paint: {
-                        'fill-color': '#088',
-                        'fill-opacity': 0.5
-                    }
-                });
-            }
+        //         map.addLayer({
+        //             id: 'property-line-layer',
+        //             type: 'fill',
+        //             source: 'property-line',
+        //             paint: {
+        //                 'fill-color': '#088',
+        //                 'fill-opacity': 0.5
+        //             }
+        //         });
+        //     }
 
-        });
+        // });
 
 
         return () => map.remove();
 
-    }, [site2DMapRef, MAPBOX_KEY, lng, lat])
+    }, [site2DMapRef, MAPBOX_KEY, lng, lat, loading])
 
     return (
         <div className="div-map" id='div-site-map-2D'>
-            { loading && (<p>No map yet</p>)}
+            { loading && (<p className="bg-blueLight p-12 text-center p-mistake italic">Map loading...</p>)}
 
             <div ref={site2DMapRef} id='site-2d-map-ref'
             ></div>

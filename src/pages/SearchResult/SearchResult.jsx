@@ -33,7 +33,7 @@ const SearchResult = () => {
 
     const [address, setAddress] = useState('')
     const [siteDetails, setSiteDetails] = useState(dummyData)
-    const [lotGeom, setLotGeom] = useState()
+    const [lotGeom, setLotGeom] = useState() // undefined
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -82,15 +82,17 @@ const SearchResult = () => {
                 
                 <h1 className="h1-heading">Search Results for: <span className="italic">{address}</span></h1>
                 <div className='flex md:flex-row flex-col'>
-                    <div className="div-search-maps w-1/2 mr-4">
+
+                    {/* rendering of maps below is DEPENDENT on fetching lotGeom */}
+                    <div className="div-search-maps w-full md:w-1/2 mr-4">
                         <SiteMap2D siteDetails={siteDetails} lotGeom={lotGeom}/>
-                        <h6 className="h6-map">site map 2D</h6>
-                        <VicinityMap siteDetails={siteDetails}/>
-                        <h6 className="h6-map">vicinity map</h6>
-                        <SiteMap3D siteDetails={siteDetails}/>
-                        <h6 className="h6-map">site map 3D</h6>
+                        {lotGeom && <h6 className="h6-map">site map 2D</h6>}
+                        <VicinityMap siteDetails={siteDetails} lotGeom={lotGeom}/>
+                        {lotGeom && <h6 className="h6-map">vicinity map</h6>}
+                        <SiteMap3D siteDetails={siteDetails} lotGeom={lotGeom}/>
+                        {lotGeom && <h6 className="h6-map">site map 3D</h6>}
                     </div>
-                    <div className="div-search-info w-1/2 h-full flex flex-col justify-between">
+                    <div className="div-search-info w-full md:w-1/2 h-full flex flex-col justify-between">
                         <SearchInfo siteDetails={siteDetails} address={address}/>
                         <div>
                             <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
