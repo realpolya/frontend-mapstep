@@ -44,7 +44,9 @@ const VicinityMap = ({ siteDetails }) => {
             return;
         }
 
-        setLoading(false)
+        // setLoading(false)
+        if (loading) return;
+
         
         const map = new mapboxgl.Map({
             container: vicinityMapRef.current,
@@ -59,7 +61,7 @@ const VicinityMap = ({ siteDetails }) => {
 
     return (
         <div className="div-map" id='div-vicinity-map'>
-            { loading && (<p>No map yet</p>)}
+            {/* { loading && (<p>No map yet</p>)} */}
 
             <div ref={vicinityMapRef} id='vicinity-map-ref'
             ></div>

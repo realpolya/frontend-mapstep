@@ -51,7 +51,8 @@ const SiteMap3D = ({ siteDetails }) => {
             return;
         }
 
-        setLoading(false)
+        // setLoading(false)
+        if (loading) return;
         
         // initialize mapbox map
         const map = new mapboxgl.Map({
@@ -128,7 +129,7 @@ const SiteMap3D = ({ siteDetails }) => {
     return (
 
         <div className="div-map" id='div-site-map-3D'>
-            { loading && (<p>No map yet</p>)}
+            {/* { loading && (<p>No map yet</p>)} */}
 
             <div ref={site3DMapRef} id='site-3d-map-ref'
             ></div>
