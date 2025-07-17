@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 
 import "./NewForm.css"
 
+import services from "../../services/index.js"
+
 /* --------------------------------Variables--------------------------------*/
 
 const initial = {
@@ -22,7 +24,11 @@ const NewForm = () => {
 
     const [formData, setFormData] = useState(initial)
 
+    const handleChange = (e) => setFormData(prev => ({ ...prev, [e.name]: e.value }))
 
+    const handleSubmit = async (e) => {
+        console.log("submitting")
+    }
     
     return (
         <main>
