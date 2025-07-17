@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import "./SearchInfo.css"
 
-import { SearchContext } from '../../pages/SearchResult/SearchResult.jsx';
+// import { SearchContext } from '../../pages/SearchResult/SearchResult.jsx';
 
 /* --------------------------------Component--------------------------------*/
 

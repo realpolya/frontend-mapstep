@@ -1,6 +1,6 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useEffect, useState, createContext } from 'react';
+import { useEffect, useState, createContext, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import "./SearchResult.css";
@@ -10,12 +10,14 @@ import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx";
 import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx";
 import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx";
 
+import App, { AppContext } from '../../App.jsx';
+
 // back end
 import services from '../../services/index.js';
 
 /* --------------------------------Context--------------------------------*/
 
-const SearchContext = createContext(null);
+// const SearchContext = createContext(null);
 
 const dummyData = {
     "latitude": 34.0620051,
@@ -37,6 +39,8 @@ const SearchResult = () => {
 
     const location = useLocation()
     const navigate = useNavigate()
+
+    const { user } = useContext(AppContext)
 
     useEffect(() => {
 
@@ -73,6 +77,23 @@ const SearchResult = () => {
 
     }
 
+    const unauthButtons = (
+        <div>
+            <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
+            <div className="flex flex-row justify-center">
+                <button className="round-button">Log In</button>
+                <button className="round-button red-button">Sign Up</button>
+            </div>
+        </div>
+    )
+
+    const authButtons = (
+        <div className="flex flex-row justify-center">
+            <button className="round-button red-button">
+                Save as a project
+            </button>
+        </div>
+    )
 
     // const searchObject = { address, siteDetails }
 
@@ -94,13 +115,7 @@ const SearchResult = () => {
                     </div>
                     <div className="div-search-info w-full md:w-1/2 h-full flex flex-col justify-between">
                         <SearchInfo siteDetails={siteDetails} address={address}/>
-                        <div>
-                            <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
-                            <div className="flex flex-row justify-center">
-                                <button className="round-button">Log In</button>
-                                <button className="round-button red-button">Sign Up</button>
-                            </div>
-                        </div>
+                        { user ? authButtons : unauthButtons }
                     </div>
                 </div>
                 
@@ -112,4 +127,4 @@ const SearchResult = () => {
 /* --------------------------------Export--------------------------------*/
 
 export default SearchResult
-export { SearchContext }
+// export { SearchContext }
