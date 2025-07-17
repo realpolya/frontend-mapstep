@@ -33,14 +33,15 @@ const dummyData = {
 
 const SearchResult = () => {
 
-    const [address, setAddress] = useState('')
-    const [siteDetails, setSiteDetails] = useState(dummyData)
-    const [lotGeom, setLotGeom] = useState() // undefined
+    const { user } = useContext(AppContext)
 
     const location = useLocation()
     const navigate = useNavigate()
 
-    const { user } = useContext(AppContext)
+    const [address, setAddress] = useState('')
+    const [siteDetails, setSiteDetails] = useState(dummyData)
+    const [lotGeom, setLotGeom] = useState() // undefined
+
 
     useEffect(() => {
 
@@ -52,11 +53,13 @@ const SearchResult = () => {
 
     }, [location.state])
 
+
     useEffect(() => {
 
         fetchData(address)
 
     }, [address])
+
 
     useEffect(() => {
 
@@ -113,7 +116,7 @@ const SearchResult = () => {
                         <SiteMap3D siteDetails={siteDetails} lotGeom={lotGeom}/>
                         {lotGeom && <h6 className="h6-map">site map 3D</h6>}
                     </div>
-                    <div className="div-search-info w-full md:w-1/2 h-full flex flex-col justify-between">
+                    <div className="div-search-info w-full md:w-1/2 h-full flex flex-col justify-between pb-12">
                         <SearchInfo siteDetails={siteDetails} address={address}/>
                         { user ? authButtons : unauthButtons }
                     </div>
