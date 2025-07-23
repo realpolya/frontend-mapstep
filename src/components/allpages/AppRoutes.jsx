@@ -6,6 +6,7 @@ import Home from "../../pages/Home/Home.jsx";
 import SearchResult from "../../pages/SearchResult/SearchResult.jsx";
 import Dashboard from "../../pages/Dashboard/Dashboard.jsx";
 import ProjectPage from "../../pages/ProjectPage/ProjectPage.jsx";
+import NewForm from "../../pages/NewForm/NewForm.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
 
@@ -27,6 +28,7 @@ const AppRoutes = () => {
                     <ProjectPage/>
                 </ProtectedRoute>
             } />
+            <Route path="/new" element={<NewForm/>}/>
 
         </Routes>
     )

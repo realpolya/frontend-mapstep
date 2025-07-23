@@ -10,7 +10,7 @@ import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx";
 import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx";
 import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx";
 
-import App, { AppContext } from '../../App.jsx';
+import { AppContext } from '../../App.jsx';
 
 // back end
 import services from '../../services/index.js';
@@ -33,7 +33,7 @@ const dummyData = {
 
 const SearchResult = () => {
 
-    const { user } = useContext(AppContext)
+    const { user, showSignUp, showLogIn } = useContext(AppContext)
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -84,15 +84,15 @@ const SearchResult = () => {
         <div>
             <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
             <div className="flex flex-row justify-center">
-                <button className="round-button">Log In</button>
-                <button className="round-button red-button">Sign Up</button>
+                <button className="round-button" onClick={()=> showLogIn(true)}>Log In</button>
+                <button className="round-button red-button" onClick={()=> showSignUp(true)}>Sign Up</button>
             </div>
         </div>
     )
 
     const authButtons = (
         <div className="flex flex-row justify-center">
-            <button className="round-button red-button">
+            <button className="round-button red-button" onClick={() => navigate("/new")}>
                 Save as a project
             </button>
         </div>
