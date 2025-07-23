@@ -33,6 +33,9 @@ const NewForm = () => {
     return (
         <main>
             NewForm
+            <form>
+            
+            </form>
         </main>
     )
 

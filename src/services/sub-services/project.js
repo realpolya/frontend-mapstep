@@ -28,9 +28,26 @@ const getProject = async (id) => {
 
 }
 
+const postProject = async (formData) => {
+
+    try {
+
+        const response = await api.post('projects/', formData)
+        return response.data
+
+    } catch (err) {
+
+        console.log(err.response.data.error);
+        throw err;
+
+    }
+
+}
+
 /* --------------------------------Exports--------------------------------*/
 
 export {
     getMyProjects,
-    getProject
+    getProject,
+    postProject
 }
