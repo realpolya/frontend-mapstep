@@ -1,0 +1,15 @@
+.new-form-div {
+    @apply p-2 w-1/3 flex flex-row
+}
+
+.new-form-label {
+    @apply pr-2
+}
+
+.new-form-input {
+    @apply rounded-xl w-full
+}
+
+.new-form-button {
+    @apply mt-4
+}
