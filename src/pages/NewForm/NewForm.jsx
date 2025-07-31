@@ -26,7 +26,9 @@ const NewForm = () => {
     const location = useLocation()
     const [formData, setFormData] = useState(initial)
 
-    const handleChange = (e) => setFormData(prev => ({ ...prev, [e.name]: e.value }))
+    const handleChange = (e) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    }
 
     const handleSubmit = async (e) => {
         console.log("submitting")
@@ -41,7 +43,10 @@ const NewForm = () => {
                 title: "",
                 address: queriedAddress
             })
+            console.log("updating!!!")
         }
+
+        // TODO: add Google Maps search to the address input
 
     }, [location.state])
     
