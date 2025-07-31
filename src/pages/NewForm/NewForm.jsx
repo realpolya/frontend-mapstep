@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import "./NewForm.css";
 
@@ -13,7 +13,7 @@ const initial = {
 
     title: "",
     // jurisdiction: "", // computed on back end
-    address: "", // gathered from search result
+    street: "", // gathered from search result - HAS TO BE STREET
     // street: "",
     // street_type: "" // computed on back end
     // etc...
@@ -24,6 +24,8 @@ const initial = {
 const NewForm = () => {
 
     const location = useLocation()
+    const navigate = useNavigate()
+
     const [formData, setFormData] = useState(initial)
 
     const handleChange = (e) => {
@@ -32,18 +34,26 @@ const NewForm = () => {
 
     const handleSubmit = async (e) => {
         console.log("submitting")
+        try {
+            
+            await services.postProject(formData)
+            navigate("/dashboard", { state: { message: "project successfully created" }})
+
+        } catch (err) {
+
+            console.log(err.response.data.error)
+            alert(err)
+
+        }
     }
 
     useEffect(() => {
 
-        if (location.state) {
-            console.log(location.state.address)
-            const queriedAddress = location.state.address
+        if (location.state && location.state.address) {
             setFormData({
                 title: "",
-                address: queriedAddress
+                street: location.state.address
             })
-            console.log("updating!!!")
         }
 
         // TODO: add Google Maps search to the address input
@@ -75,8 +85,8 @@ const NewForm = () => {
                     </label>
                     <input
                     type="text"
-                    name="address"
-                    value={formData.address}
+                    name="street"
+                    value={formData.street}
                     onChange={handleChange}
                     placeholder=""
                     className="new-form-input"
