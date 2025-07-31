@@ -47,6 +47,10 @@ main {
     @apply font-mainFont text-2xl pb-4
 }
 
+.padded-main {
+    @apply flex flex-col justify-center items-center pb-60
+}
+
 /* MODALS */
 
 .auth-modal {

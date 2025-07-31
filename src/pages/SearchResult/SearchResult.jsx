@@ -80,6 +80,10 @@ const SearchResult = () => {
 
     }
 
+    const handleSaveProject = () => {
+        navigate("/new", { state: { siteDetails, address } })
+    } 
+
     const unauthButtons = (
         <div>
             <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
@@ -92,7 +96,7 @@ const SearchResult = () => {
 
     const authButtons = (
         <div className="flex flex-row justify-center">
-            <button className="round-button red-button" onClick={() => navigate("/new")}>
+            <button className="round-button red-button" onClick={handleSaveProject}>
                 Save as a project
             </button>
         </div>
