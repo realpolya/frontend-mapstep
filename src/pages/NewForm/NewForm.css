@@ -1,5 +1,9 @@
+.new-form-main {
+    @apply pb-96
+}
+
 .new-form-div {
-    @apply p-2 w-1/3 flex flex-row
+    @apply p-2 w-1/2 flex flex-row
 }
 
 .new-form-label {
@@ -7,7 +11,7 @@
 }
 
 .new-form-input {
-    @apply rounded-xl w-full
+    @apply rounded-xl w-full pl-2
 }
 
 .new-form-button {

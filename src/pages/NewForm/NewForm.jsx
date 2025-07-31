@@ -1,10 +1,11 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-import "./NewForm.css"
+import "./NewForm.css";
 
-import services from "../../services/index.js"
+import services from "../../services/index.js";
 
 /* --------------------------------Variables--------------------------------*/
 
@@ -22,6 +23,7 @@ const initial = {
 
 const NewForm = () => {
 
+    const location = useLocation()
     const [formData, setFormData] = useState(initial)
 
     const handleChange = (e) => setFormData(prev => ({ ...prev, [e.name]: e.value }))
@@ -29,9 +31,22 @@ const NewForm = () => {
     const handleSubmit = async (e) => {
         console.log("submitting")
     }
+
+    useEffect(() => {
+
+        if (location.state) {
+            console.log(location.state.address)
+            const queriedAddress = location.state.address
+            setFormData({
+                title: "",
+                address: queriedAddress
+            })
+        }
+
+    }, [location.state])
     
     return (
-        <main className="flex flex-col justify-center items-center">
+        <main className="padded-main new-form-main">
             <h2 className="text-2xl pb-4">New Project</h2>
             <form
             onSubmit={handleSubmit} className="w-full flex flex-col items-center"
@@ -45,7 +60,7 @@ const NewForm = () => {
                     name="title"
                     value={formData.title}
                     onChange={handleChange}
-                    placeholder=""
+                    placeholder="your project title..."
                     className="new-form-input"
                     />
                 </div>
