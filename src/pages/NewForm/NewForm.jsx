@@ -33,7 +33,10 @@ const NewForm = () => {
     }
 
     const handleSubmit = async (e) => {
+
+        e.preventDefault()
         console.log("submitting")
+        
         try {
             
             await services.postProject(formData)
