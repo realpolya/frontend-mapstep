@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 
 // google maps  api
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
@@ -93,7 +93,10 @@ const NavBar = () => {
 
                 <div className="navbar-div">
                     
-                    <Link to="/" className="text-blueColor pl-4 text-2xl">mapStep</Link>
+                    <NavLink to="/" className="text-blueColor pl-4 text-2xl flex flex-row justify-center items-center">
+                        <img src="/logo.png" className="w-20 h-20 mr-2 mt-1"/>
+                        <p className="hidden md:block">mapStep</p>
+                    </NavLink>
                     <div className="flex flex-row w-1/2">
                         <p className="pr-2 w-1/4">lot address</p>
                         <Autocomplete
