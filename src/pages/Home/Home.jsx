@@ -7,7 +7,7 @@ import HomeMap from "../../components/maps/HomeMap/HomeMap.jsx"
 const Home = () => {
 
     return (
-        <main className="flex flex-col justify-center items-center pb-60">
+        <main className="padded-main">
             <h1 className="text-3xl">mapStep</h1>
             <p className="p-8 text-center">your primary tool in redlining architecture sets, decoding land laws<br></br> in the United States and streamlining permit acquisition.</p>
             <p className="italic font-extralight">locations serviced:</p>

@@ -20,7 +20,8 @@ const {
 
 const {
     getMyProjects,
-    getProject
+    getProject,
+    postProject
 } = project
 
 const services = {
@@ -33,7 +34,8 @@ const services = {
     signOut,
 
     getMyProjects,
-    getProject
+    getProject,
+    postProject
 }
 
 /* --------------------------------Exports--------------------------------*/
@@ -50,5 +52,6 @@ export {
     signOut,
 
     getMyProjects,
-    getProject
+    getProject,
+    postProject
 }

@@ -1,6 +1,6 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useEffect, useState, createContext } from 'react';
+import { useEffect, useState, createContext, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import "./SearchResult.css";
@@ -10,12 +10,14 @@ import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx";
 import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx";
 import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx";
 
+import { AppContext } from '../../App.jsx';
+
 // back end
 import services from '../../services/index.js';
 
 /* --------------------------------Context--------------------------------*/
 
-const SearchContext = createContext(null);
+// const SearchContext = createContext(null);
 
 const dummyData = {
     "latitude": 34.0620051,
@@ -31,12 +33,15 @@ const dummyData = {
 
 const SearchResult = () => {
 
+    const { user, showSignUp, showLogIn } = useContext(AppContext)
+
+    const location = useLocation()
+    const navigate = useNavigate()
+
     const [address, setAddress] = useState('')
     const [siteDetails, setSiteDetails] = useState(dummyData)
     const [lotGeom, setLotGeom] = useState() // undefined
 
-    const location = useLocation()
-    const navigate = useNavigate()
 
     useEffect(() => {
 
@@ -48,11 +53,13 @@ const SearchResult = () => {
 
     }, [location.state])
 
+
     useEffect(() => {
 
         fetchData(address)
 
     }, [address])
+
 
     useEffect(() => {
 
@@ -73,6 +80,27 @@ const SearchResult = () => {
 
     }
 
+    const handleSaveProject = () => {
+        navigate("/new", { state: { siteDetails, address } })
+    } 
+
+    const unauthButtons = (
+        <div>
+            <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
+            <div className="flex flex-row justify-center">
+                <button className="round-button" onClick={()=> showLogIn(true)}>Log In</button>
+                <button className="round-button red-button" onClick={()=> showSignUp(true)}>Sign Up</button>
+            </div>
+        </div>
+    )
+
+    const authButtons = (
+        <div className="flex flex-row justify-center">
+            <button className="round-button red-button" onClick={handleSaveProject}>
+                Save as a project
+            </button>
+        </div>
+    )
 
     // const searchObject = { address, siteDetails }
 
@@ -92,15 +120,9 @@ const SearchResult = () => {
                         <SiteMap3D siteDetails={siteDetails} lotGeom={lotGeom}/>
                         {lotGeom && <h6 className="h6-map">site map 3D</h6>}
                     </div>
-                    <div className="div-search-info w-full md:w-1/2 h-full flex flex-col justify-between">
+                    <div className="div-search-info w-full md:w-1/2 h-full flex flex-col justify-between pb-12">
                         <SearchInfo siteDetails={siteDetails} address={address}/>
-                        <div>
-                            <p className="text-center">to find out the potential and limitations <br></br>of this property, log in or sign up</p>
-                            <div className="flex flex-row justify-center">
-                                <button className="round-button">Log In</button>
-                                <button className="round-button red-button">Sign Up</button>
-                            </div>
-                        </div>
+                        { user ? authButtons : unauthButtons }
                     </div>
                 </div>
                 
@@ -112,4 +134,4 @@ const SearchResult = () => {
 /* --------------------------------Export--------------------------------*/
 
 export default SearchResult
-export { SearchContext }
+// export { SearchContext }

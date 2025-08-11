@@ -2,7 +2,8 @@
 
 import "./Dashboard.css"
 
-import { useContext } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useLocation } from "react-router-dom";
 
 import { AppContext } from "../../App.jsx";
 
@@ -20,9 +21,22 @@ const Dashboard = () => {
 
     const { user } = useContext(AppContext)
 
+    const location = useLocation()
+
+    const [newMsg, setNewMsg] = useState("")
+
+    useEffect(() => {
+
+        if (location.state && location.state.message) {
+            setNewMsg(location.state.message)
+        }
+
+    }, [location.state])
+
     return (
         <main className="flex flex-col p-4 w-full">
             <h1 className="text-xl">welcome back, <span className="italic">{user.username}</span></h1>
+            <p>{newMsg}</p>
             <div className="flex sm:flex-row flex-col p-4 w-full">
                 <div className="flex flex-col p-4 sm:w-1/2 w-full">
                     <RecentProjects/>
