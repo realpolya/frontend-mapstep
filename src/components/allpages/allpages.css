@@ -12,3 +12,7 @@ footer {
     h-8 flex flex-row justify-between items-center
     fixed bottom-0
 }
+
+.nav-link {
+    @apply text-textAlterColor
+}
