@@ -52,6 +52,8 @@ const ProjectPage = () => {
 
     const projectObject = { siteDetails }
 
+    
+
     return (
         <ProjectContext.Provider value={projectObject}>
             <main className="w-full">

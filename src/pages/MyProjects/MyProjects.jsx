@@ -7,7 +7,6 @@ import services from "../../services/index.js";
 
 import "./MyProjects.css";
 
-
 /* --------------------------------Component--------------------------------*/
 
 const MyProjects = () => {
