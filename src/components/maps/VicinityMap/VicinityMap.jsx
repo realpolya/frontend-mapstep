@@ -55,8 +55,20 @@ const VicinityMap = ({ siteDetails, lotGeom }) => {
             container: vicinityMapRef.current,
             style: mapboxStyle,
             center: [lng, lat], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-            zoom: 10
+            zoom: 12
         });
+
+        // add marker
+        const el = document.createElement('div')
+
+        el.style.backgroundImage = `url('/reshot-location.svg')`; // Set the PNG image
+        el.style.backgroundSize = 'contain'; // Ensure the image fits
+        el.style.width = '20px'; // Set marker width
+        el.style.height = '20px'; // Set marker height
+
+        new mapboxgl.Marker(el, { offset: [0, 0] })
+        .setLngLat([lng, lat])
+        .addTo(map);
 
         return () => map.remove();
 
