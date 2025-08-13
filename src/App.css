@@ -39,7 +39,8 @@ main {
     m-2
 
     transition-transform transform
-    active:scale-95 hover:bg-backgroundColor hover:shadow-lg 
+    active:scale-95 hover:bg-blueColor hover:shadow-lg 
+    hover:scale-110
     transition-shadow
 }
 
