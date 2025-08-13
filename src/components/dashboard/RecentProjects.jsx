@@ -39,7 +39,7 @@ const RecentProjects = () => {
         <div className="pb-4">
             <div className="flex flex-row justify-between pb-4">
                 <h4 className="dash-h4">recent projects</h4>
-                <Link to="/" className="text-blueColor">view all projects</Link>
+                <Link to="/projects" className="text-blueColor hover:text-redColor">view all projects</Link>
             </div>
             <div className="flex flex-row p-2 bg-blueLight rounded-xl">
                 {myDisplayedProjects.map(project => {

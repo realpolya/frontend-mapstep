@@ -30,7 +30,7 @@ const MyProjects = () => {
             <div>
                 {myProjects.map(project => {
                     return (
-                        <Link>
+                        <Link to={`/project/${project.id}`} className="project-card">
                             <h6>{project.title}</h6>
                         </Link>
                     )
