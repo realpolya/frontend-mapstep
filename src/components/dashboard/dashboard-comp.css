@@ -12,6 +12,11 @@
     p-2 m-4 w-52 h-16 text-xs
 }
 
+.hover-btn {
+    @apply hover:bg-redColor hover:shadow-lg 
+    hover:scale-110
+}
+
 .three-button-div {
     @apply flex gap-2 justify-center
 }

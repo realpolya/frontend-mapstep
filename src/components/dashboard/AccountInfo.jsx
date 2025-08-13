@@ -28,14 +28,14 @@ const AccountInfo = () => {
                 <h5>account actions</h5>
                 <div className="flex flex-col justify-between">
                     <div className="three-button-div">
-                        <button className="account-button" onClick={() => navigate("/")}>change subscription plan</button>
-                        <button className="account-button" onClick={() => navigate("/")}>cancel subscription</button>
-                        <button className="account-button" onClick={() => navigate("/")}>general settings</button>
+                        <button className="account-button hover-btn" onClick={() => navigate("/")}>change subscription plan</button>
+                        <button className="account-button hover-btn" onClick={() => navigate("/")}>cancel subscription</button>
+                        <button className="account-button hover-btn" onClick={() => navigate("/")}>general settings</button>
                     </div>
                     <div className="three-button-div">
-                        <button className="account-button" onClick={() => navigate("/")}>change password</button>
-                        <button className="account-button" onClick={() => navigate("/")}>privacy settings</button>
-                        <button className="account-button" onClick={() => navigate("/")}>delete account</button>
+                        <button className="account-button hover-btn" onClick={() => navigate("/")}>change password</button>
+                        <button className="account-button hover-btn" onClick={() => navigate("/")}>privacy settings</button>
+                        <button className="account-button hover-btn" onClick={() => navigate("/")}>delete account</button>
                     </div>
                 </div>
             </div>
