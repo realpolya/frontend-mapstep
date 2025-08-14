@@ -37,6 +37,12 @@ main {
     rounded-3xl pl-4 pr-4 
     text-textAlterColor font-extralight
     m-2
+
+    /* transition-transform transform
+    active:scale-95 transition-shadow */
+    
+    hover:bg-blueColor hover:shadow-lg 
+    hover:scale-110
 }
 
 .red-button {

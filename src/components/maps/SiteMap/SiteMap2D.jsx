@@ -33,7 +33,7 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
     const [loading, setLoading] = useState(true)
     const [lat, setLat] = useState(40.7128)
     const [lng, setLng] = useState(-74.0060)
-    const [propertyLine, setPropertyLine] = useState()
+    // const [propertyLine, setPropertyLine] = useState()
 
     const site2DMapRef = useRef(null)
 
@@ -56,6 +56,8 @@ const SiteMap2D = ({ siteDetails, lotGeom }) => {
         // }
 
         if (lotGeom) setLoading(false)
+
+        if (lotGeom) console.log("here we go August 13th", lotGeom)
 
     }, [siteDetails, siteDetails?.info, lotGeom])
 

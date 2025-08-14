@@ -7,6 +7,7 @@ import SearchResult from "../../pages/SearchResult/SearchResult.jsx";
 import Dashboard from "../../pages/Dashboard/Dashboard.jsx";
 import ProjectPage from "../../pages/ProjectPage/ProjectPage.jsx";
 import NewForm from "../../pages/NewForm/NewForm.jsx";
+import MyProjects from "../../pages/MyProjects/MyProjects.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
 
@@ -29,7 +30,11 @@ const AppRoutes = () => {
                 </ProtectedRoute>
             } />
             <Route path="/new" element={<NewForm/>}/>
-
+            <Route path="/projects" element={
+                <ProtectedRoute>
+                    <MyProjects/>
+                </ProtectedRoute>
+            } />
         </Routes>
     )
 

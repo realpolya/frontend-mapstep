@@ -1,6 +1,6 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useEffect, useState, createContext, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import "./SearchResult.css";

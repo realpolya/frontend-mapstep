@@ -44,6 +44,14 @@ const ProjectPage = () => {
 
     }, [projectId])
 
+    useEffect(() => {
+
+        if (siteDetails?.info?.parcel_geometry) {
+            setLotGeom(siteDetails?.info?.parcel_geometry)
+        }
+
+    }, [siteDetails])
+
     // useEffect(() => {
 
     //     if (!loading) console.log("site details are", siteDetails.address)
@@ -51,6 +59,8 @@ const ProjectPage = () => {
     // }, [loading, siteDetails])
 
     const projectObject = { siteDetails }
+
+
 
     return (
         <ProjectContext.Provider value={projectObject}>
@@ -63,9 +73,9 @@ const ProjectPage = () => {
                     <div className="project-maps">
                         <SiteMap2D siteDetails={siteDetails} lotGeom={lotGeom}/>
                         <h6 className="h6-map">site map 2D</h6>
-                        <SiteMap3D siteDetails={siteDetails}/>
+                        <SiteMap3D siteDetails={siteDetails} lotGeom={lotGeom}/>
                         <h6 className="h6-map">site map 3D</h6>
-                        <VicinityMap siteDetails={siteDetails}/>
+                        <VicinityMap siteDetails={siteDetails} lotGeom={lotGeom}/>
                         <h6 className="h6-map">vicinity map</h6>
                     </div>
                     <LotInfo/>
