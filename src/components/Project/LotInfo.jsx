@@ -30,7 +30,7 @@ const LotInfo = () => {
                 <tbody>
                     <tr>
                         <th className="proj-th">state</th>
-                        <td className="proj-td">{siteDetails?.state}</td>
+                        <td className="proj-td">{siteDetails?.state_display}</td>
                     </tr>
                     <tr>
                         <th className="proj-th">city</th>
