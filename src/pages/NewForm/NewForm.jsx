@@ -35,7 +35,7 @@ const NewForm = () => {
     const handleSubmit = async (e) => {
 
         e.preventDefault()
-        console.log("submitting")
+        console.log("sending the following info", formData)
         
         try {
             
