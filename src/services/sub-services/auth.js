@@ -114,7 +114,7 @@ const signOut = async () => {
     try {
 
         // const response = await api.get("users/logout/");
-        const response = await api.post("users/logout/");
+        const response = await api.post("users/logout/", {}, { withCredentials: true });
         console.log("now the logOut response is ", response)
         return response;
 

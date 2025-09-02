@@ -30,15 +30,20 @@ const api = axios.create({
     withCredentials: true,
 });
 
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
+
 // CSRF token
 api.interceptors.request.use((config) => {
+
+    config.withCredentials = true;
+    console.log("the cookie is", document.cookie)
 
     const method = (config.method || "").toLowerCase();
     const url = config.url || "";
 
-    if (["post", "put", "patch", "delete"].includes(method) && 
-    !url.includes("/login/") &&
-    !url.includes("/verify/")) {
+    if (["post", "put", "patch", "delete"].includes(method)) {
         const csrfToken = Cookies.get("csrftoken");
         console.log("🍪 CSRF Token:", csrfToken);
         if (csrfToken) {
