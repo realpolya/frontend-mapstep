@@ -5,6 +5,22 @@ import { publicApi } from "./apiConfig.js"
 
 /* --------------------------------Functions--------------------------------*/
 
+const createCsrf = async () => {
+
+    try {
+
+        const response = await api.get("users/csrf/");
+        return response;
+
+    } catch (err) {
+
+        console.log(err.response.data.error);
+        throw err;
+
+    }
+
+}
+
 const signUp = async (formData) => {
     
     try {
@@ -115,6 +131,9 @@ const signOut = async () => {
 /* --------------------------------Exports--------------------------------*/
 
 export {
+
+    createCsrf,
+
     signUp,
     signIn,
     getUser,
