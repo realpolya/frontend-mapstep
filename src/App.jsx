@@ -59,7 +59,7 @@ const App = () => {
 
     const appObject = { showLogIn, showSignUp, 
         handleSignIn, closeLogIn, closeSignUp,
-        user
+        user, setUser
     }
 
     return (

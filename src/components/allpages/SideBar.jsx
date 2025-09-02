@@ -14,9 +14,9 @@ const SideBar = () => {
     const navigate = useNavigate()
     const { showLogIn, showSignUp, user } = useContext(AppContext)
 
-    const logOut = () => {
+    const logOut = async () => {
 
-        services.signOut()
+        await services.signOut()
         navigate("/")
         window.location.reload()
         

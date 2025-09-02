@@ -67,6 +67,7 @@ const verifySession = async () => {
     try {
 
         const response = await api.post("users/verify/");
+        console.log("now firing verifySession", response)
         if (response?.data) {
             return response?.data;
         }
@@ -97,7 +98,9 @@ const signOut = async () => {
 
     try {
 
+        // const response = await api.get("users/logout/");
         const response = await api.post("users/logout/");
+        console.log("now the logOut response is ", response)
         return response?.data;
 
     } catch (err) {

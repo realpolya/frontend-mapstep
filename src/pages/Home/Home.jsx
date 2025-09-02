@@ -13,15 +13,16 @@ import HomeMap from "../../components/maps/HomeMap/HomeMap.jsx";
 
 const Home = () => {
 
-    const { showSignUp, showLogIn, user } = useContext(AppContext)
+    const { showSignUp, showLogIn, user, setUser } = useContext(AppContext)
     
     const navigate = useNavigate()
 
-    const logOut = () => {
+    const logOut = async () => {
 
-        services.signOut()
+        await services.signOut()
+        setUser(null)
         navigate("/")
-        window.location.reload()
+        // window.location.reload()
         
     }
 

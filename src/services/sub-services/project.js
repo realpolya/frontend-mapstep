@@ -8,6 +8,7 @@ const getMyProjects = async () => {
 
     try {
         const response = await api.get('projects/mine/')
+        console.log("in getMyProjects response is ", response)
         return response.data
     } catch (err) {     
         console.log(err.response.data.error);
