@@ -31,7 +31,8 @@ const signIn = async (formData) => {
 
 };
 
-// local getUser from the localStorage
+// OUTDATED: local getUser from the localStorage
+// now: get user from cookies & backend
 const getUser = async () => {
 
     try {
@@ -66,7 +67,10 @@ const verifySession = async () => {
     try {
 
         const response = await api.post("users/verify/");
-        return response?.data;
+        if (response?.data) {
+            return response?.data;
+        }
+        return null
 
     } catch (err) {
 
@@ -93,7 +97,7 @@ const signOut = async () => {
 
     try {
 
-        const response = await api.post("users/verify/");
+        const response = await api.post("users/logout/");
         return response?.data;
 
     } catch (err) {
@@ -111,6 +115,7 @@ export {
     signUp,
     signIn,
     getUser,
-    verifyToken,
+    verifySession,
+    // verifyToken,
     signOut
 }
