@@ -1,6 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import axios from "axios";
+import Cookies from "js-cookie";
 
 /* --------------------------------Variables--------------------------------*/
 
@@ -29,10 +30,30 @@ const api = axios.create({
     withCredentials: true,
 });
 
-const publicApi = axios.create({
-    baseURL: BACKEND_URL,
-    withCredentials: true,
-});
+// CSRF token
+api.interceptors.request.use((config) => {
+
+    const method = (config.method || "").toLowerCase();
+    const url = config.url || "";
+
+    if (["post", "put", "patch", "delete"].includes(method) && 
+    !url.includes("/login/") &&
+    !url.includes("/verify/")) {
+        const csrfToken = Cookies.get("csrftoken");
+        console.log("🍪 CSRF Token:", csrfToken);
+        if (csrfToken) {
+            config.headers["X-CSRFToken"] = csrfToken;
+        }
+    }
+
+    return config;
+
+})
+
+// const publicApi = axios.create({
+//     baseURL: BACKEND_URL,
+//     withCredentials: true,
+// });
 
 // api.interceptors.request.use(
 //     function (config) {
@@ -54,4 +75,4 @@ const publicApi = axios.create({
 /* --------------------------------Exports--------------------------------*/
 
 export default api;
-export { publicApi }
+// export { publicApi }

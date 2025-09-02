@@ -1,7 +1,6 @@
 /* --------------------------------Imports--------------------------------*/
 
 import api from './apiConfig.js';
-import { publicApi } from "./apiConfig.js"
 
 /* --------------------------------Functions--------------------------------*/
 
@@ -24,7 +23,7 @@ const createCsrf = async () => {
 const signUp = async (formData) => {
     
     try {
-        const response = await publicApi.post("users/register/", formData);
+        const response = await api.post("users/register/", formData);
         // localStorage.setItem("token", response.data.access);
         return response.data.user;
     } catch (err) {
@@ -37,7 +36,7 @@ const signUp = async (formData) => {
 const signIn = async (formData) => {
 
     try {
-        const response = await publicApi.post("users/login/", formData);
+        const response = await api.post("users/login/", formData);
         // localStorage.setItem("token", response.data.access);
         return response.data.user;
     } catch (err) {
@@ -117,11 +116,11 @@ const signOut = async () => {
         // const response = await api.get("users/logout/");
         const response = await api.post("users/logout/");
         console.log("now the logOut response is ", response)
-        return response?.data;
+        return response;
 
     } catch (err) {
 
-        console.log(err.response.data.error);
+        console.log(err.response?.data.error);
         throw err;
         
     }

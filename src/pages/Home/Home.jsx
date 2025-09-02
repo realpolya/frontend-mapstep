@@ -19,7 +19,8 @@ const Home = () => {
 
     const logOut = async () => {
 
-        await services.signOut()
+        const data = await services.signOut()
+        console.log("logout data is ", data)
         setUser(null)
         navigate("/")
         // window.location.reload()
