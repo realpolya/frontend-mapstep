@@ -40,6 +40,7 @@ const postProject = async (formData) => {
     try {
 
         const response = await api.post('projects/', formData)
+        console.log("the postProject response is ", response?.data)
         return response?.data
 
     } catch (err) {

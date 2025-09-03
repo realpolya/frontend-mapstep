@@ -20,7 +20,7 @@ const ProjectActions = () => {
                 <div className="grid grid-cols-2 gap-4">
                     <Link className="proj-action-link bg-lightGreyColor" to="/">generate visual code representation</Link>
                     <Link className="proj-action-link bg-blueLight" to="/">permits & documents</Link>
-                    <Link className="proj-action-link bg-green2Color" to="/">upload & review drawings</Link>
+                    <Link className="proj-action-link bg-green2Color" to={`/review/${project.id}`}>upload & review drawings</Link>
                     <Link className="proj-action-link bg-green1Color" to="/">generate construction possibilities</Link>
                 </div>
             </div>

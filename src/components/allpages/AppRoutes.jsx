@@ -8,6 +8,7 @@ import Dashboard from "../../pages/Dashboard/Dashboard.jsx";
 import ProjectPage from "../../pages/ProjectPage/ProjectPage.jsx";
 import NewForm from "../../pages/NewForm/NewForm.jsx";
 import MyProjects from "../../pages/MyProjects/MyProjects.jsx";
+import ReviewProject from "../../pages/ReviewProject/ReviewProject.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
 
@@ -27,6 +28,11 @@ const AppRoutes = () => {
             <Route path="/project/:projectId" element={
                 <ProtectedRoute>
                     <ProjectPage/>
+                </ProtectedRoute>
+            } />
+            <Route path="/review/:projectId" element={
+                <ProtectedRoute>
+                    <ReviewProject/>
                 </ProtectedRoute>
             } />
             <Route path="/new" element={<NewForm/>}/>
