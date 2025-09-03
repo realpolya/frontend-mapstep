@@ -30,7 +30,6 @@ const ProjectPage = () => {
     const fetchProject = async (id) => {
 
         const data = await services.getProject(id)
-        console.log("data received is", data)
         setSiteDetails(data)
         
     }
@@ -51,12 +50,6 @@ const ProjectPage = () => {
         }
 
     }, [siteDetails])
-
-    // useEffect(() => {
-
-    //     if (!loading) console.log("site details are", siteDetails.address)
-
-    // }, [loading, siteDetails])
 
     const projectObject = { siteDetails }
 
