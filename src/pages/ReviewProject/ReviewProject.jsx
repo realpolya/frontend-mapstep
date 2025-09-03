@@ -2,15 +2,20 @@
 
 import './ReviewProject.css'
 
+import RedLineTool from '../../components/Project/ReviewComponents/RedLineTool.jsx'
+import LotInfo from '../../components/Project/LotInfo.jsx'
+
 /* --------------------------------Component--------------------------------*/
 
 const ReviewProject = () => {
 
     return (
 
-        <div>
+        <main>
             ReviewProject
-        </div>
+            {/* <LotInfo/> */}
+            <RedLineTool/>
+        </main>
     )
 
 }
