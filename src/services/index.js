@@ -11,30 +11,29 @@ const {
 } = address
 
 const {
-    // createCsrf,
 
     signUp,
     signIn,
     getUser,
-    // verifyToken,
     verifySession,
     signOut
+
 } = auth
 
 const {
+
     getMyProjects,
     getProject,
     postProject
+
 } = project
 
 const services = {
     getAddress,
 
-    // createCsrf,
     signUp,
     signIn,
     getUser,
-    // verifyToken,
     verifySession,
     signOut,
 
@@ -50,11 +49,9 @@ export {
 
     getAddress,
 
-    // createCsrf,
     signUp,
     signIn,
     getUser,
-    // verifyToken,
     verifySession,
     signOut,
 
