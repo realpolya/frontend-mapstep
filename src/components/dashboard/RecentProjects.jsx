@@ -44,7 +44,7 @@ const RecentProjects = () => {
             <div className="flex flex-row p-2 bg-blueLight rounded-xl">
                 {myDisplayedProjects.map(project => {
                     return (
-                        <Link className="block w-1/3 p-2" to={`/project/${project.id}`}>
+                        <Link className="block w-1/3 p-2" to={`/project/${project.id}`} key={project.id}>
                             <MiniProjectMap project={project}/>
                             <p className="italic">{project.title}</p>
                             <p className="text-xs">{project.address}</p>
