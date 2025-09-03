@@ -11,7 +11,7 @@ const {
 } = address
 
 const {
-    createCsrf,
+    // createCsrf,
 
     signUp,
     signIn,
@@ -30,7 +30,7 @@ const {
 const services = {
     getAddress,
 
-    createCsrf,
+    // createCsrf,
     signUp,
     signIn,
     getUser,
@@ -50,7 +50,7 @@ export {
 
     getAddress,
 
-    createCsrf,
+    // createCsrf,
     signUp,
     signIn,
     getUser,

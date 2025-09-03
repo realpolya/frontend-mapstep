@@ -4,21 +4,21 @@ import api from './apiConfig.js';
 
 /* --------------------------------Functions--------------------------------*/
 
-const createCsrf = async () => {
+// const createCsrf = async () => {
 
-    try {
+//     try {
 
-        const response = await api.get("users/csrf/");
-        return response;
+//         const response = await api.get("users/csrf/");
+//         return response;
 
-    } catch (err) {
+//     } catch (err) {
 
-        console.log(err.response.data.error);
-        throw err;
+//         console.log(err.response.data.error);
+//         throw err;
 
-    }
+//     }
 
-}
+// }
 
 const signUp = async (formData) => {
     
@@ -131,7 +131,7 @@ const signOut = async () => {
 
 export {
 
-    createCsrf,
+    // createCsrf,
 
     signUp,
     signIn,
