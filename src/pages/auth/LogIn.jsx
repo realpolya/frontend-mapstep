@@ -33,7 +33,8 @@ const LogIn = () => {
         console.log("user is ", userData)
 
         navigate("/dashboard")
-        window.location.reload()
+        closeLogIn()
+        // window.location.reload()
     };
 
     return (

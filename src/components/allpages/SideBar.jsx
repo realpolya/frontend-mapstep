@@ -12,11 +12,12 @@ import { AppContext } from '../../App.jsx';
 const SideBar = () => {
 
     const navigate = useNavigate()
-    const { showLogIn, showSignUp, user } = useContext(AppContext)
+    const { showLogIn, showSignUp, user, setUser } = useContext(AppContext)
 
-    const logOut = () => {
+    const logOut = async () => {
 
-        services.signOut()
+        await services.signOut()
+        setUser(null)
         navigate("/")
         window.location.reload()
         

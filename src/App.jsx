@@ -31,20 +31,24 @@ const App = () => {
 
     const [logInOpen, setLogInOpen] = useState(false)
     const [signUpOpen, setSignUpOpen] = useState(false)
-    const [user, setUser] = useState(services.getUser())
+    // const [user, setUser] = useState(services.getUser())
+    const [user, setUser] = useState(null)
 
-    const fetchData = async () => {
+    const checkUserToken = async () => {
 
-        const user = await services.verifyToken();
+        const user = await services.verifySession();
         setUser(user || null)
 
     }
 
+    // const setCsrf = async () => await services.createCsrf()
+
     useEffect(() => {
 
-        fetchData();
+        // setCsrf();
+        checkUserToken();
 
-    }, [location.pathname])
+    }, []) // removed location.pathname from the dependency array
 
     const showLogIn = () => setLogInOpen(true)
     const showSignUp = () => setSignUpOpen(true)
@@ -58,7 +62,7 @@ const App = () => {
 
     const appObject = { showLogIn, showSignUp, 
         handleSignIn, closeLogIn, closeSignUp,
-        user
+        user, setUser
     }
 
     return (

@@ -43,8 +43,10 @@ const SignUp = () => {
         const userData = await services.signUp(formData)
         handleSignIn(userData)
         console.log("user is ", userData)
+        
         navigate("/dashboard")
-        window.location.reload()
+        closeSignUp()
+        // window.location.reload()
 
     };
     
