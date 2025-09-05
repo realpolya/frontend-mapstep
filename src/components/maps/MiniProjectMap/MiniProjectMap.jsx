@@ -20,6 +20,7 @@ const MiniProjectMap = ({ project }) => {
 
     const projectMapRef = useRef(null)
 
+
     useEffect(() => {
 
         if (project && project.longitude) {
@@ -31,6 +32,7 @@ const MiniProjectMap = ({ project }) => {
         }
 
     }, [project])
+
 
     useEffect(() => {
 
@@ -52,6 +54,7 @@ const MiniProjectMap = ({ project }) => {
 
     }, [projectMapRef, MAPBOX_KEY, lng, lat])
 
+    
     return (
         <div className="div-map" id='div-mini-project-map'>
             { loading && (<p>No map yet</p>)}
