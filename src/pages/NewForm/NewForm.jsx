@@ -9,6 +9,7 @@ import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import "./NewForm.css";
 
 import services from "../../services/index.js";
+import { getGoogleFormat } from "../../components/allpages/NavBar.jsx";
 
 /* --------------------------------Variables--------------------------------*/
 
@@ -34,10 +35,13 @@ const NewForm = () => {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState(initial)
+    const [googleAddy, setGoogleAddy] = useState('')
+
 
     const handleChange = (e) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
+
 
     const handleSubmit = async (e) => {
 
@@ -57,8 +61,37 @@ const NewForm = () => {
         }
     }
 
+    const handlePlaceChange = () => {
+
+        console.log("selected place ", autocompleteFormRef.current.getPlace())
+        const place = autocompleteFormRef.current.getPlace()
+
+        // if (!place.address_components) return;
+
+        // const addrDetails = place.address_components.reduce((arg, component) => {
+
+        //     Object.keys(addressTemplate).forEach(key => {
+        //         if (component.types.includes(key)) {
+        //             arg[key] = component.long_name
+        //         }
+        //     });
+        //     return arg;
+
+        // }, {});
+
+        const addrDetails = getGoogleFormat(place)
+
+        if (!addrDetails) return
+
+        setGoogleAddy(addrDetails)
+
+        // navigate("/result", { state: { addrDetails }})
+
+    }
+
     useEffect(() => {
 
+        // obtain address from navbar
         if (location.state && location.state.address) {
             setFormData({
                 title: "",
@@ -71,6 +104,7 @@ const NewForm = () => {
     }, [location.state])
     
     return (
+
         <main className="padded-main new-form-main">
             <h2 className="text-2xl pb-4">New Project</h2>
             <form
@@ -93,20 +127,27 @@ const NewForm = () => {
                     <label className="new-form-label">
                         Address:
                     </label>
-                    <input
-                    type="text"
-                    name="street"
-                    value={formData.street}
-                    onChange={handleChange}
-                    placeholder=""
-                    className="new-form-input"
-                    />
+                    <Autocomplete
+                        onLoad={(autocomplete) => (autocompleteFormRef.current = autocomplete)}
+                        onPlaceChanged={handlePlaceChange}
+                    >
+                        <input
+                        type="text"
+                        name="street"
+                        value={formData.street}
+                        onChange={handleChange}
+                        placeholder=""
+                        className="new-form-input"
+                        />
+                    </Autocomplete>
+
                 </div>
                 <button type="submit" className="round-button new-form-button">
                     Save project
                 </button>
             </form>
         </main>
+
     )
 
 }

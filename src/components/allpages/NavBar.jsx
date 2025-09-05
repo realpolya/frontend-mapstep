@@ -12,7 +12,7 @@ import SideBar from './SideBar.jsx';
 
 /* --------------------------------Variables--------------------------------*/
 
-const libraries = ['places']
+// const libraries = ['places']
 
 const addressTemplate = {
     "street_number": "",
@@ -112,10 +112,10 @@ const NavBar = () => {
     }
 
     return (
-        <LoadScript
-            googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_KEY}
-            libraries={libraries}
-        >
+        // <LoadScript
+        //     googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_KEY}
+        //     libraries={libraries}
+        // >
 
             <nav className="flex flex-col">
 
@@ -164,7 +164,7 @@ const NavBar = () => {
 
             </nav>
 
-        </LoadScript>
+        // </LoadScript>
     )
 }
 

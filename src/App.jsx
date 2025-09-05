@@ -1,19 +1,21 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState, useEffect, createContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useState, useEffect, createContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import Modal from 'react-modal';
+
+import { LoadScript, Autocomplete } from "@react-google-maps/api";
 
 import './App.css';
 
-import services from "./services/index.js";
+import services from './services/index.js';
 
-import AppRoutes from "./components/allpages/AppRoutes.jsx";
-import NavBar from "./components/allpages/NavBar.jsx";
-import Footer from "./components/allpages/Footer.jsx";
+import AppRoutes from './components/allpages/AppRoutes.jsx';
+import NavBar from './components/allpages/NavBar.jsx';
+import Footer from './components/allpages/Footer.jsx';
 
-import LogIn from "./pages/auth/LogIn.jsx";
-import SignUp from "./pages/auth/SignUp.jsx";
+import LogIn from './pages/auth/LogIn.jsx';
+import SignUp from './pages/auth/SignUp.jsx';
 
 /* --------------------------------Context--------------------------------*/
 
@@ -22,6 +24,10 @@ const AppContext = createContext(null);
 /* --------------------------------Modal--------------------------------*/
 
 Modal.setAppElement('#root')
+
+/* --------------------------------Variables--------------------------------*/
+
+const libraries = ['places']
 
 /* --------------------------------Component--------------------------------*/
 
@@ -66,30 +72,35 @@ const App = () => {
     }
 
     return (
-        <AppContext.Provider value={appObject}>
-            <NavBar/>
-            <AppRoutes/>
+        <LoadScript
+            googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_KEY}
+            libraries={libraries}
+        >
+            <AppContext.Provider value={appObject}>
+                <NavBar/>
+                <AppRoutes/>
 
-            <Modal
-                isOpen={logInOpen}
-                onRequestClose={closeLogIn}
-                className="auth-modal auth-modal-login"
-                overlayClassName="auth-modal-back"
-            >
-                <LogIn />
-            </Modal>
+                <Modal
+                    isOpen={logInOpen}
+                    onRequestClose={closeLogIn}
+                    className="auth-modal auth-modal-login"
+                    overlayClassName="auth-modal-back"
+                >
+                    <LogIn />
+                </Modal>
 
-            <Modal
-                isOpen={signUpOpen}
-                onRequestClose={closeSignUp}
-                className="auth-modal"
-                overlayClassName="auth-modal-back"
-            >
-                <SignUp />
-            </Modal>
+                <Modal
+                    isOpen={signUpOpen}
+                    onRequestClose={closeSignUp}
+                    className="auth-modal"
+                    overlayClassName="auth-modal-back"
+                >
+                    <SignUp />
+                </Modal>
 
-            <Footer/>
-        </AppContext.Provider>
+                <Footer/>
+            </AppContext.Provider>
+        </LoadScript>
     )
   
 }
