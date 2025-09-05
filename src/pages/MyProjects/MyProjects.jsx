@@ -4,16 +4,30 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import services from "../../services/index.js";
+import MiniProjectMap from "../../components/maps/MiniProjectMap/MiniProjectMap.jsx";
 
 import "./MyProjects.css";
+
+/* --------------------------------Varables--------------------------------*/
+
+const limit = 4 // limit of projects per page
 
 /* --------------------------------Component--------------------------------*/
 
 const MyProjects = () => {
+
+    // TODO: 8 projects per page
     
     const [myProjects, setMyProjects] = useState([])
+    const [displayedProjects, setDisplayedProjects] = useState([])
+    const [count, setCount] = useState([0, 7]) // indices of the projects
     
-    const fetchMyProjects = async () => setMyProjects(await services.getMyProjects())
+    const fetchMyProjects = async () => {
+
+        const fetched = await services.getMyProjects()
+        setMyProjects(fetched.reverse())
+
+    }
 
 
     useEffect(() => {
@@ -23,14 +37,44 @@ const MyProjects = () => {
     }, [])
 
 
+    useEffect(() => {
+
+        if (myProjects.length > 0) {
+
+            const currentProj = []
+            let i = count[0]
+
+            for (let c = 0; c < limit; c++) {
+                currentProj.push(myProjects[i]);
+                i++;
+            }
+
+            setDisplayedProjects(currentProj)
+
+        }
+
+    }, [myProjects]) // add arrows to the dependency array
+
+
     return (
-        <main>
-            <h2>MyProjects</h2>
-            <div>
-                {myProjects.map(project => {
+        <main className="normal-main">
+            <div className="flex flex-row justify-between pb-8">
+                <div className="flex flex-row items-end">
+                    <h1 className="text-xl pr-4">All projects</h1>
+                    <Link to="/dashboard" className="red-link text-center">back to dashboard</Link>
+                </div>
+                <div className="my-projects-arrows">
+                    <p>⬅️ Previous | </p>
+                    <p>| Next ➡️</p>
+                </div>
+            </div>
+            <div className="grid grid-cols-2 grid-rows-2 gap-4">
+                {displayedProjects.map(project => {
                     return (
-                        <Link to={`/project/${project.id}`} className="project-card">
-                            <h6>{project.title}</h6>
+                        <Link to={`/project/${project.id}`} className="project-card" key={project.id}>
+                            <MiniProjectMap project={project}/>
+                            <h6>{project?.title}</h6>
+                            <p>{project?.description}</p>
                         </Link>
                     )
                 })}

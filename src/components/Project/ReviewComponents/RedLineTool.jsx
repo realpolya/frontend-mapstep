@@ -8,7 +8,12 @@ const RedLineTool = () => {
 
     return (
         <div>
-            RedLineTool
+            <div>
+                Tools
+            </div>
+            <div>
+                Redline space
+            </div>
         </div>
     )
 

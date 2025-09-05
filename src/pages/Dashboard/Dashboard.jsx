@@ -34,7 +34,7 @@ const Dashboard = () => {
     }, [location.state])
 
     return (
-        <main className="flex flex-col p-4 w-full">
+        <main className="normal-main">
             <h1 className="text-xl">welcome back, <span className="italic">{user.username}</span></h1>
             <p>{newMsg}</p>
             <div className="flex sm:flex-row flex-col p-4 w-full">

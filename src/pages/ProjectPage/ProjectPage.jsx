@@ -60,7 +60,7 @@ const ProjectPage = () => {
             <main className="w-full">
                 <div className="flex flex-row w-full justify-between items-center">
                     <h2 className="pl-4 mb-4 text-2xl text-redColor">{siteDetails?.title}</h2>
-                    <Link to="/dashboard" className="mr-4 italic">back to dashboard</Link>
+                    <Link to="/dashboard" className="mr-4 red-link">back to dashboard</Link>
                 </div>
                 <div id="project-div">
                     <div className="project-maps">
