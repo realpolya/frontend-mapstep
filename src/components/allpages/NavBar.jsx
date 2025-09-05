@@ -4,15 +4,13 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 
 // google maps  api
-import { LoadScript, Autocomplete } from "@react-google-maps/api";
+import { Autocomplete } from "@react-google-maps/api";
 
 import "./allpages.css"
 
 import SideBar from './SideBar.jsx';
 
 /* --------------------------------Variables--------------------------------*/
-
-// const libraries = ['places']
 
 const addressTemplate = {
     "street_number": "",
@@ -37,6 +35,7 @@ const getGoogleFormat = place => {
         return arg;
     
     }, {});
+    console.log("addr details FORMATTED are", addrDetails)
 
     return addrDetails
 

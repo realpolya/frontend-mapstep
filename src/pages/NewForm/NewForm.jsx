@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 // google maps  api
-import { LoadScript, Autocomplete } from "@react-google-maps/api";
+import { Autocomplete } from "@react-google-maps/api";
 
 import "./NewForm.css";
 
@@ -12,8 +12,6 @@ import services from "../../services/index.js";
 import { getGoogleFormat } from "../../components/allpages/NavBar.jsx";
 
 /* --------------------------------Variables--------------------------------*/
-
-const libraries = ['places']
 
 const initial = {
 
@@ -85,17 +83,43 @@ const NewForm = () => {
 
         setGoogleAddy(addrDetails)
 
+        // convert google object to a readable string
+        const addressString = `${addrDetails.street_number} ${addrDetails.route}`
+
+        setFormData(prev => ({ ...prev, street: addressString }))
+
         // navigate("/result", { state: { addrDetails }})
 
     }
 
+
     useEffect(() => {
+
+        if (location?.state?.addrDetails) {
+            // console.log("detail Addr is ", location.state.addrDetails)
+            setAddress(`${location.state.addrDetails.street_number} ${location.state.addrDetails.route}`);
+            navigate(location.pathname, { replace: true, state: null });
+        }
+
+    }, [location.state])
+
+
+    useEffect(() => {
+
+        // console.log("in newForm, location.state.address is ", location?.state?.address)
+
+        // 
+        // if (location?.state?.addrDetails) {
+        //     // console.log("detail Addr is ", location.state.addrDetails)
+        //     setAddress(`${location.state.addrDetails.street_number} ${location.state.addrDetails.route}`);
+        //     navigate(location.pathname, { replace: true, state: null });
+        // }
 
         // obtain address from navbar
         if (location.state && location.state.address) {
             setFormData({
                 title: "",
-                street: location.state.address
+                street: location.state.address || ""
             })
         }
 
@@ -130,6 +154,7 @@ const NewForm = () => {
                     <Autocomplete
                         onLoad={(autocomplete) => (autocompleteFormRef.current = autocomplete)}
                         onPlaceChanged={handlePlaceChange}
+                        className="w-full"
                     >
                         <input
                         type="text"
