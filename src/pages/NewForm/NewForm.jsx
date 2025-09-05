@@ -1,13 +1,18 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
+// google maps  api
+import { LoadScript, Autocomplete } from "@react-google-maps/api";
 
 import "./NewForm.css";
 
 import services from "../../services/index.js";
 
 /* --------------------------------Variables--------------------------------*/
+
+const libraries = ['places']
 
 const initial = {
 
@@ -22,6 +27,8 @@ const initial = {
 /* --------------------------------Component--------------------------------*/
 
 const NewForm = () => {
+
+    const autocompleteFormRef = useRef(null)
 
     const location = useLocation()
     const navigate = useNavigate()

@@ -21,10 +21,32 @@ const addressTemplate = {
     "administrative_area_level_1": ""
 }
 
+/* --------------------------------Functions--------------------------------*/
+
+const getGoogleFormat = place => {
+
+    if (!place.address_components) return;
+    
+    const addrDetails = place.address_components.reduce((arg, component) => {
+    
+        Object.keys(addressTemplate).forEach(key => {
+            if (component.types.includes(key)) {
+                arg[key] = component.long_name
+            }
+        });
+        return arg;
+    
+    }, {});
+
+    return addrDetails
+
+}
+
 /* --------------------------------Component--------------------------------*/
 
 const NavBar = () => {
 
+    // google maps ref, side bar ref
     const autocompleteRef = useRef(null)
     const navbarRef = useRef(null)
 
@@ -40,6 +62,7 @@ const NavBar = () => {
         if (navbarRef.current && !navbarRef.current.contains(e.target)) setSideOpen(false);
     }
 
+    // side menu open and close
     useEffect(() => {
 
         if (!sideOpen) return;
@@ -58,24 +81,29 @@ const NavBar = () => {
 
     }, [location.pathname])
 
+
     // google maps autocomplete handle change
     const handlePlaceChange = () => {
 
         console.log("selected place ", autocompleteRef.current.getPlace())
         const place = autocompleteRef.current.getPlace()
 
-        if (!place.address_components) return;
+        // if (!place.address_components) return;
 
-        const addrDetails = place.address_components.reduce((arg, component) => {
+        // const addrDetails = place.address_components.reduce((arg, component) => {
 
-            Object.keys(addressTemplate).forEach(key => {
-                if (component.types.includes(key)) {
-                    arg[key] = component.long_name
-                }
-            });
-            return arg;
+        //     Object.keys(addressTemplate).forEach(key => {
+        //         if (component.types.includes(key)) {
+        //             arg[key] = component.long_name
+        //         }
+        //     });
+        //     return arg;
 
-        }, {});
+        // }, {});
+
+        const addrDetails = getGoogleFormat(place)
+
+        if (!addrDetails) return
 
         setInputValue("")
 
@@ -143,3 +171,4 @@ const NavBar = () => {
 /* --------------------------------Export--------------------------------*/
 
 export default NavBar
+export { getGoogleFormat }
