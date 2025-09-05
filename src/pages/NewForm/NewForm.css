@@ -17,3 +17,7 @@
 .new-form-button {
     @apply mt-4
 }
+
+#new-form-notes {
+    @apply h-24
+}

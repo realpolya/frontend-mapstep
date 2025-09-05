@@ -16,8 +16,10 @@ import { getGoogleFormat } from "../../components/allpages/NavBar.jsx";
 const initial = {
 
     title: "",
-    // jurisdiction: "", // computed on back end
     street: "", // gathered from search result - HAS TO BE STREET
+    description: ""
+
+    // jurisdiction: "", // computed on back end
     // street: "",
     // street_type: "" // computed on back end
     // etc...
@@ -143,7 +145,7 @@ const NewForm = () => {
                     name="title"
                     value={formData.title}
                     onChange={handleChange}
-                    placeholder="your project title..."
+                    placeholder="project title..."
                     className="new-form-input"
                     />
                 </div>
@@ -161,12 +163,26 @@ const NewForm = () => {
                         name="street"
                         value={formData.street}
                         onChange={handleChange}
-                        placeholder=""
+                        placeholder="address..."
                         className="new-form-input"
                         />
                     </Autocomplete>
-
                 </div>
+
+                <div className="new-form-div" id="new-form-notes">
+                    <label className="new-form-label">
+                        Notes:
+                    </label>
+                    <textarea
+                    type="text"
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    placeholder="project description..."
+                    className="new-form-input"
+                    />
+                </div>
+
                 <button type="submit" className="round-button new-form-button">
                     Save project
                 </button>
