@@ -59,9 +59,9 @@ const MyProjects = () => {
     return (
         <main className="normal-main">
             <div className="flex flex-row justify-between pb-8">
-                <div className="flex flex-row">
-                    <h1 className="text-xl pr-6">All projects</h1>
-                    <Link to="/dashboard" className="red-link">back to dashboard</Link>
+                <div className="flex flex-row items-end">
+                    <h1 className="text-xl pr-4">All projects</h1>
+                    <Link to="/dashboard" className="red-link text-center">back to dashboard</Link>
                 </div>
                 <div className="my-projects-arrows">
                     <p>⬅️ Previous | </p>
@@ -73,7 +73,8 @@ const MyProjects = () => {
                     return (
                         <Link to={`/project/${project.id}`} className="project-card" key={project.id}>
                             <MiniProjectMap project={project}/>
-                            <h6>{project.title}</h6>
+                            <h6>{project?.title}</h6>
+                            <p>{project?.description}</p>
                         </Link>
                     )
                 })}

@@ -1,5 +1,5 @@
 .project-card {
-    @apply bg-blueLight
+    @apply bg-blueLight p-2 rounded-xl
 }
 
 .my-projects-arrows {
