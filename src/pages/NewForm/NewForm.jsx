@@ -42,11 +42,27 @@ const NewForm = () => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
 
+    const handlePlaceChange = () => {
+
+        console.log("selected place ", autocompleteFormRef.current.getPlace())
+        const place = autocompleteFormRef.current.getPlace()
+
+        const addrDetails = getGoogleFormat(place)
+
+        if (!addrDetails) return
+
+        setGoogleAddy(addrDetails)
+
+        // convert google object to a readable string
+        const addressString = `${addrDetails.street_number} ${addrDetails.route}`
+
+        setFormData(prev => ({ ...prev, street: addressString }))
+
+    }
 
     const handleSubmit = async (e) => {
 
         e.preventDefault()
-        console.log("sending the following info", formData)
         
         try {
             
@@ -61,61 +77,8 @@ const NewForm = () => {
         }
     }
 
-    const handlePlaceChange = () => {
-
-        console.log("selected place ", autocompleteFormRef.current.getPlace())
-        const place = autocompleteFormRef.current.getPlace()
-
-        // if (!place.address_components) return;
-
-        // const addrDetails = place.address_components.reduce((arg, component) => {
-
-        //     Object.keys(addressTemplate).forEach(key => {
-        //         if (component.types.includes(key)) {
-        //             arg[key] = component.long_name
-        //         }
-        //     });
-        //     return arg;
-
-        // }, {});
-
-        const addrDetails = getGoogleFormat(place)
-
-        if (!addrDetails) return
-
-        setGoogleAddy(addrDetails)
-
-        // convert google object to a readable string
-        const addressString = `${addrDetails.street_number} ${addrDetails.route}`
-
-        setFormData(prev => ({ ...prev, street: addressString }))
-
-        // navigate("/result", { state: { addrDetails }})
-
-    }
-
 
     useEffect(() => {
-
-        if (location?.state?.addrDetails) {
-            // console.log("detail Addr is ", location.state.addrDetails)
-            setAddress(`${location.state.addrDetails.street_number} ${location.state.addrDetails.route}`);
-            navigate(location.pathname, { replace: true, state: null });
-        }
-
-    }, [location.state])
-
-
-    useEffect(() => {
-
-        // console.log("in newForm, location.state.address is ", location?.state?.address)
-
-        // 
-        // if (location?.state?.addrDetails) {
-        //     // console.log("detail Addr is ", location.state.addrDetails)
-        //     setAddress(`${location.state.addrDetails.street_number} ${location.state.addrDetails.route}`);
-        //     navigate(location.pathname, { replace: true, state: null });
-        // }
 
         // obtain address from navbar
         if (location.state && location.state.address) {
@@ -125,17 +88,19 @@ const NewForm = () => {
             })
         }
 
-        // TODO: add Google Maps search to the address input
-
     }, [location.state])
+    
     
     return (
 
         <main className="padded-main new-form-main">
+
             <h2 className="text-2xl pb-4">New Project</h2>
+
             <form
             onSubmit={handleSubmit} className="w-full flex flex-col items-center"
             >
+
                 <div className="new-form-div">
                     <label className="new-form-label">
                         Title:
@@ -149,6 +114,7 @@ const NewForm = () => {
                     className="new-form-input"
                     />
                 </div>
+
                 <div className="new-form-div">
                     <label className="new-form-label">
                         Address:
@@ -186,7 +152,9 @@ const NewForm = () => {
                 <button type="submit" className="round-button new-form-button">
                     Save project
                 </button>
+
             </form>
+
         </main>
 
     )
