@@ -1,3 +1,7 @@
 .project-card {
     @apply bg-blueLight
 }
+
+.my-projects-arrows {
+    @apply flex flex-row 
+}

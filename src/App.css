@@ -57,6 +57,14 @@ main {
     @apply flex flex-col justify-center items-center pb-60
 }
 
+.normal-main {
+    @apply flex flex-col p-4 w-full
+}
+
+.red-link {
+    @apply text-blueColor hover:text-redColor
+}
+
 /* MODALS */
 
 .auth-modal {

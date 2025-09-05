@@ -8,7 +8,6 @@ import MiniProjectMap from "../../components/maps/MiniProjectMap/MiniProjectMap.
 
 import "./MyProjects.css";
 
-
 /* --------------------------------Varables--------------------------------*/
 
 const limit = 4 // limit of projects per page
@@ -37,6 +36,7 @@ const MyProjects = () => {
 
     }, [])
 
+
     useEffect(() => {
 
         if (myProjects.length > 0) {
@@ -45,10 +45,8 @@ const MyProjects = () => {
             let i = count[0]
 
             for (let c = 0; c < limit; c++) {
-
                 currentProj.push(myProjects[i]);
                 i++;
-
             }
 
             setDisplayedProjects(currentProj)
@@ -59,13 +57,18 @@ const MyProjects = () => {
 
 
     return (
-        <main>
-            <h2>MyProjects</h2>
-            <div className="my-projects-arrows">
-                <p>⬅️ Previous</p>
-                <p>Next ➡️</p>
+        <main className="normal-main">
+            <div className="flex flex-row justify-between pb-8">
+                <div className="flex flex-row">
+                    <h1 className="text-xl pr-6">All projects</h1>
+                    <Link to="/dashboard" className="red-link">back to dashboard</Link>
+                </div>
+                <div className="my-projects-arrows">
+                    <p>⬅️ Previous | </p>
+                    <p>| Next ➡️</p>
+                </div>
             </div>
-            <div>
+            <div className="grid grid-cols-2 grid-rows-2 gap-4">
                 {displayedProjects.map(project => {
                     return (
                         <Link to={`/project/${project.id}`} className="project-card" key={project.id}>

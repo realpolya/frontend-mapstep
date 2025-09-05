@@ -106,7 +106,7 @@ const SearchResult = () => {
 
     return (
         // <SearchContext.Provider value={searchObject}>
-            <div className="flex flex-col p-4 h-full">
+            <main className="flex flex-col p-4 h-full">
                 
                 <h1 className="h1-heading">Search Results for: <span className="italic">{address}</span></h1>
                 <div className='flex md:flex-row flex-col'>
@@ -126,7 +126,7 @@ const SearchResult = () => {
                     </div>
                 </div>
                 
-            </div>
+            </main>
         // </SearchContext.Provider>
   )
 }
