@@ -19,8 +19,11 @@ const MyProjects = () => {
     // TODO: 8 projects per page
     
     const [myProjects, setMyProjects] = useState([])
+    const [loading, setLoading] = useState(true)
     const [displayedProjects, setDisplayedProjects] = useState([])
     const [count, setCount] = useState([0, 7]) // indices of the projects
+    const [maxCount, setMaxCount] = useState(0)
+    const [maxPages, setMaxPages] = useState(1)
     
     const fetchMyProjects = async () => {
 
@@ -28,6 +31,8 @@ const MyProjects = () => {
         setMyProjects(fetched.reverse())
 
     }
+
+
 
 
     useEffect(() => {
@@ -41,6 +46,21 @@ const MyProjects = () => {
 
         if (myProjects.length > 0) {
 
+            const projectsNum = myProjects.length - 1
+            setMaxCount(projectsNum)
+            setMaxPages(Math.floor(projectsNum/limit))
+
+            setLoading(false)
+
+        }
+
+    }, [myProjects])
+
+
+    useEffect(() => {
+
+        if (!loading) {
+
             const currentProj = []
             let i = count[0]
 
@@ -53,7 +73,8 @@ const MyProjects = () => {
 
         }
 
-    }, [myProjects]) // add arrows to the dependency array
+    }, [loading]) // add arrows to the dependency array
+
 
 
     return (
