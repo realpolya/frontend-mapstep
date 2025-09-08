@@ -3,5 +3,9 @@
 }
 
 .my-projects-arrows {
-    @apply flex flex-row 
+    @apply flex flex-row items-end
+}
+
+.arrows-button {
+    @apply text-base transform transition-transform hover:text-redColor hover:scale-105
 }

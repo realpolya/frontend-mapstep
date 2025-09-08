@@ -64,8 +64,9 @@ const MyProjects = () => {
                     <Link to="/dashboard" className="red-link text-center">back to dashboard</Link>
                 </div>
                 <div className="my-projects-arrows">
-                    <p>⬅️ Previous | </p>
-                    <p>| Next ➡️</p>
+                    <button className="arrows-button">⬅️ Previous&nbsp;</button>
+                    <p> | | </p>
+                    <button className="arrows-button">&nbsp;Next ➡️</button>
                 </div>
             </div>
             <div className="grid grid-cols-2 grid-rows-2 gap-4">
