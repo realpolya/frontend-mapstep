@@ -22,6 +22,8 @@ const MyProjects = () => {
     const [count, setCount] = useState([0, limit - 1]) // initial indices of the projects
     const [maxCount, setMaxCount] = useState(0)
     const [maxPages, setMaxPages] = useState(1)
+    const [greyPrev, setGreyPrev] = useState(false)
+    const [greyNext, setGreyNext] = useState(false)
     
 
     const fetchMyProjects = async () => {
@@ -57,6 +59,22 @@ const MyProjects = () => {
         return; 
 
     }
+
+    useEffect(() => {
+
+        if (count[0] == 0) {
+            setGreyPrev(true)
+        } else {
+            setGreyPrev(false)
+        }
+        
+        if ((count[0] + limit) > maxCount) {
+            setGreyNext(true)
+        } else {
+            setGreyNext(false)
+        }
+
+    }, [count])
 
 
     useEffect(() => {
@@ -117,9 +135,15 @@ const MyProjects = () => {
                     <Link to="/dashboard" className="red-link text-center">back to dashboard</Link>
                 </div>
                 <div className="my-projects-arrows">
-                    <button className="arrows-button" onClick={clickPrevious}>⬅️ Previous&nbsp;</button>
+                    <button 
+                        className={greyPrev ? "disabled-arrows" : "arrows-button"}
+                        onClick={clickPrevious}
+                    >⬅️ Previous&nbsp;</button>
                     <p> | | </p>
-                    <button className="arrows-button" onClick={clickNext}>&nbsp;Next ➡️</button>
+                    <button 
+                        className={greyNext ? "disabled-arrows" : "arrows-button"}
+                        onClick={clickNext}
+                    >&nbsp;Next ➡️</button>
                 </div>
             </div>
             <div className="grid grid-cols-2 grid-rows-2 gap-4">

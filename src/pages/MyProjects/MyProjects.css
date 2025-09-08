@@ -9,3 +9,7 @@
 .arrows-button {
     @apply text-base transform transition-transform hover:text-redColor hover:scale-105
 }
+
+.disabled-arrows {
+    @apply text-greyColor
+}
