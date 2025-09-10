@@ -158,14 +158,14 @@ const MyProjects = () => {
                     return (
                         <Link to={`/project/${project.id}`} className="project-card" key={project.id}>
                             <MiniProjectMap project={project}/>
-                            <h6>{project?.title}</h6>
-                            <p>{project?.description}</p>
+                            <h6 className="font-normal">{project?.title}</h6>
+                            <p className="text-sm">{project?.description} &nbsp;</p>
                         </Link>
                     )
                 })}
             </div>
             <div id="arrows-count-div">
-                <p>{currentPage} | {maxPages}</p>
+                <p>{currentPage}&nbsp; | &nbsp;{maxPages}</p>
             </div>
         </main>
     )
