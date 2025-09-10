@@ -22,6 +22,7 @@ const MyProjects = () => {
     const [count, setCount] = useState([0, limit - 1]) // initial indices of the projects
     const [maxCount, setMaxCount] = useState(0)
     const [maxPages, setMaxPages] = useState(1)
+    const [currentPage, setCurrentPage] = useState(1)
     const [greyPrev, setGreyPrev] = useState(false)
     const [greyNext, setGreyNext] = useState(false)
     
@@ -43,6 +44,9 @@ const MyProjects = () => {
         
         // move the indices
         setCount([prevStart + limit, prevEnd + limit])
+
+        const newPage = currentPage + 1
+        setCurrentPage(newPage)
         return; 
         
     }
@@ -56,75 +60,78 @@ const MyProjects = () => {
         
         // move the indices
         setCount([prevStart - limit, prevEnd - limit])
+
+        const newPage = currentPage - 1
+        setCurrentPage(newPage)
         return; 
 
     }
 
+       
     useEffect(() => {
-
-        if (count[0] == 0) {
-            setGreyPrev(true)
-        } else {
-            setGreyPrev(false)
-        }
         
-        if ((count[0] + limit) > maxCount) {
-            setGreyNext(true)
-        } else {
-            setGreyNext(false)
-        }
-
-    }, [count])
-
-
-    useEffect(() => {
-
-       fetchMyProjects()
-
+        fetchMyProjects()
+        
     }, [])
-
-
+    
+    
     useEffect(() => {
-
+        
         if (myProjects.length > 0) {
-
+            
             const projectsNum = myProjects.length - 1
             setMaxCount(projectsNum) // index is 1 fewer
-            setMaxPages(Math.floor(projectsNum/limit))
-
+            setMaxPages(Math.ceil((projectsNum + 1)/limit))
+            
             setLoading(false)
-
+            
         }
-
+        
     }, [myProjects])
-
+    
+    
+    useEffect(() => {
+                
+        if (!loading) {
+            
+            const currentProj = []
+            let i = count[0]
+            
+            for (let c = 0; c < limit; c++) {
+                
+                if (i > maxCount) break;
+                
+                currentProj.push(myProjects[i]);
+                i++;
+                
+            }
+            
+            console.log("firing now")
+            
+            setDisplayedProjects(currentProj)
+            
+        }
+        
+    }, [loading, count]) // add arrows to the dependency array
+    
 
     useEffect(() => {
 
-        console.log("firing now here, loading is ", loading)
-
         if (!loading) {
-
-            const currentProj = []
-            let i = count[0]
-
-            for (let c = 0; c < limit; c++) {
-
-                if (i > maxCount) break;
-
-                currentProj.push(myProjects[i]);
-                i++;
-
+            if (count[0] == 0) {
+                setGreyPrev(true)
+            } else {
+                setGreyPrev(false)
             }
-
-            console.log("firing now")
-
-            setDisplayedProjects(currentProj)
-
+            
+            if ((count[0] + limit) > maxCount) {
+                setGreyNext(true)
+            } else {
+                setGreyNext(false)
+            }
         }
 
-    }, [loading, count]) // add arrows to the dependency array
-
+    }, [loading, count])
 
 
     return (
@@ -156,6 +163,9 @@ const MyProjects = () => {
                         </Link>
                     )
                 })}
+            </div>
+            <div id="arrows-count-div">
+                <p>{currentPage} | {maxPages}</p>
             </div>
         </main>
     )

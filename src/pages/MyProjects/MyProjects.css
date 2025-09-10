@@ -13,3 +13,7 @@
 .disabled-arrows {
     @apply text-greyColor
 }
+
+#arrows-count-div {
+    @apply pt-12 w-full text-center
+}
