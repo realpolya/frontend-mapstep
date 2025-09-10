@@ -17,3 +17,11 @@
 .proj-link-a {
     @apply p-4 bg-lightGreyColor rounded-xl text-sm
 }
+
+.lot-info-h6 {
+    @apply pt-2 font-bold pr-2 text-base
+}
+
+.lot-info-text-div {
+    @apply flex flex-row items-end
+}

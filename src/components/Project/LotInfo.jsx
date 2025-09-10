@@ -24,7 +24,11 @@ const LotInfo = () => {
 
     return (
         <div className="sm:w-1/3 mr-4 ml-4 bg-greyColor p-4 text-textAlterColor rounded-xl h-[70%]">
-            <h5><span className="font-bold">Address:</span> {siteDetails?.address}</h5>
+            
+            <div className="lot-info-text-div">
+                <h6 className="lot-info-h6">Address:</h6>
+                <p>{siteDetails?.address}</p>
+            </div>
 
             <table className="mt-4 w-full">
                 <tbody>
@@ -63,7 +67,7 @@ const LotInfo = () => {
                 </tbody>
             </table>
 
-            <h6 className="pt-4 font-bold">Zonings:</h6>
+            <h6 className="lot-info-h6">Zonings:</h6>
             <ul className="list-disc pl-5">
                 {zonings.map(zoning => {
                         return (
@@ -72,6 +76,11 @@ const LotInfo = () => {
                     })
                 }
             </ul>
+
+            <div className="lot-info-text-div">
+                <h6 className="lot-info-h6">Notes:</h6>
+                <p>{siteDetails.description}</p>
+            </div>
         </div>
     )
 
