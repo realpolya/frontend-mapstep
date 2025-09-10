@@ -36,6 +36,11 @@ const AppRoutes = () => {
                 </ProtectedRoute>
             } />
             <Route path="/new" element={<NewForm/>}/>
+            <Route path="/edit/:projectId" element={
+                <ProtectedRoute>
+                    <NewForm/>
+                </ProtectedRoute>
+            } />
             <Route path="/projects" element={
                 <ProtectedRoute>
                     <MyProjects/>
