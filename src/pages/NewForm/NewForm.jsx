@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 // google maps  api
 import { Autocomplete } from "@react-google-maps/api";
@@ -29,6 +29,8 @@ const initial = {
 
 const NewForm = () => {
 
+    const { projectId } = useParams()
+
     const autocompleteFormRef = useRef(null)
 
     const location = useLocation()
@@ -36,6 +38,7 @@ const NewForm = () => {
 
     const [formData, setFormData] = useState(initial)
     const [googleAddy, setGoogleAddy] = useState('')
+    const [editMode, setEditMode] = useState(false)
 
 
     const handleChange = (e) => {
@@ -77,15 +80,46 @@ const NewForm = () => {
         }
     }
 
+    const handleEdit = async (e) => {
+
+        e.preventDefault()
+
+        try {
+            
+            await services.putProject(projectId, formData)
+            navigate("/dashboard", { state: { message: "project successfully updated" }})
+
+        } catch (err) {
+
+            console.log(err.response.data.error)
+            alert(err)
+
+        }
+
+    }
+
 
     useEffect(() => {
 
         // obtain address from navbar
-        if (location.state && location.state.address) {
+        if (location.state && location.state?.address) {
             setFormData({
                 title: "",
                 street: location.state.address || ""
             })
+        }
+
+        if (location.state && location.state?.siteDetails) {
+            // this indicates editing
+            setEditMode(true)
+
+            setFormData({
+                title: location.state.siteDetails.title,
+                street: location.state.siteDetails.address,
+                description: location.state.siteDetails.description
+            })
+        } else {
+            setEditMode(false)
         }
 
     }, [location.state])
@@ -95,10 +129,16 @@ const NewForm = () => {
 
         <main className="padded-main new-form-main">
 
-            <h2 className="text-2xl pb-4">New Project</h2>
+            {editMode ? (
+                    <h2 className="new-form-h2">Edit Project</h2>
+                ):(
+                    <h2 className="new-form-h2">New Project</h2>
+                )
+            }
 
             <form
-            onSubmit={handleSubmit} className="w-full flex flex-col items-center"
+                onSubmit={editMode ? handleEdit : handleSubmit} 
+                className="w-full flex flex-col items-center"
             >
 
                 <div className="new-form-div">
@@ -149,7 +189,9 @@ const NewForm = () => {
                     />
                 </div>
 
-                <button type="submit" className="round-button new-form-button">
+                <button type="submit" 
+                    className="round-button new-form-button"
+                >
                     Save project
                 </button>
 

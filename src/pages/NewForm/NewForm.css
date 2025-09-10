@@ -21,3 +21,7 @@
 #new-form-notes {
     @apply h-24
 }
+
+.new-form-h2 {
+    @apply text-2xl pb-4
+}
