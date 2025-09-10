@@ -21,14 +21,12 @@ axios.defaults.withCredentials = true;
 api.interceptors.request.use((config) => {
     
     config.withCredentials = true;
-    console.log("the cookie is", document.cookie)
     
     const method = (config.method || "").toLowerCase();
     const url = config.url || "";
     
     if (["post", "put", "patch", "delete"].includes(method)) {
         const csrfToken = Cookies.get("csrftoken");
-        console.log("🍪 CSRF Token:", csrfToken);
         if (csrfToken) {
             config.headers["X-CSRFToken"] = csrfToken;
         }

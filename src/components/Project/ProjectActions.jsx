@@ -19,7 +19,10 @@ const ProjectActions = () => {
                 <h5 className="proj-action-h5">quick actions</h5>
                 <div className="grid grid-cols-2 gap-4">
                     <Link className="proj-action-link bg-lightGreyColor" to="/">generate visual code representation</Link>
-                    <Link className="proj-action-link bg-blueLight" to={`/edit/${siteDetails.id}`}>edit / delete project</Link>
+                    <Link className="proj-action-link bg-blueLight" 
+                        to={`/edit/${siteDetails.id}`}
+                        state={{ siteDetails: siteDetails }}
+                    >edit / delete project</Link>
                     <Link className="proj-action-link bg-green2Color" 
                         to={`/review/${siteDetails.id}`}
                         state={{ siteDetails: siteDetails }}

@@ -40,7 +40,24 @@ const postProject = async (formData) => {
     try {
 
         const response = await api.post('projects/', formData)
-        console.log("the postProject response is ", response?.data)
+        // console.log("the postProject response is ", response?.data)
+        return response?.data
+
+    } catch (err) {
+
+        console.log(err.response.data.error);
+        throw err;
+
+    }
+
+}
+
+const putProject = async (id, formData) => {
+
+    try {
+
+        const response = await api.patch(`projects/${id}/`, formData)
+        // console.log("the postProject response is ", response?.data)
         return response?.data
 
     } catch (err) {
@@ -57,5 +74,6 @@ const postProject = async (formData) => {
 export {
     getMyProjects,
     getProject,
-    postProject
+    postProject,
+    putProject
 }
