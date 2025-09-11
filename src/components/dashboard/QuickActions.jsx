@@ -23,7 +23,7 @@ const QuickActions = () => {
                 <div className="three-button-div">
                     <button className="action-button hover-btn" onClick={() => navigate("/")}>view permit library</button>
                     <button className="action-button hover-btn" onClick={() => navigate("/")}>open autoCAD</button>
-                    <button className="action-button hover-btn" onClick={() => navigate("/")}>FAQ</button>
+                    <button className="action-button hover-btn" onClick={() => navigate("/faq")}>FAQ</button>
                 </div>
             </div>
         </div>

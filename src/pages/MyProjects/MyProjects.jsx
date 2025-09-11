@@ -135,10 +135,11 @@ const MyProjects = () => {
 
 
     return (
+
         <main className="normal-main">
             <div className="flex flex-row justify-between pb-8">
                 <div className="flex flex-row items-end">
-                    <h1 className="text-xl pr-4">All projects</h1>
+                    <h1 className="h1-heading-v2">All projects</h1>
                     <Link to="/dashboard" className="red-link text-center">back to dashboard</Link>
                 </div>
                 <div className="my-projects-arrows">
@@ -168,6 +169,7 @@ const MyProjects = () => {
                 <p>{currentPage}&nbsp; | &nbsp;{maxPages}</p>
             </div>
         </main>
+
     )
 
 }

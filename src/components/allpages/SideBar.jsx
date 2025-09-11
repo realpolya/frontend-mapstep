@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useContext } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import services from "../../services/index.js"
 
@@ -23,6 +23,12 @@ const SideBar = () => {
         
     }
 
+    const bothMenus = (
+        <Link className="nav-link" to="/about">
+            About mapStep
+        </Link>
+    )
+
     const unauthMenu = (
         <>
             <button className="nav-link" onClick={()=> showSignUp(true)}>
@@ -31,6 +37,7 @@ const SideBar = () => {
             <button className="nav-link" onClick={()=> showLogIn(true)}>
                 Log In
             </button>
+            {bothMenus}
         </>
     )
 
@@ -42,12 +49,13 @@ const SideBar = () => {
             <button className="nav-link" onClick={()=> logOut()}>
                 Log Out
             </button>
+            {bothMenus}
         </>
     )
 
 
     return (
-        <div className="bg-blueColor w-[200px] h-[60px] rounded-xl flex flex-col justify-center items-center">
+        <div className="bg-blueColor w-[200px] h-[100px] rounded-xl flex flex-col justify-center items-center">
             <ul className='flex flex-col'>
                 {user ? authMenu : unauthMenu}
             </ul>

@@ -1,0 +1,7 @@
+.about-text-img-div {
+    @apply flex flex-row w-1/2 items-center pb-8
+}
+
+.mapstep-span {
+    @apply font-medium
+}
