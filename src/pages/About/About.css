@@ -1,0 +1,3 @@
+.about-text-img-div {
+    @apply flex flex-row w-1/2 items-center
+}
