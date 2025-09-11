@@ -9,7 +9,7 @@ const Footer = () => {
     <footer>
         <p className="pl-4">mapStep © 2025 all rights reserved</p>
         <div id="footer-links" className="pr-4">
-            <Link className="pr-2">About</Link>
+            <Link className="pr-2" to="/about">About</Link>
             <a href="https://github.com/realpolya">Creator</a>
         </div>
     </footer>

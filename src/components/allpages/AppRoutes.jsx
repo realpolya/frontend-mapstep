@@ -9,6 +9,7 @@ import ProjectPage from "../../pages/ProjectPage/ProjectPage.jsx";
 import NewForm from "../../pages/NewForm/NewForm.jsx";
 import MyProjects from "../../pages/MyProjects/MyProjects.jsx";
 import ReviewProject from "../../pages/ReviewProject/ReviewProject.jsx";
+import About from "../../pages/About/About.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
 
@@ -46,6 +47,7 @@ const AppRoutes = () => {
                     <MyProjects/>
                 </ProtectedRoute>
             } />
+            <Route path="/about" element={<About/>} />
         </Routes>
     )
 
