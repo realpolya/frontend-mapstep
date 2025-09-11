@@ -12,9 +12,9 @@ const About = () => {
 
         <main className="normal-main flex flex-col items-center">
             <h1 className="h1-heading">about mapStep</h1>
-            <div className="flex flex-col w-full items-center">
+            <div className="flex flex-col w-full items-center pb-12">
                 <div className="about-text-img-div">
-                    <p className="pr-4"><span className="font-medium">mapStep</span> was created
+                    <p className="pr-4"><span className="mapstep-span">mapStep</span> was created
                         by <a className="red-link" href="https://www.linkedin.com/in/realpolya/">Polina Stepanova</a> as
                         an efficiency and organization tool for architects,
                         real estate developers, contractors, civil engineers, and urban planners.<br/>
@@ -37,12 +37,12 @@ const About = () => {
                 <div className="about-text-img-div">
                     <p className="pr-4">Based on Los Angeles as a sample city and utilizing 
                         public <a className="red-link" href="https://portal.assessor.lacounty.gov/">Los Angeles County Assessor's portal</a> as 
-                        the primary API endpoint, mapStep enhances the permit acquisition process and broadens the 
+                        the primary API endpoint, <span className="mapstep-span">mapStep</span> enhances the permit acquisition process and broadens the 
                         imagination horizon by suggesting construction possibilities. The lot research
                         is significantly augmented and explanded with AI technologies.
                         <br/>
                         <br/>
-                        contact us for inquiries
+                        <a href="mailto:realpolya@gmail.com" className="italic red-link">contact us for inquiries</a>
                     </p>
                     <img src="/sketch.jpg" className="w-[200px] rounded-full"/>
                 </div>
