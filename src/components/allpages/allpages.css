@@ -14,5 +14,5 @@ footer {
 }
 
 .nav-link {
-    @apply text-textAlterColor
+    @apply text-textAlterColor hover:text-darkColor
 }

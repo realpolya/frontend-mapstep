@@ -55,7 +55,7 @@ const SideBar = () => {
 
 
     return (
-        <div className="bg-blueColor w-[200px] h-[60px] rounded-xl flex flex-col justify-center items-center">
+        <div className="bg-blueColor w-[200px] h-[100px] rounded-xl flex flex-col justify-center items-center">
             <ul className='flex flex-col'>
                 {user ? authMenu : unauthMenu}
             </ul>
