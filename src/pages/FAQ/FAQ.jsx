@@ -15,12 +15,11 @@ const FAQ = () => {
 
     return (
 
-        <main>
-            <div>
-                <h1>FAQ</h1>
-                { user ? (<Link to="/dashboard">to dashboard</Link>) : (null) }
+        <main className="normal-main">
+            <div className="flex flex-row items-end">
+                <h1 className="h1-heading-v2">Frequently Asked Questions</h1>
+                { user ? (<Link className="red-link text-center" to="/dashboard">to dashboard</Link>) : (null) }
             </div>
-
         </main>
 
     )
