@@ -1,0 +1,7 @@
+.faq-dropdown-div {
+    @apply pb-4 pt-4 border-b border-greyColor
+}
+
+.faq-answer-p {
+    @apply pt-2
+}

@@ -50,14 +50,18 @@ const FAQ = () => {
     return (
 
         <main className="normal-main">
-            <div className="flex flex-row items-end">
+            <div className="flex flex-row items-end pb-6">
                 <h1 className="h1-heading-v2">Frequently Asked Questions</h1>
                 { user ? (<Link className="red-link text-center" to="/dashboard">to dashboard</Link>) : (null) }
             </div>
             <div>
-                <div className="div-faq-1">
-                    <button className="faq-dropdown-btn" onClick={() => {updateBool(1)}}>What do you want to see?</button>
-                    { qArray[1] ? (<p>love everywhere</p>) : (null) }
+                <div id="div-faq-1" className="faq-dropdown-div">
+                    <button className="faq-dropdown-btn" onClick={() => {updateBool(1)}}>↓ What do you want to see?</button>
+                    { qArray[1] ? (<p className="faq-answer-p">love everywhere</p>) : (null) }
+                </div>
+                <div id="div-faq-2" className="faq-dropdown-div">
+                    <button className="faq-dropdown-btn" onClick={() => {updateBool(2)}}>↓ What do you want to see?</button>
+                    { qArray[2] ? (<p className="faq-answer-p">love everywhere</p>) : (null) }
                 </div>
             </div>
         </main>
