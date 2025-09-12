@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 
 // google maps  api
 import { Autocomplete } from "@react-google-maps/api";
@@ -129,16 +129,19 @@ const NewForm = () => {
 
         <main className="padded-main new-form-main">
 
-            {editMode ? (
-                    <h2 className="new-form-h2">Edit Project</h2>
-                ):(
-                    <h2 className="new-form-h2">New Project</h2>
-                )
-            }
+            <div className="flex flex-row items-end">
+                {editMode ? (
+                        <h2 className="new-form-h2">Edit Project</h2>
+                    ):(
+                        <h2 className="new-form-h2">New Project</h2>
+                    )
+                }
+                <Link to="/dashboard" className="red-link text-center">to dashboard</Link>
+            </div>
 
             <form
                 onSubmit={editMode ? handleEdit : handleSubmit} 
-                className="w-full flex flex-col items-center"
+                className="w-full flex flex-col items-center pt-4"
             >
 
                 <div className="new-form-div">
