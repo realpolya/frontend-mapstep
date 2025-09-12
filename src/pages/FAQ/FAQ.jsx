@@ -54,14 +54,14 @@ const FAQ = () => {
                 <h1 className="h1-heading-v2">Frequently Asked Questions</h1>
                 { user ? (<Link className="red-link text-center" to="/dashboard">to dashboard</Link>) : (null) }
             </div>
-            <div>
+            <div className="flex flex-col">
                 <div id="div-faq-1" className="faq-dropdown-div">
                     <button className="faq-dropdown-btn" onClick={() => {updateBool(1)}}>↓ What do you want to see?</button>
                     { qArray[1] ? (<p className="faq-answer-p">love everywhere</p>) : (null) }
                 </div>
                 <div id="div-faq-2" className="faq-dropdown-div">
-                    <button className="faq-dropdown-btn" onClick={() => {updateBool(2)}}>↓ What do you want to see?</button>
-                    { qArray[2] ? (<p className="faq-answer-p">love everywhere</p>) : (null) }
+                    <button className="faq-dropdown-btn" onClick={() => {updateBool(2)}}>↓ Who is mapStep designed for?</button>
+                    { qArray[2] ? (<p className="faq-answer-p">Architects, contractors, civil engineers, designers, real estate developers and investors, opportunists, and homeowners. Practically anyone who is interacting with the world of built environment.</p>) : (null) }
                 </div>
             </div>
         </main>
