@@ -25,7 +25,8 @@ const {
     getMyProjects,
     getProject,
     postProject,
-    putProject
+    putProject,
+    archiveProject
 
 } = project
 
@@ -41,7 +42,8 @@ const services = {
     getMyProjects,
     getProject,
     postProject,
-    putProject
+    putProject,
+    archiveProject
 }
 
 /* --------------------------------Exports--------------------------------*/
@@ -60,5 +62,6 @@ export {
     getMyProjects,
     getProject,
     postProject,
-    putProject
+    putProject,
+    archiveProject
 }
