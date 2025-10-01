@@ -105,9 +105,7 @@ const MyProjects = () => {
                 i++;
                 
             }
-            
-            console.log("firing now")
-            
+                        
             setDisplayedProjects(currentProj)
             
         }
@@ -154,7 +152,7 @@ const MyProjects = () => {
                     >&nbsp;Next ➡️</button>
                 </div>
             </div>
-            <div className="grid grid-cols-2 grid-rows-2 gap-4">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-2 gap-4">
                 {displayedProjects.map(project => {
                     return (
                         <Link to={`/project/${project.id}`} className="project-card" key={project.id}>
