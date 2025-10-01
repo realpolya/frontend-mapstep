@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { createContext, useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useLocation, Link, useParams, useNavigate } from 'react-router-dom';
 
 import "./ProjectPage.css"
 
@@ -21,10 +21,14 @@ const ProjectContext = createContext(null);
 
 const ProjectPage = () => {
 
+    const location = useLocation()
+    const navigate = useNavigate()
+
     const [siteDetails, setSiteDetails] = useState('') // TODO: dummy data?
     const [loading, setLoading] = useState(true);
     const { projectId } = useParams();
     const [lotGeom, setLotGeom] = useState()
+    const [msg, setMsg] = useState(null)
 
 
     const fetchProject = async (id) => {
@@ -33,6 +37,7 @@ const ProjectPage = () => {
         setSiteDetails(data)
         
     }
+
 
     useEffect(() => {
 
@@ -43,6 +48,7 @@ const ProjectPage = () => {
 
     }, [projectId])
 
+
     useEffect(() => {
 
         if (siteDetails?.info?.parcel_geometry) {
@@ -51,17 +57,29 @@ const ProjectPage = () => {
 
     }, [siteDetails])
 
-    const projectObject = { siteDetails }
 
+    useEffect(() => {
+
+        if (location?.state && location?.state?.message) {
+            setMsg(location.state.message)
+        }
+
+        navigate(location.pathname, { replace: true });
+
+    }, [location.state])
+
+
+    const projectObject = { siteDetails }
 
 
     return (
         <ProjectContext.Provider value={projectObject}>
             <main className="w-full">
                 <div className="flex flex-row w-full justify-between items-center">
-                    <h2 className="pl-4 mb-4 text-2xl text-redColor">{siteDetails?.title}</h2>
+                    <h2 className="pl-4 mb-2 text-2xl text-redColor">{siteDetails?.title}</h2>
                     <Link to="/dashboard" className="mr-4 red-link">back to dashboard</Link>
                 </div>
+                {msg ? (<p className="pl-4 pb-4 italic">{msg}</p>) : null}
                 <div id="project-div">
                     <div className="project-maps">
                         <SiteMap2D siteDetails={siteDetails} lotGeom={lotGeom}/>
