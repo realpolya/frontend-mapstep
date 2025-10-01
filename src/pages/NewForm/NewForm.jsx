@@ -47,7 +47,7 @@ const NewForm = () => {
 
     const handlePlaceChange = () => {
 
-        console.log("selected place ", autocompleteFormRef.current.getPlace())
+        // console.log("selected place ", autocompleteFormRef.current.getPlace())
         const place = autocompleteFormRef.current.getPlace()
 
         const addrDetails = getGoogleFormat(place)

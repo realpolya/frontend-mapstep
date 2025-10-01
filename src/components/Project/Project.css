@@ -19,9 +19,9 @@
 }
 
 .lot-info-h6 {
-    @apply pt-2 font-bold pr-2 text-base
+    @apply font-bold pr-2 text-base
 }
 
 .lot-info-text-div {
-    @apply flex flex-row items-end
+    @apply flex flex-row items-start
 }

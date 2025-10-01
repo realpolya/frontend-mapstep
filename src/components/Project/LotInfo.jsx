@@ -67,7 +67,7 @@ const LotInfo = () => {
                 </tbody>
             </table>
 
-            <h6 className="lot-info-h6">Zonings:</h6>
+            <h6 className="lot-info-h6 pt-6">Zonings:</h6>
             <ul className="list-disc pl-5">
                 {zonings.map(zoning => {
                         return (
