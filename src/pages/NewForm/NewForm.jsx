@@ -59,6 +59,8 @@ const NewForm = () => {
         // convert google object to a readable string
         const addressString = `${addrDetails.street_number} ${addrDetails.route}`
 
+        console.log("address string is ", addressString)
+
         setFormData(prev => ({ ...prev, street: addressString }))
 
     }
@@ -86,8 +88,12 @@ const NewForm = () => {
 
         try {
             
+            console.log("project id is", projectId, "formdata is ", formData)
+
             await services.putProject(projectId, formData)
-            navigate("/dashboard", { state: { message: "project successfully updated" }})
+            navigate(`/project/${projectId}`, { state: { message: "project successfully updated" }})
+            // navigate(`/project/${projectId}`)
+            // navigate('/dashboard')
 
         } catch (err) {
 
@@ -115,7 +121,7 @@ const NewForm = () => {
 
             setFormData({
                 title: location.state.siteDetails.title,
-                street: location.state.siteDetails.address,
+                street: location.state.siteDetails.street,
                 description: location.state.siteDetails.description
             })
         } else {
