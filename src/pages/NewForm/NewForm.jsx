@@ -39,6 +39,7 @@ const NewForm = () => {
     const [formData, setFormData] = useState(initial)
     const [googleAddy, setGoogleAddy] = useState('')
     const [editMode, setEditMode] = useState(false)
+    const [title, setTitle] = useState(null)
 
 
     const handleChange = (e) => {
@@ -58,8 +59,6 @@ const NewForm = () => {
 
         // convert google object to a readable string
         const addressString = `${addrDetails.street_number} ${addrDetails.route}`
-
-        console.log("address string is ", addressString)
 
         setFormData(prev => ({ ...prev, street: addressString }))
 
@@ -118,6 +117,8 @@ const NewForm = () => {
         if (location.state && location.state?.siteDetails) {
             // this indicates editing
             setEditMode(true)
+
+            setTitle(location.state.siteDetails.title)
 
             setFormData({
                 title: location.state.siteDetails.title,
@@ -205,10 +206,15 @@ const NewForm = () => {
                 </button>
 
             </form>
-
-            <button className="round-button red-button">
-                Delete project
-            </button>
+            
+            { editMode && title ? (<button className="round-button red-button"
+                    onClick={() => navigate(`/delete/${projectId}`, {
+                        state: { title }
+                    }
+                    )}>
+                        Delete project
+                </button>) : (null)
+            }
 
         </main>
 
