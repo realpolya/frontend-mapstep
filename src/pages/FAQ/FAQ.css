@@ -1,0 +1,11 @@
+.faq-dropdown-div {
+    @apply w-full pb-4 pt-4 border-b border-greyColor
+}
+/* 
+.faq-dropdown-btn {
+    @apply w-full
+} */
+
+.faq-answer-p {
+    @apply pt-4
+}

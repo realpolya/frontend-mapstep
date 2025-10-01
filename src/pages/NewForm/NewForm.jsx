@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 
 // google maps  api
 import { Autocomplete } from "@react-google-maps/api";
@@ -39,6 +39,7 @@ const NewForm = () => {
     const [formData, setFormData] = useState(initial)
     const [googleAddy, setGoogleAddy] = useState('')
     const [editMode, setEditMode] = useState(false)
+    const [title, setTitle] = useState(null)
 
 
     const handleChange = (e) => {
@@ -47,7 +48,7 @@ const NewForm = () => {
 
     const handlePlaceChange = () => {
 
-        console.log("selected place ", autocompleteFormRef.current.getPlace())
+        // console.log("selected place ", autocompleteFormRef.current.getPlace())
         const place = autocompleteFormRef.current.getPlace()
 
         const addrDetails = getGoogleFormat(place)
@@ -86,8 +87,12 @@ const NewForm = () => {
 
         try {
             
+            console.log("project id is", projectId, "formdata is ", formData)
+
             await services.putProject(projectId, formData)
-            navigate("/dashboard", { state: { message: "project successfully updated" }})
+            navigate(`/project/${projectId}`, { state: { message: "project successfully updated" }})
+            // navigate(`/project/${projectId}`)
+            // navigate('/dashboard')
 
         } catch (err) {
 
@@ -113,9 +118,11 @@ const NewForm = () => {
             // this indicates editing
             setEditMode(true)
 
+            setTitle(location.state.siteDetails.title)
+
             setFormData({
                 title: location.state.siteDetails.title,
-                street: location.state.siteDetails.address,
+                street: location.state.siteDetails.street,
                 description: location.state.siteDetails.description
             })
         } else {
@@ -129,16 +136,19 @@ const NewForm = () => {
 
         <main className="padded-main new-form-main">
 
-            {editMode ? (
-                    <h2 className="new-form-h2">Edit Project</h2>
-                ):(
-                    <h2 className="new-form-h2">New Project</h2>
-                )
-            }
+            <div className="flex flex-row items-end">
+                {editMode ? (
+                        <h2 className="new-form-h2">Edit Project</h2>
+                    ):(
+                        <h2 className="new-form-h2">New Project</h2>
+                    )
+                }
+                <Link to="/dashboard" className="red-link text-center">to dashboard</Link>
+            </div>
 
             <form
                 onSubmit={editMode ? handleEdit : handleSubmit} 
-                className="w-full flex flex-col items-center"
+                className="w-full flex flex-col items-center pt-4"
             >
 
                 <div className="new-form-div">
@@ -196,6 +206,15 @@ const NewForm = () => {
                 </button>
 
             </form>
+            
+            { editMode && title ? (<button className="round-button red-button"
+                    onClick={() => navigate(`/delete/${projectId}`, {
+                        state: { title }
+                    }
+                    )}>
+                        Delete project
+                </button>) : (null)
+            }
 
         </main>
 

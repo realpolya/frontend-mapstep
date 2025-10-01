@@ -23,5 +23,9 @@
 }
 
 .new-form-h2 {
-    @apply text-2xl pb-4
+    @apply text-2xl pr-12
+}
+
+.delete-form-h2 {
+    @apply text-2xl pb-6
 }

@@ -69,11 +69,29 @@ const putProject = async (id, formData) => {
 
 }
 
+const archiveProject = async (id) => {
+
+    try {
+
+        const response = await api.delete(`projects/${id}/`)
+        return response?.data
+
+
+    } catch (err) {
+
+        console.log(err.response.data.error);
+        throw err;
+
+    }
+
+}
+
 /* --------------------------------Exports--------------------------------*/
 
 export {
     getMyProjects,
     getProject,
     postProject,
-    putProject
+    putProject,
+    archiveProject
 }
