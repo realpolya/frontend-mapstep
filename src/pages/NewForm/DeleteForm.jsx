@@ -35,10 +35,14 @@ const DeleteForm = () => {
     }
 
     return (
-        <main>
-            <h6>Are you sure you want to delete {title ? (title) : (<span>this project</span>)}?</h6>
-            <button>Yes, delete</button>
-            <button>No, take me back</button>
+        <main className="padded-main new-form-main">
+            <h2 className="delete-form-h2">Are you sure you want to delete {title ? (<span className="italic">{title}</span>) : (
+                <span className="italic">this project</span>
+                )}?</h2>
+            <div className="flex flex-row">
+                <button className="round-button red-button pr-6">Yes, delete</button>
+                <button className="round-button">No, take me back</button>
+            </div>
         </main>
     )
 
