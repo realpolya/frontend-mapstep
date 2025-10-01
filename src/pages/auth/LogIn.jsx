@@ -21,7 +21,7 @@ const LogIn = () => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState(initial)
 
-    const { handleSignIn, closeLogIn } = useContext(AppContext)
+    const { handleSignIn, closeLogIn, showSignUp } = useContext(AppContext)
 
     const handleChange = e => setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
 
@@ -36,6 +36,13 @@ const LogIn = () => {
         closeLogIn()
         // window.location.reload()
     };
+
+    const switchToRegister = () => {
+
+        closeLogIn()
+        showSignUp()
+
+    }
 
     return (
         <>
@@ -86,7 +93,7 @@ const LogIn = () => {
             </form>
             <p>
                 Don't have an account?{" "}
-                <button onClick={() => setActiveModal("register")} 
+                <button onClick={switchToRegister} 
                 className="text-buttonColor underline">
                     Register
                 </button>
