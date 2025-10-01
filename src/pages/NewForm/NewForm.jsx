@@ -206,6 +206,10 @@ const NewForm = () => {
 
             </form>
 
+            <button className="round-button red-button">
+                Delete project
+            </button>
+
         </main>
 
     )

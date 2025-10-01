@@ -43,6 +43,11 @@ const AppRoutes = () => {
                     <NewForm/>
                 </ProtectedRoute>
             } />
+            <Route path="/delete/:projectId" element={
+                <ProtectedRoute>
+                    
+                </ProtectedRoute>
+            } />
             <Route path="/projects" element={
                 <ProtectedRoute>
                     <MyProjects/>
