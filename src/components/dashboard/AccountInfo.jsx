@@ -13,11 +13,18 @@ import services from "../../services/index.js";
 
 const AccountInfo = () => {
 
-    const { user } = useContext(AppContext)
+    const { user, setUser } = useContext(AppContext)
 
     const navigate = useNavigate()
 
-    
+    const deactivateUser = async () => {
+
+        const deactivation = await services.deactivAcct()
+        console.log(deactivation)
+        setUser(null)
+        navigate("/")
+
+    }
 
     return (
         <div className="p-4 sm:w-1/2 w-full">
@@ -36,7 +43,7 @@ const AccountInfo = () => {
                     <button className="account-button hover-btn" onClick={() => navigate("/missing")}>general settings</button>
                     <button className="account-button hover-btn" onClick={() => navigate("/missing")}>change password</button>
                     <button className="account-button hover-btn" onClick={() => navigate("/missing")}>privacy settings</button>
-                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>deactivate account</button>
+                    <button className="account-button hover-btn" onClick={deactivateUser}>deactivate account</button>
                 </div>
             </div>
         </div>
