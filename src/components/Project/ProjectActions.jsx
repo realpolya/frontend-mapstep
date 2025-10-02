@@ -1,6 +1,6 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 import "./Project.css";
@@ -13,12 +13,19 @@ const ProjectActions = () => {
 
     const { siteDetails } = useContext(ProjectContext)
 
+    // TODO: make sure the website for jurisdiction shows up
+    useEffect(() => {
+
+        console.log("website is ", siteDetails?.jurisdiction_nested?.website)
+
+    }, [])
+
     return (
         <div className="sm:w-1/3 pb-32 sm:pb-0 ml-4 sm:ml-0 mt-4 sm:mt-0 mr-4 h-[70%] flex flex-col justify-between">
             <div className="mb-4">
                 <h5 className="proj-action-h5">quick actions</h5>
                 <div className="grid grid-cols-2 gap-4">
-                    <Link className="proj-action-link bg-lightGreyColor" to="/">generate visual code representation</Link>
+                    <Link className="proj-action-link bg-lightGreyColor" to="/missing">generate visual code representation</Link>
                     <Link className="proj-action-link bg-blueLight" 
                         to={`/edit/${siteDetails.id}`}
                         state={{ siteDetails: siteDetails }}
@@ -27,7 +34,7 @@ const ProjectActions = () => {
                         to={`/review/${siteDetails.id}`}
                         state={{ siteDetails: siteDetails }}
                     >upload & review drawings</Link>
-                    <Link className="proj-action-link bg-green1Color" to="/">generate construction possibilities</Link>
+                    <Link className="proj-action-link bg-green1Color" to="/missing">generate construction possibilities</Link>
                 </div>
             </div>
             <div className="mb-4">
