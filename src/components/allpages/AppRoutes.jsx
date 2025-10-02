@@ -12,6 +12,7 @@ import ReviewProject from "../../pages/ReviewProject/ReviewProject.jsx";
 import About from "../../pages/About/About.jsx";
 import FAQ from "../../pages/FAQ/FAQ.jsx";
 import DeleteForm from "../../pages/NewForm/DeleteForm.jsx";
+import Placeholder from "../../pages/Placeholder/Placeholder.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
 
@@ -56,6 +57,7 @@ const AppRoutes = () => {
             } />
             <Route path="/about" element={<About/>} />
             <Route path="/faq" element={<FAQ/>} />
+            <Route path="/missing" element={<Placeholder/>} />
         </Routes>
     )
 
