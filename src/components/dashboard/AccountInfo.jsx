@@ -26,17 +26,13 @@ const AccountInfo = () => {
                     <li>subscription plan: <span className="info-span">unlimited</span></li>
                 </ul>
                 <h5>account actions</h5>
-                <div className="flex flex-col justify-between">
-                    <div className="three-button-div">
-                        <button className="account-button hover-btn" onClick={() => navigate("/missing")}>change subscription plan</button>
-                        <button className="account-button hover-btn" onClick={() => navigate("/missing")}>cancel subscription</button>
-                        <button className="account-button hover-btn" onClick={() => navigate("/missing")}>general settings</button>
-                    </div>
-                    <div className="three-button-div">
-                        <button className="account-button hover-btn" onClick={() => navigate("/missing")}>change password</button>
-                        <button className="account-button hover-btn" onClick={() => navigate("/missing")}>privacy settings</button>
-                        <button className="account-button hover-btn" onClick={() => navigate("/missing")}>deactivate account</button>
-                    </div>
+                <div className="three-button-div">
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>change subscription plan</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>cancel subscription</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>general settings</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>change password</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>privacy settings</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>deactivate account</button>
                 </div>
             </div>
         </div>

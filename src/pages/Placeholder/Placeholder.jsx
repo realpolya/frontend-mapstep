@@ -15,7 +15,6 @@ const Placeholder = () => {
 
     const navigate = useNavigate()
 
-
     return (
         <main className="placeholder-main">
             <div className="flex flex-col sm:flex-row w-full items-center justify-between pb-12">

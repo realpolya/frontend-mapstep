@@ -3,14 +3,20 @@
 }
 
 .account-button {
+    @apply bg-darkColor rounded-2xl text-textAlterColor text-xs h-16 p-2
+}
+/* .account-button {
     @apply bg-darkColor rounded-2xl text-textAlterColor 
     p-2 m-4 w-52 h-16 text-xs
-}
+} */
 
 .action-button {
+    @apply bg-darkColor rounded-2xl text-textAlterColor text-xs h-16 p-2
+}
+/* .action-button {
     @apply bg-darkColor rounded-2xl text-textAlterColor 
     p-2 m-4 w-52 h-16 text-xs
-}
+} */
 
 .hover-btn {
     @apply hover:bg-redColor hover:shadow-lg 
@@ -18,7 +24,10 @@
 }
 
 .three-button-div {
-    @apply flex gap-2 justify-center
+    /* @apply flex sm:gap-2 justify-center */
+    @apply w-full grid md:grid-cols-3 md:grid-rows-2 gap-4 pt-6
+    grid-cols-2 grid-rows-3
+
 }
 
 .dash-h4 {
