@@ -42,8 +42,16 @@ const App = () => {
 
     const checkUserToken = async () => {
 
-        const user = await services.verifySession();
-        setUser(user || null)
+        const verified = await services.verifySession();
+
+        if (verified) {
+            // console.log("user is verified!")
+            const user = await services.getUser()
+            setUser(user)
+            return
+        } 
+
+        setUser(null)
 
     }
 

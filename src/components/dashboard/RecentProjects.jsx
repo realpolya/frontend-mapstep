@@ -16,7 +16,6 @@ const RecentProjects = () => {
 
     const fetchMyProjects = async () => {
         const projects = await services.getMyProjects()
-        console.log("projects are ", projects)
         setMyProjects(await services.getMyProjects())
     }
 
