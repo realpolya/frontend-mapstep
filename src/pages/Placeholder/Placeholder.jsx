@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import "./Placeholder.css";
 
@@ -13,6 +13,7 @@ const Placeholder = () => {
 
     const { user } = useContext(AppContext)
 
+    const navigate = useNavigate()
 
 
     return (
@@ -25,11 +26,13 @@ const Placeholder = () => {
                 </div>
                 <img src="/logo.png" className="w-60 h-60 mr-2 mt-1"/>
             </div>
-            <p>In the meantime...</p>
-            <div>
-                <button className="round-button red-button">Go to home page</button>
-                <button className="round-button">Learn about mapStep</button>
-                { user ? (<button className="round-button">Go to dashboard</button>) : (null) }
+            <div className="flex flex-col items-center">
+                <p>In the meantime...</p>
+                <div className="flex sm:flex-row flex-col justify-center w-1/2 sm:w-full">
+                    <button className="round-button red-button" onClick={() => navigate("/")}>Go to home page</button>
+                    <button className="round-button" onClick={() => navigate("/about")}>Learn about mapStep</button>
+                    { user ? (<button className="round-button" onClick={() => navigate("/dashboard")}>Go to dashboard</button>) : (null) }
+                </div>
             </div>
         </main>
     )
