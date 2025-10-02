@@ -7,6 +7,8 @@ import "./dashboard-comp.css"
 
 import { AppContext } from "../../App.jsx";
 
+import services from "../../services/index.js";
+
 /* --------------------------------Component--------------------------------*/
 
 const AccountInfo = () => {
@@ -14,6 +16,8 @@ const AccountInfo = () => {
     const { user } = useContext(AppContext)
 
     const navigate = useNavigate()
+
+    
 
     return (
         <div className="p-4 sm:w-1/2 w-full">

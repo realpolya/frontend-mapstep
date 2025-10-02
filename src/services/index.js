@@ -16,7 +16,8 @@ const {
     signIn,
     getUser,
     verifySession,
-    signOut
+    signOut,
+    deactivAcct
 
 } = auth
 
@@ -38,6 +39,7 @@ const services = {
     getUser,
     verifySession,
     signOut,
+    deactivAcct,
 
     getMyProjects,
     getProject,
@@ -58,6 +60,7 @@ export {
     getUser,
     verifySession,
     signOut,
+    deactivAcct,
 
     getMyProjects,
     getProject,
