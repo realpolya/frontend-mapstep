@@ -1,0 +1,3 @@
+.placeholder-main {
+    @apply flex flex-col p-8 pb-20 w-full
+}
