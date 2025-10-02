@@ -77,7 +77,7 @@ main {
 }
 
 .auth-modal-login {
-    @apply h-[360px]
+    @apply h-[400px]
 }
 
 .auth-modal-back {

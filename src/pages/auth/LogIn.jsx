@@ -20,20 +20,34 @@ const LogIn = () => {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState(initial)
+    const [errMsg, setErrMsg] = useState(null)
 
     const { handleSignIn, closeLogIn, showSignUp } = useContext(AppContext)
 
     const handleChange = e => setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
-        const userData = await services.signIn(formData)
-        handleSignIn(userData)
 
-        console.log("user is ", userData)
+        try {
 
-        navigate("/dashboard")
-        closeLogIn()
+            const userData = await services.signIn(formData)
+            handleSignIn(userData)
+    
+            // console.log("user is ", userData)
+
+            navigate("/dashboard")
+            closeLogIn()
+            return;
+
+        } catch(err) {
+
+            console.log(err.response.data.error);
+            setErrMsg(err.response.data.error);
+
+        }
+
         // window.location.reload()
     };
 
@@ -85,6 +99,9 @@ const LogIn = () => {
                         required
                     />
                 </div>
+
+                { errMsg ? (<p className="text-left text-redColor 
+                pb-2 w-full italic">{errMsg}</p>) : (<p className="pb-2">&nbsp;</p>) }
 
                 <button type="submit" className="round-button">
                     Log In
