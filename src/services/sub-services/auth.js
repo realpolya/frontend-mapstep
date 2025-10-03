@@ -100,7 +100,7 @@ const deactivAcct = async () => {
 
     try {
         
-        const response = await api.delete("users/profile/", {}, { withCredentials: true });
+        const response = await api.delete("users/delete/", {}, { withCredentials: true });
         return response;
         
     } catch (err) {
