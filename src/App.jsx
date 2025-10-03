@@ -55,11 +55,11 @@ const App = () => {
 
     }
 
-    // const setCsrf = async () => await services.createCsrf()
+    const setCsrf = async () => await services.createCsrf()
 
     useEffect(() => {
 
-        // setCsrf();
+        setCsrf();
         checkUserToken();
 
     }, []) // removed location.pathname from the dependency array

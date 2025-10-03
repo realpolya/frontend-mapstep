@@ -21,8 +21,10 @@ const AccountInfo = () => {
 
         const deactivation = await services.deactivAcct()
         console.log(deactivation)
+        await services.signOut()
         setUser(null)
         navigate("/")
+        window.location.reload()
 
     }
 
