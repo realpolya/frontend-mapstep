@@ -1,6 +1,5 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './ReviewProject.css'
@@ -17,14 +16,13 @@ const ReviewProject = () => {
 
     const { siteDetails, lotGeom } = useProject()
 
-
     return (
         <main className="project-main">
             <div className="project-top-div">
                 <h1 className="h1-heading-v2 p-4">{siteDetails?.title} – upload & review</h1>
                 <Link className="mr-4 red-link" to={`/project/${siteDetails.id}`}>back to project page</Link>
             </div>
-            <div className="flex flex-row">
+            <div className="flex sm:flex-row flex-col">
                 <LotInfo/>
                 <RedLineTool/>
             </div>
