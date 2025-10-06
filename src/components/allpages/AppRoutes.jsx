@@ -15,6 +15,7 @@ import DeleteForm from "../../pages/NewForm/DeleteForm.jsx";
 import Placeholder from "../../pages/Placeholder/Placeholder.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
+import ProjectProvider from "../../providers/ProjectProvider.jsx";
 
 /* --------------------------------Component--------------------------------*/
 
@@ -31,12 +32,16 @@ const AppRoutes = () => {
             } />
             <Route path="/project/:projectId" element={
                 <ProtectedRoute>
-                    <ProjectPage/>
+                    <ProjectProvider>
+                        <ProjectPage/>
+                    </ProjectProvider>
                 </ProtectedRoute>
             } />
             <Route path="/review/:projectId" element={
                 <ProtectedRoute>
-                    <ReviewProject/>
+                    <ProjectProvider>
+                        <ReviewProject/>
+                    </ProjectProvider>
                 </ProtectedRoute>
             } />
             <Route path="/new" element={<NewForm/>}/>

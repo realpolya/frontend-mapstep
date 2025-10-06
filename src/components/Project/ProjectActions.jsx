@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 import "./Project.css";
 
-import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx";
+// import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx";
 
 /* --------------------------------Component--------------------------------*/
 
 const ProjectActions = () => {
 
-    const { siteDetails } = useContext(ProjectContext)
+    // const { siteDetails } = useContext(ProjectContext)
 
     // TODO: make sure the website for jurisdiction shows up
     useEffect(() => {

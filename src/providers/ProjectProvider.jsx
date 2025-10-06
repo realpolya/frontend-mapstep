@@ -31,6 +31,8 @@ const ProjectProvider = ({ children }) => {
 
     useEffect(() => {
 
+        console.log("project id is ", projectId)
+
         if (projectId) {
             fetchProject(projectId)
         }

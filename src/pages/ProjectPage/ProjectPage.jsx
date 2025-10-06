@@ -7,6 +7,9 @@ import "./ProjectPage.css"
 
 import services from "../../services/index.js"
 
+import { useProject } from "../../providers/ProjectProvider.jsx"
+
+import ProjectProvider from "../../providers/ProjectProvider.jsx";
 import LotInfo from "../../components/Project/LotInfo.jsx";
 import ProjectActions from "../../components/Project/ProjectActions.jsx";
 import SiteMap2D from '../../components/maps/SiteMap/SiteMap2D.jsx';
@@ -15,47 +18,49 @@ import VicinityMap from '../../components/maps/VicinityMap/VicinityMap.jsx';
 
 /* --------------------------------Context--------------------------------*/
 
-const ProjectContext = createContext(null);
+// const ProjectContext = createContext(null);
 
 /* --------------------------------Component--------------------------------*/
 
 const ProjectPage = () => {
 
+    const { siteDetails, lotGeom } = useProject()
+
     const location = useLocation()
     const navigate = useNavigate()
 
-    const [siteDetails, setSiteDetails] = useState('') // TODO: dummy data?
-    const [loading, setLoading] = useState(true);
+    // const [siteDetails, setSiteDetails] = useState('') // TODO: dummy data?
+    // const [loading, setLoading] = useState(true);
     const { projectId } = useParams();
-    const [lotGeom, setLotGeom] = useState()
+    // const [lotGeom, setLotGeom] = useState()
     const [msg, setMsg] = useState(null)
 
 
-    const fetchProject = async (id) => {
+    // const fetchProject = async (id) => {
 
-        const data = await services.getProject(id)
-        setSiteDetails(data)
+    //     const data = await services.getProject(id)
+    //     setSiteDetails(data)
         
-    }
+    // }
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (projectId) {
-            fetchProject(projectId)
-            setLoading(false)
-        }
+    //     if (projectId) {
+    //         fetchProject(projectId)
+    //         setLoading(false)
+    //     }
 
-    }, [projectId])
+    // }, [projectId])
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (siteDetails?.info?.parcel_geometry) {
-            setLotGeom(siteDetails?.info?.parcel_geometry)
-        }
+    //     if (siteDetails?.info?.parcel_geometry) {
+    //         setLotGeom(siteDetails?.info?.parcel_geometry)
+    //     }
 
-    }, [siteDetails])
+    // }, [siteDetails])
 
 
     useEffect(() => {
@@ -69,11 +74,11 @@ const ProjectPage = () => {
     }, [location.state])
 
 
-    const projectObject = { siteDetails }
+    // const projectObject = { siteDetails }
 
 
     return (
-        <ProjectContext.Provider value={projectObject}>
+        <ProjectProvider>
             <main className="w-full">
                 <div className="flex flex-row w-full justify-between items-center">
                     <h2 className="pl-4 mb-2 text-2xl text-redColor">{siteDetails?.title}</h2>
@@ -81,19 +86,19 @@ const ProjectPage = () => {
                 </div>
                 {msg ? (<p className="pl-4 pb-4 italic">{msg}</p>) : null}
                 <div id="project-div">
-                    <div className="project-maps">
+                    {/* <div className="project-maps">
                         <SiteMap2D siteDetails={siteDetails} lotGeom={lotGeom}/>
                         <h6 className="h6-map">site map 2D</h6>
                         <SiteMap3D siteDetails={siteDetails} lotGeom={lotGeom}/>
                         <h6 className="h6-map">site map 3D</h6>
                         <VicinityMap siteDetails={siteDetails} lotGeom={lotGeom}/>
                         <h6 className="h6-map">vicinity map</h6>
-                    </div>
-                    <LotInfo/>
+                    </div> */}
+                    {/* <LotInfo/> */}
                     <ProjectActions/>
                 </div>
             </main>
-        </ProjectContext.Provider>
+        </ProjectProvider>
     )
 
 }
@@ -101,4 +106,4 @@ const ProjectPage = () => {
 /* --------------------------------Export--------------------------------*/
 
 export default ProjectPage
-export { ProjectContext }
+// export { ProjectContext }
