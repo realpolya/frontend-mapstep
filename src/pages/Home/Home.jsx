@@ -31,9 +31,9 @@ const Home = () => {
         <main className="padded-main">
             <h1 className="text-3xl">mapStep</h1>
             <p className="p-8 text-center">your primary tool in redlining architecture sets, decoding land laws<br></br> in the United States and streamlining permit acquisition.</p>
-            <ul className="italic font-extralight flex flex-row">locations serviced:
-                {locations.map(location => {
-                    return (<li className="pl-2">{location.city}</li>)
+            <ul className="italic font-extralight flex flex-row pb-2">locations serviced:
+                {locations.map((location, i) => {
+                    return (<li key={i} className="pl-2">{location.city}</li>)
                 })}
             </ul>
             <HomeMap />
