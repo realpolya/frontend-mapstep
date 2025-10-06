@@ -52,16 +52,16 @@ const ProjectActions = () => {
                         rel="noopener noreferrer"
                         className="proj-link-a"
                     >{siteDetails?.jurisdiction_nested?.name} portal</a>
+
+                    {/* TODO:fix later */}
                     <a href={`${siteDetails?.jurisdiction_nested?.website}`} 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="proj-link-a"
                     >permit application</a>
-                    <a href={`${siteDetails?.jurisdiction_nested?.website}`} 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="proj-link-a"
-                    >open autoCAD / Revit</a>
+
+                    <Link to="/missing" className="proj-link-a"
+                    >open autoCAD / Revit</Link>
                 </div>
             </div>
         </div>
