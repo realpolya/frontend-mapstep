@@ -15,14 +15,8 @@ import LotInfo from '../../components/Project/LotInfo.jsx'
 
 const ReviewProject = () => {
 
-    const { state } = useLocation()
-    
-    useEffect(() => {
+    const { siteDetails, lotGeom } = useProject()
 
-        console.log("sitedetails are", state.siteDetails)
-        setSiteDetails(state.siteDetails)
-
-    }, [])
 
     return (
 
@@ -31,7 +25,7 @@ const ReviewProject = () => {
             <div>
 
             </div>
-            {/* <LotInfo/> */}
+            <LotInfo/>
             <RedLineTool/>
         </main>
     )

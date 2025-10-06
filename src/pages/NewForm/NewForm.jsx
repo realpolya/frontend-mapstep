@@ -45,6 +45,7 @@ const NewForm = () => {
     const [googleAddy, setGoogleAddy] = useState('')
     const [title, setTitle] = useState(null)
 
+    
     const handleChange = (e) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
@@ -90,12 +91,8 @@ const NewForm = () => {
 
         try {
             
-            console.log("project id is", projectId, "formdata is ", formData)
-
             await services.putProject(projectId, formData)
             navigate(`/project/${projectId}`, { state: { message: "project successfully updated" }})
-            // navigate(`/project/${projectId}`)
-            // navigate('/dashboard')
 
         } catch (err) {
 
@@ -117,26 +114,12 @@ const NewForm = () => {
             })
         }
 
-        // if (location.state && location.state?.siteDetails) {
-        //     // this indicates editing
-        //     // setEditMode(true)
-
-        //     setTitle(location.state.siteDetails.title)
-
-        //     setFormData({
-        //         title: location.state.siteDetails.title,
-        //         street: location.state.siteDetails.street,
-        //         description: location.state.siteDetails.description
-        //     })
-        // }
-        // } else {
-        //     setEditMode(false)
-        // }
-
     }, [location.state])
+
 
     useEffect(() => {
 
+        // obtain existing project
         if (projectContext) {
             setTitle(projectContext?.siteDetails?.title)
 
