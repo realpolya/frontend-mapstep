@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../App.jsx';
 
 import services from '../../services/index.js';
+import locations from './locations.js';
 
 import HomeMap from "../../components/maps/HomeMap/HomeMap.jsx";
 
@@ -30,7 +31,11 @@ const Home = () => {
         <main className="padded-main">
             <h1 className="text-3xl">mapStep</h1>
             <p className="p-8 text-center">your primary tool in redlining architecture sets, decoding land laws<br></br> in the United States and streamlining permit acquisition.</p>
-            <p className="italic font-extralight">locations serviced:</p>
+            <ul className="italic font-extralight flex flex-row">locations serviced:
+                {locations.map(location => {
+                    return (<li className="pl-2">{location.city}</li>)
+                })}
+            </ul>
             <HomeMap />
 
             { user ? (
