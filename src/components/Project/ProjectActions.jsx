@@ -7,17 +7,12 @@ import "./Project.css";
 
 import { useProject } from "../../providers/ProjectProvider.jsx";
 
-// import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx";
-
 /* --------------------------------Component--------------------------------*/
 
 const ProjectActions = () => {
 
-    // const { siteDetails } = useContext(ProjectContext)
     const { siteDetails, lotGeom } = useProject()
 
-
-    // TODO: make sure the website for jurisdiction shows up
     useEffect(() => {
 
         console.log("website is ", siteDetails?.jurisdiction_nested?.website)

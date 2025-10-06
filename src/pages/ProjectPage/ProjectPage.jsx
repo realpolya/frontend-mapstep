@@ -1,11 +1,9 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { createContext, useState, useEffect } from 'react';
-import { useLocation, Link, useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 
 import "./ProjectPage.css"
-
-import services from "../../services/index.js"
 
 import { useProject } from "../../providers/ProjectProvider.jsx"
 
@@ -14,10 +12,6 @@ import ProjectActions from "../../components/Project/ProjectActions.jsx";
 import SiteMap2D from '../../components/maps/SiteMap/SiteMap2D.jsx';
 import SiteMap3D from '../../components/maps/SiteMap/SiteMap3D.jsx';
 import VicinityMap from '../../components/maps/VicinityMap/VicinityMap.jsx';
-
-/* --------------------------------Context--------------------------------*/
-
-// const ProjectContext = createContext(null);
 
 /* --------------------------------Component--------------------------------*/
 
@@ -28,39 +22,7 @@ const ProjectPage = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
-    // const [siteDetails, setSiteDetails] = useState('') // TODO: dummy data?
-    // const [loading, setLoading] = useState(true);
-    const { projectId } = useParams();
-    // const [lotGeom, setLotGeom] = useState()
     const [msg, setMsg] = useState(null)
-
-
-    // const fetchProject = async (id) => {
-
-    //     const data = await services.getProject(id)
-    //     setSiteDetails(data)
-        
-    // }
-
-
-    // useEffect(() => {
-
-    //     if (projectId) {
-    //         fetchProject(projectId)
-    //         setLoading(false)
-    //     }
-
-    // }, [projectId])
-
-
-    // useEffect(() => {
-
-    //     if (siteDetails?.info?.parcel_geometry) {
-    //         setLotGeom(siteDetails?.info?.parcel_geometry)
-    //     }
-
-    // }, [siteDetails])
-
 
     useEffect(() => {
 
@@ -71,10 +33,6 @@ const ProjectPage = () => {
         navigate(location.pathname, { replace: true });
 
     }, [location.state])
-
-
-    // const projectObject = { siteDetails }
-
 
     return (
         <main className="w-full">
@@ -103,4 +61,3 @@ const ProjectPage = () => {
 /* --------------------------------Export--------------------------------*/
 
 export default ProjectPage
-// export { ProjectContext }

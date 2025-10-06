@@ -6,13 +6,10 @@ import "./Project.css";
 
 import { useProject } from "../../providers/ProjectProvider.jsx";
 
-// import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx";
-
 /* --------------------------------Component--------------------------------*/
 
 const LotInfo = () => {
 
-    // const { siteDetails } = useContext(ProjectContext)
     const { siteDetails, lotGeom } = useProject()
 
     const [zonings, setZonings] = useState([])

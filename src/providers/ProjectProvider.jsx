@@ -15,7 +15,7 @@ const ProjectProvider = ({ children }) => {
 
     const [siteDetails, setSiteDetails] = useState('')
     const [lotGeom, setLotGeom] = useState()
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
     const { projectId } = useParams();
 
     const fetchProject = async (id) => {
@@ -30,8 +30,6 @@ const ProjectProvider = ({ children }) => {
     }
 
     useEffect(() => {
-
-        console.log("project id is ", projectId)
 
         if (projectId) {
             fetchProject(projectId)
@@ -49,7 +47,7 @@ const ProjectProvider = ({ children }) => {
     }, [siteDetails])
 
 
-    const projectObject = { siteDetails, lotGeom, loading }
+    const projectObject = { siteDetails, lotGeom }
 
 
     return (
