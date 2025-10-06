@@ -8,6 +8,8 @@ import { Autocomplete } from "@react-google-maps/api";
 
 import "./NewForm.css";
 
+import { useProject } from "../../providers/ProjectProvider.jsx"
+
 import services from "../../services/index.js";
 import { getGoogleFormat } from "../../components/allpages/NavBar.jsx";
 
@@ -30,6 +32,9 @@ const initial = {
 const NewForm = () => {
 
     const { projectId } = useParams()
+    const editMode = Boolean(projectId)
+
+    const projectContext = useProject()
 
     const autocompleteFormRef = useRef(null)
 
@@ -38,9 +43,7 @@ const NewForm = () => {
 
     const [formData, setFormData] = useState(initial)
     const [googleAddy, setGoogleAddy] = useState('')
-    const [editMode, setEditMode] = useState(false)
     const [title, setTitle] = useState(null)
-
 
     const handleChange = (e) => {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -114,22 +117,37 @@ const NewForm = () => {
             })
         }
 
-        if (location.state && location.state?.siteDetails) {
-            // this indicates editing
-            setEditMode(true)
+        // if (location.state && location.state?.siteDetails) {
+        //     // this indicates editing
+        //     // setEditMode(true)
 
-            setTitle(location.state.siteDetails.title)
+        //     setTitle(location.state.siteDetails.title)
 
-            setFormData({
-                title: location.state.siteDetails.title,
-                street: location.state.siteDetails.street,
-                description: location.state.siteDetails.description
-            })
-        } else {
-            setEditMode(false)
-        }
+        //     setFormData({
+        //         title: location.state.siteDetails.title,
+        //         street: location.state.siteDetails.street,
+        //         description: location.state.siteDetails.description
+        //     })
+        // }
+        // } else {
+        //     setEditMode(false)
+        // }
 
     }, [location.state])
+
+    useEffect(() => {
+
+        if (projectContext) {
+            setTitle(projectContext?.siteDetails?.title)
+
+            setFormData({
+                title: projectContext?.siteDetails?.title,
+                street: projectContext?.siteDetails?.street,
+                description: projectContext?.siteDetails?.description
+            })
+        }
+
+    }, [projectContext])
     
     
     return (

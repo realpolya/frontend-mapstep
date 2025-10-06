@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import services from '../services/index.js';
 
@@ -13,10 +13,13 @@ const ProjectContext = createContext(null);
 
 const ProjectProvider = ({ children }) => {
 
+    const location = useLocation();
+    const { projectId } = useParams();
+
+
     const [siteDetails, setSiteDetails] = useState('')
     const [lotGeom, setLotGeom] = useState()
     // const [loading, setLoading] = useState(true)
-    const { projectId } = useParams();
 
     const fetchProject = async (id) => {
 
@@ -35,7 +38,7 @@ const ProjectProvider = ({ children }) => {
             fetchProject(projectId)
         }
 
-    }, [projectId])
+    }, [projectId, location.pathname])
 
 
     useEffect(() => {
@@ -58,7 +61,13 @@ const ProjectProvider = ({ children }) => {
 
 }
 
-const useProject = () => useContext(ProjectContext)
+const useProject = () => {
+    try {
+       return useContext(ProjectContext)
+    } catch {
+        return null
+    }
+}
 
 /* --------------------------------Export--------------------------------*/
 

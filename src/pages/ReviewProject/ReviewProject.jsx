@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 
 import './ReviewProject.css'
 
+import { useProject } from "../../providers/ProjectProvider.jsx";
+
 import RedLineTool from '../../components/Project/ReviewComponents/RedLineTool.jsx'
 import LotInfo from '../../components/Project/LotInfo.jsx'
 
@@ -15,8 +17,6 @@ const ReviewProject = () => {
 
     const { state } = useLocation()
     
-    const [siteDetails, setSiteDetails] = useState()
-
     useEffect(() => {
 
         console.log("sitedetails are", state.siteDetails)
