@@ -19,14 +19,15 @@ const ReviewProject = () => {
 
 
     return (
-
         <main>
             ReviewProject
             <div>
 
             </div>
-            <LotInfo/>
-            <RedLineTool/>
+            <div className="flex flex-row">
+                <LotInfo/>
+                <RedLineTool/>
+            </div>
         </main>
     )
 

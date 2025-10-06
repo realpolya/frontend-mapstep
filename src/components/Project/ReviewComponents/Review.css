@@ -1,0 +1,7 @@
+.tools-div {
+    @apply bg-lightGreyColor flex flex-col
+}
+
+.tool-button {
+    @apply bg-redColor p-2
+}

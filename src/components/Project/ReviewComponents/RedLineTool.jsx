@@ -7,9 +7,15 @@ import './Review.css'
 const RedLineTool = () => {
 
     return (
-        <div>
-            <div>
-                Tools
+        <div className="flex flex-row">
+            <div className="tools-div">
+                <button className="tool-button">🪄</button>
+                <button className="tool-button">🔍</button>
+                <button className="tool-button">✏️</button>
+                <button className="tool-button">❌</button>
+                <button className="tool-button">📁</button>
+                <button className="tool-button">➡️</button>
+                <button className="tool-button">⬅️</button>
             </div>
             <div>
                 Redline space
