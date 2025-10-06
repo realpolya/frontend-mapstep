@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import "./Project.css";
 
+import { useProject } from "../../providers/ProjectProvider.jsx";
+
 // import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx";
 
 /* --------------------------------Component--------------------------------*/
@@ -12,6 +14,8 @@ import "./Project.css";
 const ProjectActions = () => {
 
     // const { siteDetails } = useContext(ProjectContext)
+    const { siteDetails, lotGeom } = useProject()
+
 
     // TODO: make sure the website for jurisdiction shows up
     useEffect(() => {

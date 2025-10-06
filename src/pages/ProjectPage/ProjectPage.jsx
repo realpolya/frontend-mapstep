@@ -9,7 +9,6 @@ import services from "../../services/index.js"
 
 import { useProject } from "../../providers/ProjectProvider.jsx"
 
-import ProjectProvider from "../../providers/ProjectProvider.jsx";
 import LotInfo from "../../components/Project/LotInfo.jsx";
 import ProjectActions from "../../components/Project/ProjectActions.jsx";
 import SiteMap2D from '../../components/maps/SiteMap/SiteMap2D.jsx';
@@ -78,27 +77,25 @@ const ProjectPage = () => {
 
 
     return (
-        <ProjectProvider>
-            <main className="w-full">
-                <div className="flex flex-row w-full justify-between items-center">
-                    <h2 className="pl-4 mb-2 text-2xl text-redColor">{siteDetails?.title}</h2>
-                    <Link to="/dashboard" className="mr-4 red-link">back to dashboard</Link>
+        <main className="w-full">
+            <div className="flex flex-row w-full justify-between items-center">
+                <h2 className="pl-4 mb-2 text-2xl text-redColor">{siteDetails?.title}</h2>
+                <Link to="/dashboard" className="mr-4 red-link">back to dashboard</Link>
+            </div>
+            {msg ? (<p className="pl-4 pb-4 italic">{msg}</p>) : null}
+            <div id="project-div">
+                <div className="project-maps">
+                    <SiteMap2D siteDetails={siteDetails} lotGeom={lotGeom}/>
+                    <h6 className="h6-map">site map 2D</h6>
+                    <SiteMap3D siteDetails={siteDetails} lotGeom={lotGeom}/>
+                    <h6 className="h6-map">site map 3D</h6>
+                    <VicinityMap siteDetails={siteDetails} lotGeom={lotGeom}/>
+                    <h6 className="h6-map">vicinity map</h6>
                 </div>
-                {msg ? (<p className="pl-4 pb-4 italic">{msg}</p>) : null}
-                <div id="project-div">
-                    {/* <div className="project-maps">
-                        <SiteMap2D siteDetails={siteDetails} lotGeom={lotGeom}/>
-                        <h6 className="h6-map">site map 2D</h6>
-                        <SiteMap3D siteDetails={siteDetails} lotGeom={lotGeom}/>
-                        <h6 className="h6-map">site map 3D</h6>
-                        <VicinityMap siteDetails={siteDetails} lotGeom={lotGeom}/>
-                        <h6 className="h6-map">vicinity map</h6>
-                    </div> */}
-                    {/* <LotInfo/> */}
-                    <ProjectActions/>
-                </div>
-            </main>
-        </ProjectProvider>
+                <LotInfo/>
+                <ProjectActions/>
+            </div>
+        </main>
     )
 
 }
