@@ -21,9 +21,9 @@ export default {
             mainFont: ["Karla", "sans-serif"],
             secondFont: ["Montserrat", "sans-serif"]
         },
-        maxHeight: {
-            'amenities': '20rem',
-        }
+        // maxHeight: {
+        //     'amenities': '20rem',
+        // }
     },
   },
   plugins: [],

@@ -35,8 +35,8 @@ const ProjectPage = () => {
     }, [location.state])
 
     return (
-        <main className="w-full">
-            <div className="flex flex-row w-full justify-between items-center">
+        <main className="project-main">
+            <div className="project-top-div">
                 <h2 className="pl-4 mb-2 text-2xl text-redColor">{siteDetails?.title}</h2>
                 <Link to="/dashboard" className="mr-4 red-link">back to dashboard</Link>
             </div>

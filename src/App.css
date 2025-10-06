@@ -65,6 +65,10 @@ main {
     @apply flex flex-col p-4 w-full
 }
 
+.project-main {
+    @apply w-full
+}
+
 .red-link {
     @apply text-blueColor hover:text-redColor
 }

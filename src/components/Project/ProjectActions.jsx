@@ -13,11 +13,11 @@ const ProjectActions = () => {
 
     const { siteDetails, lotGeom } = useProject()
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        console.log("website is ", siteDetails?.jurisdiction_nested?.website)
+    //     console.log("website is ", siteDetails?.jurisdiction_nested?.website)
 
-    }, [])
+    // }, [])
 
     return (
         <div className="sm:w-1/3 pb-32 sm:pb-0 ml-4 sm:ml-0 mt-4 sm:mt-0 mr-4 h-[70%] flex flex-col justify-between">

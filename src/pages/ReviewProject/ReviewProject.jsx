@@ -1,7 +1,7 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './ReviewProject.css'
 
@@ -19,10 +19,10 @@ const ReviewProject = () => {
 
 
     return (
-        <main>
-            ReviewProject
-            <div>
-
+        <main className="project-main">
+            <div className="project-top-div">
+                <h1 className="h1-heading-v2 p-4">{siteDetails?.title} – upload & review</h1>
+                <Link className="mr-4 red-link" to={`/project/${siteDetails.id}`}>back to project page</Link>
             </div>
             <div className="flex flex-row">
                 <LotInfo/>

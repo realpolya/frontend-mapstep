@@ -1,7 +1,7 @@
 .tools-div {
-    @apply bg-lightGreyColor flex flex-col
+    @apply bg-lightGreyColor flex flex-col rounded-xl
 }
 
 .tool-button {
-    @apply bg-redColor p-2
+    @apply p-2
 }
