@@ -7,13 +7,26 @@ import "./dashboard-comp.css"
 
 import { AppContext } from "../../App.jsx";
 
+import services from "../../services/index.js";
+
 /* --------------------------------Component--------------------------------*/
 
 const AccountInfo = () => {
 
-    const { user } = useContext(AppContext)
+    const { user, setUser } = useContext(AppContext)
 
     const navigate = useNavigate()
+
+    const deactivateUser = async () => {
+
+        const deactivation = await services.deactivAcct()
+        console.log(deactivation)
+        await services.signOut()
+        setUser(null)
+        navigate("/")
+        window.location.reload()
+
+    }
 
     return (
         <div className="p-4 sm:w-1/2 w-full">
@@ -26,17 +39,13 @@ const AccountInfo = () => {
                     <li>subscription plan: <span className="info-span">unlimited</span></li>
                 </ul>
                 <h5>account actions</h5>
-                <div className="flex flex-col justify-between">
-                    <div className="three-button-div">
-                        <button className="account-button hover-btn" onClick={() => navigate("/")}>change subscription plan</button>
-                        <button className="account-button hover-btn" onClick={() => navigate("/")}>cancel subscription</button>
-                        <button className="account-button hover-btn" onClick={() => navigate("/")}>general settings</button>
-                    </div>
-                    <div className="three-button-div">
-                        <button className="account-button hover-btn" onClick={() => navigate("/")}>change password</button>
-                        <button className="account-button hover-btn" onClick={() => navigate("/")}>privacy settings</button>
-                        <button className="account-button hover-btn" onClick={() => navigate("/")}>delete account</button>
-                    </div>
+                <div className="three-button-div">
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>change subscription plan</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>cancel subscription</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>general settings</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>change password</button>
+                    <button className="account-button hover-btn" onClick={() => navigate("/missing")}>privacy settings</button>
+                    <button className="account-button hover-btn" onClick={deactivateUser}>deactivate account</button>
                 </div>
             </div>
         </div>

@@ -22,10 +22,10 @@ const About = () => {
                         We strive to support creating better architecture with clarity, speed, and creativity. We want to maximize productivity
                         and increase ROI from each development project.
                     </p>
-                    <img src="/polina.jpg" className="w-[200px] rounded-full"/>
+                    <img src="/polina.jpg" className="md:w-[200px] w-[150px] rounded-full"/>
                 </div>
                 <div className="about-text-img-div">
-                    <img src="/sketches.png" className="w-[400px] rounded-full"/>
+                    <img src="/sketches.png" className="md:w-[300px] w-[250px] rounded-full"/>
                     <p className="pl-4">The application intends to serve as a centralized database for obtaining
                         zoning, planning, and building code information for each individual 
                         plot of land across the United States. The building code information 

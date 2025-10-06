@@ -27,6 +27,8 @@ const Dashboard = () => {
 
     useEffect(() => {
 
+        console.log("user is ", user.username)
+
         if (location.state && location.state.message) {
             setNewMsg(location.state.message)
         }
@@ -35,7 +37,7 @@ const Dashboard = () => {
 
     return (
         <main className="normal-main">
-            <h1 className="text-xl">welcome back, <span className="italic">{user.username}</span></h1>
+            <h1 className="text-xl">welcome back, <span className="italic">{user?.username}</span></h1>
             <p>{newMsg}</p>
             <div className="flex sm:flex-row flex-col p-4 w-full">
                 <div className="flex flex-col p-4 sm:w-1/2 w-full">

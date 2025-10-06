@@ -95,6 +95,23 @@ const signOut = async () => {
     
 }
 
+
+const deactivAcct = async () => {
+
+    try {
+        
+        const response = await api.delete("users/delete/", {}, { withCredentials: true });
+        return response;
+        
+    } catch (err) {
+        
+        console.log(err.response?.data.error);
+        throw err;
+        
+    }
+
+}
+
 /* --------------------------------Exports--------------------------------*/
 
 export {
@@ -102,7 +119,8 @@ export {
     signIn,
     getUser,
     verifySession,
-    signOut
+    signOut,
+    deactivAcct
 }
 
 /* --------------------------------Old Code--------------------------------*/

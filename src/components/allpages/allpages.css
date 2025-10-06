@@ -1,6 +1,6 @@
 .navbar-div {
     @apply font-mainFont font-light 
-    h-20 flex flex-row justify-between items-center
+    h-20 flex flex-row justify-between items-center pt-4
 }
 
 #nav-menu-img {

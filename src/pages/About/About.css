@@ -1,5 +1,5 @@
 .about-text-img-div {
-    @apply flex flex-row w-1/2 items-center pb-8
+    @apply flex flex-row md:w-3/4 items-center pb-8 p-2
 }
 
 .mapstep-span {

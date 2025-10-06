@@ -111,10 +111,6 @@ const NavBar = () => {
     }
 
     return (
-        // <LoadScript
-        //     googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_KEY}
-        //     libraries={libraries}
-        // >
 
             <nav className="flex flex-col">
 
@@ -163,7 +159,6 @@ const NavBar = () => {
 
             </nav>
 
-        // </LoadScript>
     )
 }
 
