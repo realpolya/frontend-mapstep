@@ -1,0 +1,11 @@
+.tools-div {
+    @apply bg-lightGreyColor flex flex-col rounded-xl
+}
+
+.tool-button {
+    @apply p-2
+}
+
+.redline-div {
+    @apply bg-whiteColor rounded-xl ml-4 w-full mr-4
+}

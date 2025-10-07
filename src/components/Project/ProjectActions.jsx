@@ -5,20 +5,19 @@ import { Link } from "react-router-dom";
 
 import "./Project.css";
 
-import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx";
+import { useProject } from "../../providers/ProjectProvider.jsx";
 
 /* --------------------------------Component--------------------------------*/
 
 const ProjectActions = () => {
 
-    const { siteDetails } = useContext(ProjectContext)
+    const { siteDetails, lotGeom } = useProject()
 
-    // TODO: make sure the website for jurisdiction shows up
-    useEffect(() => {
+    // useEffect(() => {
 
-        console.log("website is ", siteDetails?.jurisdiction_nested?.website)
+    //     console.log("website is ", siteDetails?.jurisdiction_nested?.website)
 
-    }, [])
+    // }, [])
 
     return (
         <div className="sm:w-1/3 pb-32 sm:pb-0 ml-4 sm:ml-0 mt-4 sm:mt-0 mr-4 h-[70%] flex flex-col justify-between">
@@ -28,11 +27,11 @@ const ProjectActions = () => {
                     <Link className="proj-action-link bg-lightGreyColor" to="/missing">generate visual code representation</Link>
                     <Link className="proj-action-link bg-blueLight" 
                         to={`/edit/${siteDetails.id}`}
-                        state={{ siteDetails: siteDetails }}
+                        // state={{ siteDetails: siteDetails }}
                     >edit / delete project</Link>
                     <Link className="proj-action-link bg-green2Color" 
                         to={`/review/${siteDetails.id}`}
-                        state={{ siteDetails: siteDetails }}
+                        // state={{ siteDetails: siteDetails }}
                     >upload & review drawings</Link>
                     <Link className="proj-action-link bg-green1Color" to="/missing">generate construction possibilities</Link>
                 </div>
@@ -52,16 +51,16 @@ const ProjectActions = () => {
                         rel="noopener noreferrer"
                         className="proj-link-a"
                     >{siteDetails?.jurisdiction_nested?.name} portal</a>
+
+                    {/* TODO:fix later */}
                     <a href={`${siteDetails?.jurisdiction_nested?.website}`} 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="proj-link-a"
                     >permit application</a>
-                    <a href={`${siteDetails?.jurisdiction_nested?.website}`} 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="proj-link-a"
-                    >open autoCAD / Revit</a>
+
+                    <Link to="/missing" className="proj-link-a"
+                    >open autoCAD / Revit</Link>
                 </div>
             </div>
         </div>

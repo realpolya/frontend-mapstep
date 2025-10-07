@@ -15,15 +15,15 @@ export default {
             lightGreyColor: "#D9D9D9",
             green1Color: "#C3D6D4",
             green2Color: "#CDD7C7",
-            
+            whiteColor: "#FFFFFF",
         },
         fontFamily: {
             mainFont: ["Karla", "sans-serif"],
             secondFont: ["Montserrat", "sans-serif"]
         },
-        maxHeight: {
-            'amenities': '20rem',
-        }
+        // maxHeight: {
+        //     'amenities': '20rem',
+        // }
     },
   },
   plugins: [],

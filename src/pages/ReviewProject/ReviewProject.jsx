@@ -1,9 +1,10 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './ReviewProject.css'
+
+import { useProject } from "../../providers/ProjectProvider.jsx";
 
 import RedLineTool from '../../components/Project/ReviewComponents/RedLineTool.jsx'
 import LotInfo from '../../components/Project/LotInfo.jsx'
@@ -13,26 +14,18 @@ import LotInfo from '../../components/Project/LotInfo.jsx'
 
 const ReviewProject = () => {
 
-    const { state } = useLocation()
-    
-    const [siteDetails, setSiteDetails] = useState()
-
-    useEffect(() => {
-
-        console.log("sitedetails are", state.siteDetails)
-        setSiteDetails(state.siteDetails)
-
-    }, [])
+    const { siteDetails, lotGeom } = useProject()
 
     return (
-
-        <main>
-            ReviewProject
-            <div>
-
+        <main className="project-main">
+            <div className="project-top-div">
+                <h1 className="h1-heading-v2 p-4">{siteDetails?.title} – upload & review</h1>
+                <Link className="mr-4 red-link" to={`/project/${siteDetails.id}`}>back to project page</Link>
             </div>
-            {/* <LotInfo/> */}
-            <RedLineTool/>
+            <div className="flex sm:flex-row flex-col">
+                <LotInfo/>
+                <RedLineTool/>
+            </div>
         </main>
     )
 

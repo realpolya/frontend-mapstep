@@ -4,13 +4,13 @@ import { useState, useContext, useEffect } from 'react';
 
 import "./Project.css";
 
-import { ProjectContext } from "../../pages/ProjectPage/ProjectPage.jsx";
+import { useProject } from "../../providers/ProjectProvider.jsx";
 
 /* --------------------------------Component--------------------------------*/
 
 const LotInfo = () => {
 
-    const { siteDetails } = useContext(ProjectContext)
+    const { siteDetails, lotGeom } = useProject()
 
     const [zonings, setZonings] = useState([])
 

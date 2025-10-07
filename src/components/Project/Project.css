@@ -1,3 +1,10 @@
+/* overall project page settings */
+
+.project-top-div {
+    @apply flex flex-row w-full justify-between items-center pt-4 pb-2
+}
+
+/* project component settings */
 .div-project-span {
     @apply text-redColor font-normal
 }
