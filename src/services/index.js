@@ -4,7 +4,6 @@ import * as address from "./sub-services/address.js"
 import * as auth from "./sub-services/auth.js"
 import * as project from "./sub-services/project.js"
 import * as core from "./sub-services/core.js"
-import create from "prompt-sync"
 
 /* --------------------------------Functions--------------------------------*/
 
