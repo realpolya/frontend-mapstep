@@ -1,16 +1,11 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { createContext, useContext, useEffect, useState } from 'react';
-// import { useLocation, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import AuthContext from "./AuthContext.jsx"
 
 import services from '../services/index.js';
-
-
-/* --------------------------------Context--------------------------------*/
-
-const AuthContext = createContext(null);
 
 /* --------------------------------Component--------------------------------*/
 
@@ -63,6 +58,7 @@ const AuthProvider = ({ children }) => {
         setUser, logOut
     }
 
+
     return (
        <AuthContext.Provider value={authObject}>
             {children}
@@ -70,16 +66,6 @@ const AuthProvider = ({ children }) => {
     )
 }
 
-
-const useAuth = () => {
-    try {
-        return useContext(AuthContext)
-    } catch {
-        return null
-    }
-}
-
 /* --------------------------------Export--------------------------------*/
 
 export default AuthProvider
-export { useAuth }
