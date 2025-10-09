@@ -1,9 +1,10 @@
 /* --------------------------------Imports--------------------------------*/
 
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import { AppContext } from '../../App.jsx';
+import { useAuth } from "../../providers/AuthProvider.jsx";
 
 import services from '../../services/index.js';
 import locations from './locations.js';
@@ -14,18 +15,19 @@ import HomeMap from "../../components/maps/HomeMap/HomeMap.jsx";
 
 const Home = () => {
 
-    const { showSignUp, showLogIn, user, setUser } = useContext(AppContext)
+    const { logOut, user, setUser } = useAuth()
+    const { showSignUp, showLogIn } = useContext(AppContext)
     
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
-    const logOut = async () => {
+    // const logOut = async () => {
 
-        await services.signOut()
-        setUser(null)
-        navigate("/")
-        // window.location.reload()
+    //     await services.signOut()
+    //     setUser(null)
+    //     navigate("/")
+    //     // window.location.reload()
         
-    }
+    // }
 
     return (
         <main className="padded-main">
