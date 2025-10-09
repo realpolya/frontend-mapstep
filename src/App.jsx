@@ -21,7 +21,7 @@ import AuthProvider from './providers/AuthProvider.jsx';
 
 /* --------------------------------Context--------------------------------*/
 
-const AppContext = createContext(null);
+// const AppContext = createContext(null);
 
 /* --------------------------------Modal--------------------------------*/
 
@@ -35,10 +35,10 @@ const libraries = ['places']
 
 const App = () => {
 
-    const location = useLocation();
+    // const location = useLocation();
 
-    const [logInOpen, setLogInOpen] = useState(false)
-    const [signUpOpen, setSignUpOpen] = useState(false)
+    // const [logInOpen, setLogInOpen] = useState(false)
+    // const [signUpOpen, setSignUpOpen] = useState(false)
     // const [user, setUser] = useState(services.getUser())
     // const [user, setUser] = useState(null)
 
@@ -66,19 +66,19 @@ const App = () => {
 
     // }, []) // removed location.pathname from the dependency array
 
-    const showLogIn = () => setLogInOpen(true)
-    const showSignUp = () => setSignUpOpen(true)
+    // const showLogIn = () => setLogInOpen(true)
+    // const showSignUp = () => setSignUpOpen(true)
 
-    const closeLogIn = () => setLogInOpen(false)
-    const closeSignUp = () => setSignUpOpen(false)
+    // const closeLogIn = () => setLogInOpen(false)
+    // const closeSignUp = () => setSignUpOpen(false)
 
     // const handleSignIn = data => {
     //     setUser(data)
     // }
 
-    const appObject = { showLogIn, showSignUp, 
-        closeLogIn, closeSignUp
-    }
+    // const appObject = { showLogIn, showSignUp, 
+    //     closeLogIn, closeSignUp
+    // }
     
     // const appObject = { showLogIn, showSignUp, 
     //     handleSignIn, closeLogIn, closeSignUp,
@@ -91,7 +91,7 @@ const App = () => {
             libraries={libraries}
         >
             <AuthProvider>
-                <AppContext.Provider value={appObject}>
+                {/* <AppContext.Provider value={appObject}> */}
                     <NavBar/>
                     <AppRoutes/>
 
@@ -114,7 +114,7 @@ const App = () => {
                     </Modal>
 
                     <Footer/>
-                </AppContext.Provider>
+                {/* </AppContext.Provider> */}
             </AuthProvider>
         </LoadScript>
     )
@@ -124,4 +124,4 @@ const App = () => {
 /* --------------------------------Default--------------------------------*/
 
 export default App
-export { AppContext }
+// export { AppContext }
