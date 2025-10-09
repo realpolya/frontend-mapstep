@@ -5,13 +5,14 @@ import { useNavigate } from 'react-router-dom';
 
 import "./Placeholder.css";
 
-import { AppContext } from '../../App.jsx';
+// import { AppContext } from '../../App.jsx';
+import useAuth from "../../providers/Auth/useAuth.jsx";
 
 /* --------------------------------Component--------------------------------*/
 
 const Placeholder = () => {
 
-    const { user } = useContext(AppContext)
+    const { user } = useAuth()
 
     const navigate = useNavigate()
 
