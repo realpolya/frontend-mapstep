@@ -5,23 +5,27 @@ import { useNavigate, Link } from 'react-router-dom';
 
 import services from "../../services/index.js"
 
+import { useAuth } from "../../providers/AuthProvider.jsx"
+
 import { AppContext } from '../../App.jsx';
 
 /* --------------------------------Component--------------------------------*/
 
 const SideBar = () => {
 
+    const { logOut, user, setUser } = useAuth()
+    const { showLogIn, showSignUp } = useContext(AppContext)
+
     const navigate = useNavigate()
-    const { showLogIn, showSignUp, user, setUser } = useContext(AppContext)
 
-    const logOut = async () => {
+    // const logOut = async () => {
 
-        await services.signOut()
-        setUser(null)
-        navigate("/")
-        // window.location.reload()
+    //     await services.signOut()
+    //     setUser(null)
+    //     navigate("/")
+    //     // window.location.reload()
         
-    }
+    // }
 
     const bothMenus = (
         <Link className="nav-link" to="/about">

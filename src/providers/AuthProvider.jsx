@@ -12,7 +12,6 @@ const AuthContext = createContext(null);
 
 /* --------------------------------Component--------------------------------*/
 
-
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
