@@ -13,7 +13,9 @@ import useModals from '../../providers/Modals/useModals.jsx';
 
 const Modals = () => {
 
-    const { logInOpen, closeLogIn, signUpOpen, closeSignUp } = useModals()
+    const { showLogIn, showSignUp, 
+        closeLogIn, closeSignUp, 
+        logInOpen, signUpOpen } = useModals()
 
     return (
         <>
