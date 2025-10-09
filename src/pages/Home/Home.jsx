@@ -3,10 +3,11 @@
 import { useContext } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
-import { AppContext } from '../../App.jsx';
-import { useAuth } from "../../providers/AuthProvider.jsx";
+// import { AppContext } from '../../App.jsx';
+import useModals from "../../providers/Modals/useModals.jsx";
+import useAuth from "../../providers/Auth/useAuth.jsx";
 
-import services from '../../services/index.js';
+// import services from '../../services/index.js';
 import locations from './locations.js';
 
 import HomeMap from "../../components/maps/HomeMap/HomeMap.jsx";
@@ -16,7 +17,8 @@ import HomeMap from "../../components/maps/HomeMap/HomeMap.jsx";
 const Home = () => {
 
     const { logOut, user, setUser } = useAuth()
-    const { showSignUp, showLogIn } = useContext(AppContext)
+    const { showSignUp, showLogIn } = useModals()
+    // const { showSignUp, showLogIn } = useContext(AppContext)
     
     // const navigate = useNavigate()
 
