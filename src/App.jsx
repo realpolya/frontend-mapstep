@@ -18,7 +18,7 @@ import Modals from './pages/modals/Modals.jsx';
 // import LogIn from './components/auth/LogIn.jsx';
 // import SignUp from './components/auth/SignUp.jsx';
 
-import AuthProvider from './providers/AuthProvider.jsx';
+import AuthProvider from './providers/Auth/AuthProvider.jsx';
 import ModalsProvider from './providers/Modals/ModalsProvider.jsx';
 
 /* --------------------------------Context--------------------------------*/
