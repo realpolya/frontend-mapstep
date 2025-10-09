@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import services from "../../services/index.js";
 
+import { useAuth } from "../../providers/AuthProvider.jsx";
 import { AppContext } from "../../App.jsx";
 
 /* --------------------------------Variables--------------------------------*/
@@ -18,11 +19,13 @@ const initial = {
 
 const LogIn = () => {
 
+    const { handleSignIn } = useAuth()
+    const { closeLogIn, showSignUp } = useContext(AppContext)
+
     const navigate = useNavigate()
     const [formData, setFormData] = useState(initial)
     const [errMsg, setErrMsg] = useState(null)
 
-    const { handleSignIn, closeLogIn, showSignUp } = useContext(AppContext)
 
     const handleChange = e => setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
 

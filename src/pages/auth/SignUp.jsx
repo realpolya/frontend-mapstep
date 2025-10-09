@@ -7,6 +7,7 @@ import services from '../../services/index.js';
 
 import "./auth.css";
 
+import { useAuth } from "../../providers/AuthProvider.jsx";
 import { AppContext } from '../../App.jsx';
 
 /* --------------------------------Variables--------------------------------*/
@@ -22,10 +23,12 @@ const initial = {
 
 const SignUp = () => {
 
+    const { handleSignIn } = useAuth()
+    const { closeSignUp } = useContext(AppContext)
+
     const navigate = useNavigate()
     const [formData, setFormData] = useState(initial)
 
-    const { handleSignIn, closeSignUp } = useContext(AppContext)
 
     const handleChange = e => setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
 

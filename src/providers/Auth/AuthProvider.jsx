@@ -2,6 +2,8 @@
 
 import { createContext, useContext, useEffect, useState } from 'react';
 // import { useLocation, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 import services from '../services/index.js';
 
@@ -14,8 +16,9 @@ const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState(null)
+    const navigate = useNavigate()
 
+    const [user, setUser] = useState(null)
 
     const handleSignIn = data => {
         setUser(data)
@@ -46,6 +49,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const setCsrf = async () => await services.createCsrf()
+
 
     useEffect(() => {
 
