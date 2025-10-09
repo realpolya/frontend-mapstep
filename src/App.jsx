@@ -2,7 +2,7 @@
 
 // import { useState, useEffect, createContext } from 'react';
 // import { useLocation } from 'react-router-dom';
-// import Modal from 'react-modal';
+import Modal from 'react-modal';
 
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 
