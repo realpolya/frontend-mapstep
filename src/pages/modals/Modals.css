@@ -1,0 +1,17 @@
+/* MODALS */
+
+.auth-modal {
+    @apply h-[500px] w-[400px] rounded-2xl
+    bg-blueLight p-6
+}
+
+.auth-modal-login {
+    @apply h-[400px]
+}
+
+.auth-modal-back {
+    @apply bg-opacity-50
+    fixed inset-0 bg-darkColor 
+    flex justify-center items-center 
+    z-50
+}

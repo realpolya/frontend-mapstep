@@ -1,23 +1,25 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState, useEffect, createContext } from 'react';
-import { useLocation } from 'react-router-dom';
-import Modal from 'react-modal';
+// import { useState, useEffect, createContext } from 'react';
+// import { useLocation } from 'react-router-dom';
+// import Modal from 'react-modal';
 
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 
 import './App.css';
 
-import services from './services/index.js';
+// import services from './services/index.js';
 
 import AppRoutes from './components/allpages/AppRoutes.jsx';
 import NavBar from './components/allpages/NavBar.jsx';
 import Footer from './components/allpages/Footer.jsx';
+import Modals from './pages/modals/Modals.jsx';
 
-import LogIn from './pages/auth/LogIn.jsx';
-import SignUp from './pages/auth/SignUp.jsx';
+// import LogIn from './components/auth/LogIn.jsx';
+// import SignUp from './components/auth/SignUp.jsx';
 
 import AuthProvider from './providers/AuthProvider.jsx';
+import ModalsProvider from './providers/Modals/ModalsProvider.jsx';
 
 /* --------------------------------Context--------------------------------*/
 
@@ -91,11 +93,12 @@ const App = () => {
             libraries={libraries}
         >
             <AuthProvider>
+                <ModalsProvider>
                 {/* <AppContext.Provider value={appObject}> */}
                     <NavBar/>
                     <AppRoutes/>
 
-                    <Modal
+                    {/* <Modal
                         isOpen={logInOpen}
                         onRequestClose={closeLogIn}
                         className="auth-modal auth-modal-login"
@@ -111,10 +114,11 @@ const App = () => {
                         overlayClassName="auth-modal-back"
                     >
                         <SignUp />
-                    </Modal>
+                    </Modal> */}
 
                     <Footer/>
                 {/* </AppContext.Provider> */}
+                </ModalsProvider>
             </AuthProvider>
         </LoadScript>
     )
