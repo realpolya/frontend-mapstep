@@ -17,6 +17,8 @@ import Footer from './components/allpages/Footer.jsx';
 import LogIn from './pages/auth/LogIn.jsx';
 import SignUp from './pages/auth/SignUp.jsx';
 
+import AuthProvider from './providers/AuthProvider.jsx';
+
 /* --------------------------------Context--------------------------------*/
 
 const AppContext = createContext(null);
@@ -84,30 +86,32 @@ const App = () => {
             googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_KEY}
             libraries={libraries}
         >
-            <AppContext.Provider value={appObject}>
-                <NavBar/>
-                <AppRoutes/>
+            <AuthProvider>
+                <AppContext.Provider value={appObject}>
+                    <NavBar/>
+                    <AppRoutes/>
 
-                <Modal
-                    isOpen={logInOpen}
-                    onRequestClose={closeLogIn}
-                    className="auth-modal auth-modal-login"
-                    overlayClassName="auth-modal-back"
-                >
-                    <LogIn />
-                </Modal>
+                    <Modal
+                        isOpen={logInOpen}
+                        onRequestClose={closeLogIn}
+                        className="auth-modal auth-modal-login"
+                        overlayClassName="auth-modal-back"
+                    >
+                        <LogIn />
+                    </Modal>
 
-                <Modal
-                    isOpen={signUpOpen}
-                    onRequestClose={closeSignUp}
-                    className="auth-modal"
-                    overlayClassName="auth-modal-back"
-                >
-                    <SignUp />
-                </Modal>
+                    <Modal
+                        isOpen={signUpOpen}
+                        onRequestClose={closeSignUp}
+                        className="auth-modal"
+                        overlayClassName="auth-modal-back"
+                    >
+                        <SignUp />
+                    </Modal>
 
-                <Footer/>
-            </AppContext.Provider>
+                    <Footer/>
+                </AppContext.Provider>
+            </AuthProvider>
         </LoadScript>
     )
   
