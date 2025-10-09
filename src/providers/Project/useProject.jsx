@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 
-import ProjectContext from './AuthContext.jsx';
+import ProjectContext from './ProjectContext.jsx';
 
 /* --------------------------------Component--------------------------------*/
 

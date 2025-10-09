@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import AuthContext from "./AuthContext.jsx"
 
-import services from '../services/index.js';
+import services from '../../services/index.js';
 
 /* --------------------------------Component--------------------------------*/
 

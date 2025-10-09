@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import "./Project.css";
 
-import { useProject } from "../../providers/ProjectProvider.jsx";
+import useProject from "../../providers/Project/useProject.jsx";
 
 /* --------------------------------Component--------------------------------*/
 

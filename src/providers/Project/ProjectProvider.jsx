@@ -5,7 +5,7 @@ import { useLocation, useParams } from 'react-router-dom';
 
 import ProjectContext from './ProjectContext.jsx';
 
-import services from '../services/index.js';
+import services from '../../services/index.js';
 
 /* --------------------------------Component--------------------------------*/
 

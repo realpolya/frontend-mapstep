@@ -5,17 +5,17 @@ import { useNavigate, Link } from 'react-router-dom';
 
 import services from "../../services/index.js"
 
-import { useAuth } from "../../providers/AuthProvider.jsx"
+import useAuth from "../../providers/Auth/AuthProvider.jsx";
+import useModals from '../../providers/Modals/useModals.jsx';
 
-import { AppContext } from '../../App.jsx';
+// import { AppContext } from '../../App.jsx';
 
 /* --------------------------------Component--------------------------------*/
 
 const SideBar = () => {
 
     const { logOut, user, setUser } = useAuth()
-    const { showLogIn, showSignUp } = useContext(AppContext)
-
+    const { showLogIn, showSignUp } = useModals()
     const navigate = useNavigate()
 
     // const logOut = async () => {
