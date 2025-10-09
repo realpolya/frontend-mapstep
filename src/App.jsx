@@ -40,31 +40,31 @@ const App = () => {
     const [logInOpen, setLogInOpen] = useState(false)
     const [signUpOpen, setSignUpOpen] = useState(false)
     // const [user, setUser] = useState(services.getUser())
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
 
-    const checkUserToken = async () => {
+    // const checkUserToken = async () => {
 
-        const verified = await services.verifySession();
+    //     const verified = await services.verifySession();
 
-        if (verified) {
-            // console.log("user is verified!")
-            const user = await services.getUser()
-            setUser(user)
-            return
-        } 
+    //     if (verified) {
+    //         // console.log("user is verified!")
+    //         const user = await services.getUser()
+    //         setUser(user)
+    //         return
+    //     } 
 
-        setUser(null)
+    //     setUser(null)
 
-    }
+    // }
 
-    const setCsrf = async () => await services.createCsrf()
+    // const setCsrf = async () => await services.createCsrf()
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        setCsrf();
-        checkUserToken();
+    //     setCsrf();
+    //     checkUserToken();
 
-    }, []) // removed location.pathname from the dependency array
+    // }, []) // removed location.pathname from the dependency array
 
     const showLogIn = () => setLogInOpen(true)
     const showSignUp = () => setSignUpOpen(true)
@@ -72,14 +72,18 @@ const App = () => {
     const closeLogIn = () => setLogInOpen(false)
     const closeSignUp = () => setSignUpOpen(false)
 
-    const handleSignIn = data => {
-        setUser(data)
-    }
+    // const handleSignIn = data => {
+    //     setUser(data)
+    // }
 
     const appObject = { showLogIn, showSignUp, 
-        handleSignIn, closeLogIn, closeSignUp,
-        user, setUser
+        closeLogIn, closeSignUp
     }
+    
+    // const appObject = { showLogIn, showSignUp, 
+    //     handleSignIn, closeLogIn, closeSignUp,
+    //     user, setUser
+    // }
 
     return (
         <LoadScript

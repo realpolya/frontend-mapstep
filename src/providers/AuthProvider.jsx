@@ -31,6 +31,20 @@ const AuthProvider = ({ children }) => {
         
     }
 
+    const checkUserToken = async () => {
+
+        const verified = await services.verifySession();
+
+        if (verified) {
+            // console.log("user is verified!")
+            const user = await services.getUser()
+            setUser(user)
+            return
+        } 
+
+        setUser(null)
+
+    }
 
     const setCsrf = async () => await services.createCsrf()
 
