@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 
 import './ReviewProject.css'
 
-import { useProject } from "../../providers/ProjectProvider.jsx";
+import useProject from "../../providers/Project/useProject.jsx";
 
 import RedLineTool from '../../components/Project/ReviewComponents/RedLineTool.jsx'
 import LotInfo from '../../components/Project/LotInfo.jsx'
-
 
 /* --------------------------------Component--------------------------------*/
 

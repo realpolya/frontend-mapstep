@@ -5,7 +5,7 @@ import { useLocation, Link, useNavigate } from 'react-router-dom';
 
 import "./ProjectPage.css";
 
-import { useProject } from "../../providers/ProjectProvider.jsx";
+import useProject from "../../providers/Project/useProject.jsx";
 
 import LotInfo from "../../components/Project/LotInfo.jsx";
 import ProjectActions from "../../components/Project/ProjectActions.jsx";
