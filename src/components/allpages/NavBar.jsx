@@ -74,6 +74,7 @@ const NavBar = () => {
 
     }, [sideOpen])
 
+    
     useEffect(() => {
 
         if (sideOpen) setSideOpen(false)

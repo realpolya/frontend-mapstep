@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 import services from "../../services/index.js"
 
-import useAuth from "../../providers/Auth/AuthProvider.jsx";
+import useAuth from "../../providers/Auth/useAuth.jsx";
 import useModals from '../../providers/Modals/useModals.jsx';
 
 // import { AppContext } from '../../App.jsx';

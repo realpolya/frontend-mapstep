@@ -98,6 +98,8 @@ const App = () => {
                     <NavBar/>
                     <AppRoutes/>
 
+                    <Modals/>
+
                     {/* <Modal
                         isOpen={logInOpen}
                         onRequestClose={closeLogIn}
