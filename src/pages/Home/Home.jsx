@@ -23,7 +23,7 @@ const Home = () => {
         await services.signOut()
         setUser(null)
         navigate("/")
-        window.location.reload()
+        // window.location.reload()
         
     }
 
