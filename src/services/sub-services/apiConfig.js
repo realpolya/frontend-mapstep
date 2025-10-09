@@ -30,6 +30,7 @@ api.interceptors.request.use((config) => {
         if (csrfToken) {
             config.headers["X-CSRFToken"] = csrfToken;
         }
+        console.log("CSRF being sent:", Cookies.get("csrftoken"));
     }
     
     return config;
