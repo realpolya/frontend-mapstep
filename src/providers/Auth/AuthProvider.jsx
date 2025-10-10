@@ -21,9 +21,15 @@ const AuthProvider = ({ children }) => {
 
     const logOut = async () => {
 
-        await services.signOut()
-        setUser(null)
-        navigate("/")
+        console.log("🚀 logOut() called");
+        try {
+            const res = await services.signOut()
+            console.log("✅ Logout response", res);
+            setUser(null)
+            navigate("/")
+        } catch (err) {
+            console.error("❌ Logout error", err);
+        }
         // window.location.reload()
         
     }

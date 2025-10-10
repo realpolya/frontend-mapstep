@@ -11,10 +11,8 @@ const ModalsProvider = ({ children }) => {
     const [logInOpen, setLogInOpen] = useState(false)
     const [signUpOpen, setSignUpOpen] = useState(false)
 
-    const showLogIn = () => {
-        console.log("hitting show log in")
-        setLogInOpen(true)
-    }
+    const showLogIn = () => setLogInOpen(true)
+
     const showSignUp = () => setSignUpOpen(true)
 
     const closeLogIn = () => setLogInOpen(false)
