@@ -7,7 +7,9 @@ import services from '../../services/index.js';
 
 import "./auth.css";
 
-import { AppContext } from '../../App.jsx';
+import useAuth from "../../providers/Auth/useAuth.jsx";
+import useModals from "../../providers/Modals/useModals.jsx";
+// import { AppContext } from '../../App.jsx';
 
 /* --------------------------------Variables--------------------------------*/
 
@@ -22,10 +24,12 @@ const initial = {
 
 const SignUp = () => {
 
+    const { handleSignIn } = useAuth()
+    const { closeSignUp } = useModals()
+
     const navigate = useNavigate()
     const [formData, setFormData] = useState(initial)
 
-    const { handleSignIn, closeSignUp } = useContext(AppContext)
 
     const handleChange = e => setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
 

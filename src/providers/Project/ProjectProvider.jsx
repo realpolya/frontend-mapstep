@@ -1,13 +1,11 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
-import services from '../services/index.js';
+import ProjectContext from './ProjectContext.jsx';
 
-/* --------------------------------Context--------------------------------*/
-
-const ProjectContext = createContext(null);
+import services from '../../services/index.js';
 
 /* --------------------------------Component--------------------------------*/
 
@@ -61,15 +59,6 @@ const ProjectProvider = ({ children }) => {
 
 }
 
-const useProject = () => {
-    try {
-       return useContext(ProjectContext)
-    } catch {
-        return null
-    }
-}
-
 /* --------------------------------Export--------------------------------*/
 
 export default ProjectProvider
-export { useProject }

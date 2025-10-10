@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 import './FAQ.css'
 
-import { AppContext } from '../../App.jsx'
+// import { AppContext } from '../../App.jsx'
+import useAuth from '../../providers/Auth/useAuth';
 
 /* --------------------------------Varibles--------------------------------*/
 
@@ -15,7 +16,7 @@ const Q_NUM = 2
 
 const FAQ = () => {
 
-    const { user } = useContext(AppContext)
+    const { user } = useAuth()
 
     const [qArray, setQArray] = useState([])
 

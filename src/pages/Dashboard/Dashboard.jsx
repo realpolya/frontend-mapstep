@@ -5,7 +5,8 @@ import "./Dashboard.css"
 import { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router-dom";
 
-import { AppContext } from "../../App.jsx";
+// import { AppContext } from "../../App.jsx";
+import useAuth from "../../providers/Auth/useAuth.jsx";
 
 import AccountInfo from "../../components/dashboard/AccountInfo.jsx";
 import QuickActions from "../../components/dashboard/QuickActions.jsx";
@@ -19,7 +20,7 @@ import RecentProjects from "../../components/dashboard/RecentProjects.jsx";
 
 const Dashboard = () => {
 
-    const { user } = useContext(AppContext)
+    const { user } = useAuth()
 
     const location = useLocation()
 

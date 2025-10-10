@@ -1,25 +1,29 @@
 /* --------------------------------Imports--------------------------------*/
 
-import { useState, useEffect, createContext } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useState, useEffect, createContext } from 'react';
+// import { useLocation } from 'react-router-dom';
 import Modal from 'react-modal';
 
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 
 import './App.css';
 
-import services from './services/index.js';
+// import services from './services/index.js';
 
 import AppRoutes from './components/allpages/AppRoutes.jsx';
 import NavBar from './components/allpages/NavBar.jsx';
 import Footer from './components/allpages/Footer.jsx';
+import Modals from './pages/modals/Modals.jsx';
 
-import LogIn from './pages/auth/LogIn.jsx';
-import SignUp from './pages/auth/SignUp.jsx';
+// import LogIn from './components/auth/LogIn.jsx';
+// import SignUp from './components/auth/SignUp.jsx';
+
+import AuthProvider from './providers/Auth/AuthProvider.jsx';
+import ModalsProvider from './providers/Modals/ModalsProvider.jsx';
 
 /* --------------------------------Context--------------------------------*/
 
-const AppContext = createContext(null);
+// const AppContext = createContext(null);
 
 /* --------------------------------Modal--------------------------------*/
 
@@ -33,81 +37,91 @@ const libraries = ['places']
 
 const App = () => {
 
-    const location = useLocation();
+    // const location = useLocation();
 
-    const [logInOpen, setLogInOpen] = useState(false)
-    const [signUpOpen, setSignUpOpen] = useState(false)
+    // const [logInOpen, setLogInOpen] = useState(false)
+    // const [signUpOpen, setSignUpOpen] = useState(false)
     // const [user, setUser] = useState(services.getUser())
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
 
-    const checkUserToken = async () => {
+    // const checkUserToken = async () => {
 
-        const verified = await services.verifySession();
+    //     const verified = await services.verifySession();
 
-        if (verified) {
-            // console.log("user is verified!")
-            const user = await services.getUser()
-            setUser(user)
-            return
-        } 
+    //     if (verified) {
+    //         // console.log("user is verified!")
+    //         const user = await services.getUser()
+    //         setUser(user)
+    //         return
+    //     } 
 
-        setUser(null)
+    //     setUser(null)
 
-    }
+    // }
 
-    const setCsrf = async () => await services.createCsrf()
+    // const setCsrf = async () => await services.createCsrf()
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        setCsrf();
-        checkUserToken();
+    //     setCsrf();
+    //     checkUserToken();
 
-    }, []) // removed location.pathname from the dependency array
+    // }, []) // removed location.pathname from the dependency array
 
-    const showLogIn = () => setLogInOpen(true)
-    const showSignUp = () => setSignUpOpen(true)
+    // const showLogIn = () => setLogInOpen(true)
+    // const showSignUp = () => setSignUpOpen(true)
 
-    const closeLogIn = () => setLogInOpen(false)
-    const closeSignUp = () => setSignUpOpen(false)
+    // const closeLogIn = () => setLogInOpen(false)
+    // const closeSignUp = () => setSignUpOpen(false)
 
-    const handleSignIn = data => {
-        setUser(data)
-    }
+    // const handleSignIn = data => {
+    //     setUser(data)
+    // }
 
-    const appObject = { showLogIn, showSignUp, 
-        handleSignIn, closeLogIn, closeSignUp,
-        user, setUser
-    }
+    // const appObject = { showLogIn, showSignUp, 
+    //     closeLogIn, closeSignUp
+    // }
+    
+    // const appObject = { showLogIn, showSignUp, 
+    //     handleSignIn, closeLogIn, closeSignUp,
+    //     user, setUser
+    // }
 
     return (
         <LoadScript
             googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_KEY}
             libraries={libraries}
         >
-            <AppContext.Provider value={appObject}>
-                <NavBar/>
-                <AppRoutes/>
+            <AuthProvider>
+                <ModalsProvider>
+                {/* <AppContext.Provider value={appObject}> */}
+                    <NavBar/>
+                    <AppRoutes/>
 
-                <Modal
-                    isOpen={logInOpen}
-                    onRequestClose={closeLogIn}
-                    className="auth-modal auth-modal-login"
-                    overlayClassName="auth-modal-back"
-                >
-                    <LogIn />
-                </Modal>
+                    <Modals/>
 
-                <Modal
-                    isOpen={signUpOpen}
-                    onRequestClose={closeSignUp}
-                    className="auth-modal"
-                    overlayClassName="auth-modal-back"
-                >
-                    <SignUp />
-                </Modal>
+                    {/* <Modal
+                        isOpen={logInOpen}
+                        onRequestClose={closeLogIn}
+                        className="auth-modal auth-modal-login"
+                        overlayClassName="auth-modal-back"
+                    >
+                        <LogIn />
+                    </Modal>
 
-                <Footer/>
-            </AppContext.Provider>
+                    <Modal
+                        isOpen={signUpOpen}
+                        onRequestClose={closeSignUp}
+                        className="auth-modal"
+                        overlayClassName="auth-modal-back"
+                    >
+                        <SignUp />
+                    </Modal> */}
+
+                    <Footer/>
+                {/* </AppContext.Provider> */}
+                </ModalsProvider>
+            </AuthProvider>
         </LoadScript>
     )
   
@@ -116,4 +130,4 @@ const App = () => {
 /* --------------------------------Default--------------------------------*/
 
 export default App
-export { AppContext }
+// export { AppContext }

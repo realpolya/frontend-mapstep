@@ -4,7 +4,7 @@ import { useState, useContext, useEffect } from 'react';
 
 import "./Project.css";
 
-import { useProject } from "../../providers/ProjectProvider.jsx";
+import useProject from "../../providers/Project/useProject.jsx";
 
 /* --------------------------------Component--------------------------------*/
 

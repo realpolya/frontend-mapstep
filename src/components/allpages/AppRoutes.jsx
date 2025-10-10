@@ -15,7 +15,7 @@ import DeleteForm from "../../pages/NewForm/DeleteForm.jsx";
 import Placeholder from "../../pages/Placeholder/Placeholder.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
-import ProjectProvider from "../../providers/ProjectProvider.jsx";
+import ProjectProvider from "../../providers/Project/ProjectProvider.jsx";
 
 /* --------------------------------Component--------------------------------*/
 

@@ -10,7 +10,9 @@ import SiteMap3D from "../../components/maps/SiteMap/SiteMap3D.jsx";
 import SiteMap2D from "../../components/maps/SiteMap/SiteMap2D.jsx";
 import VicinityMap from "../../components/maps/VicinityMap/VicinityMap.jsx";
 
-import { AppContext } from '../../App.jsx';
+// import { AppContext } from '../../App.jsx';
+import useModals from '../../providers/Modals/useModals.jsx';
+import useAuth from "../../providers/Auth/useAuth.jsx";
 
 // back end
 import services from '../../services/index.js';
@@ -33,7 +35,9 @@ const dummyData = {
 
 const SearchResult = () => {
 
-    const { user, showSignUp, showLogIn } = useContext(AppContext)
+    // const { user, showSignUp, showLogIn } = useContext(AppContext)
+    const { user } = useAuth()
+    const { showLogIn, showSignUp } = useModals()
 
     const location = useLocation()
     const navigate = useNavigate()

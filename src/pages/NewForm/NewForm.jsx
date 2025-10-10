@@ -8,7 +8,7 @@ import { Autocomplete } from "@react-google-maps/api";
 
 import "./NewForm.css";
 
-import { useProject } from "../../providers/ProjectProvider.jsx"
+import useProject from "../../providers/Project/useProject.jsx";
 
 import services from "../../services/index.js";
 import { getGoogleFormat } from "../../components/allpages/NavBar.jsx";

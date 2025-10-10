@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import "./dashboard-comp.css"
 
-import { AppContext } from "../../App.jsx";
+// import { AppContext } from "../../App.jsx";
+import useAuth from "../../providers/Auth/useAuth.jsx";
 
 import services from "../../services/index.js";
 
@@ -13,7 +14,7 @@ import services from "../../services/index.js";
 
 const AccountInfo = () => {
 
-    const { user, setUser } = useContext(AppContext)
+    const { user, setUser } = useAuth()
 
     const navigate = useNavigate()
 
